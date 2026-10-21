@@ -44,3 +44,5 @@ target-version = "py312"
 [tool.pytest.ini_options]
 testpaths = ["packages/homebom-core/tests", "tests"]
 asyncio_mode = "auto"
+pythonpath = ["packages/homebom-core", "."]
+

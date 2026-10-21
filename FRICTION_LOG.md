@@ -42,3 +42,18 @@ This document tracks all developer friction, SDK limitations, API bugs, and work
 - **Severity**: Medium
 - **Workaround**: Pinned root dependency to `"mcp>=1.3.0,<2"` (specifically resolving to `1.30.0`), which contains the exact FastMCP Streamable HTTP implementation specified by the hackathon requirements.
 - **Suggestion**: SDK major version transitions should maintain a backward-compatibility aliasing layer or deprecation warnings before hard removal of top-level modules.
+
+---
+
+### Snag #003: macOS APFS `UF_HIDDEN` flag on `_editable_impl_*.pth` causes `ModuleNotFoundError` in Python 3.12
+- **Date**: 2026-10-21
+- **Task**: Phase 0 test execution via `uv run pytest`
+- **Steps**:
+  1. Ran `uv run pytest`.
+- **Expected**: Pytest imports `homebom_core` and `server` via uv editable installs.
+- **Actual**: `ModuleNotFoundError: No module named 'homebom_core'` and `ModuleNotFoundError: No module named 'server'`.
+- **Cause**: Hatchling generates editable files prefixed with underscore: `_editable_impl_<pkg>.pth`. On macOS (Darwin APFS), files starting with an underscore can be automatically tagged with the BSD flag `UF_HIDDEN` (32832). Python 3.12's `site.py` contains a security check that explicitly skips any `.pth` file marked with `UF_HIDDEN` (`Skipping hidden .pth file...`).
+- **Severity**: Medium
+- **Workaround**: Added `pythonpath = ["packages/homebom-core", "."]` under `[tool.pytest.ini_options]` in `pyproject.toml`. Pytest now resolves workspace modules directly without relying on OS-level `.pth` file loading.
+- **Suggestion**: Editable build backends should avoid leading underscores in `.pth` filenames on macOS, or `pytest` projects in monorepos should always specify `pythonpath`.
+
