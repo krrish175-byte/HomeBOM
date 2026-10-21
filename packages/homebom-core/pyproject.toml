@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "homebom-core"
+version = "0.1.0"
+description = "Core inventory, firmware version matching, risk ranking, and CycloneDX HBOM generation for HomeBOM"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "Krrish Biswas", email = "krrishbiswas175@gmail.com" }]
+dependencies = [
+    "cyclonedx-python-lib>=8.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["homebom_core"]
