@@ -3,7 +3,7 @@
 Zero MCP, zero AWS imports. Pure Python library module.
 """
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Literal
 
 from .match import VulnerabilityFinding
@@ -36,6 +36,8 @@ class DeviceRiskProfile:
     findings: list[VulnerabilityFinding]
     spoken_summary: str
     fix_steps: str
+    unverified_candidates: list[str] = field(default_factory=list)
+    vulnerabilities_count: int = 0
 
 
 def determine_device_tier(
@@ -73,31 +75,58 @@ def generate_device_spoken_text(
     name: str,
     tier: RiskTier,
     is_eol: bool,
+    max_cvss: float = 0.0,
     top_finding: VulnerabilityFinding | None = None,
 ) -> str:
-    """Requirement 2 & 3: Generate voice-optimized plain-language string.
+    """Requirement 2, 3 & 4: Generate voice-optimized plain-language string.
 
     Rules:
       - Zero-CVE / clean devices speak as 'no known vulnerabilities in public databases', never 'safe'.
       - unknown speaks as "I can't verify this one".
       - EoL devices must include 'replace' in spoken text.
+      - Use 'actively exploited' for KEV.
+      - Use 'critical' ONLY if CVSS >= 9.0. Never call a 7.5 critical.
       - Never read CVE IDs aloud. Max 3 sentences.
     """
     if tier == "unknown":
-        return f"I can't verify {name} because its firmware version cannot be verified against known security databases. I recommend checking the manufacturer's app for updates."
+        return (
+            f"I can't verify {name} because its firmware version cannot be verified against known security databases. "
+            f"I recommend checking the manufacturer's app for updates."
+        )
 
     if tier == "not_affected":
         return f"{name} currently has no known vulnerabilities in public databases."
 
     # Affected devices:
+    is_critical = max_cvss >= 9.0
+    is_kev = top_finding.in_kev if top_finding else (tier == "fix_now")
+
     if is_eol:
-        return f"{name} has a critical security flaw and is officially discontinued by the manufacturer. You should replace this device immediately as no security updates are available."
+        severity_desc = (
+            "a critical, actively exploited"
+            if (is_critical and is_kev)
+            else (
+                "a critical" if is_critical else ("an actively exploited" if is_kev else "a known")
+            )
+        )
+        return (
+            f"{name} has {severity_desc} security vulnerability and is officially discontinued by the manufacturer. "
+            f"You should replace this device immediately as no security updates are available."
+        )
 
     if tier == "fix_now":
-        return f"{name} has an actively exploited vulnerability that needs immediate attention. You should update its firmware right away."
+        severity_desc = "a critical, actively exploited" if is_critical else "an actively exploited"
+        return (
+            f"{name} has {severity_desc} vulnerability that needs immediate attention. "
+            f"You should update its firmware right away."
+        )
 
     if tier == "fix_soon":
-        return f"{name} has a high-probability vulnerability that should be patched soon. Please check for a firmware update."
+        severity_desc = "a critical" if is_critical else "a high-probability"
+        return (
+            f"{name} has {severity_desc} vulnerability that should be patched soon. "
+            f"Please check for a firmware update."
+        )
 
     return (
         f"{name} has known software vulnerabilities. You should apply available firmware updates."
@@ -139,19 +168,42 @@ def rank_device(
     """Rank a single device and build its complete risk profile."""
     tier = determine_device_tier(overall_status, findings)
 
-    # Calculate max scores and EoL status across affected findings
     affected_findings = [f for f in findings if f.status == "affected"]
-    relevant_findings = affected_findings if affected_findings else findings
+    unknown_findings = [f for f in findings if f.status == "unknown"]
 
-    max_epss = max((f.epss_score for f in relevant_findings), default=0.0)
-    max_cvss = max((f.cvss_score for f in relevant_findings), default=0.0)
-    is_eol = any(f.eol for f in relevant_findings)
+    if overall_status == "unknown":
+        # Rule: for status=unknown, report matched CVEs as unverified_candidates
+        # not counted in vulnerabilities_count, max_cvss, max_epss, or summary tiers
+        unverified_candidates = (
+            [f.cve_id for f in unknown_findings]
+            if unknown_findings
+            else [f.cve_id for f in findings]
+        )
+        vulnerabilities_count = 0
+        max_epss = 0.0
+        max_cvss = 0.0
+        is_eol = False
+        top_finding = None
+    elif overall_status == "affected":
+        unverified_candidates = []
+        vulnerabilities_count = len(affected_findings)
+        max_epss = max((f.epss_score for f in affected_findings), default=0.0)
+        max_cvss = max((f.cvss_score for f in affected_findings), default=0.0)
+        is_eol = any(f.eol for f in affected_findings)
+        top_finding = max(
+            affected_findings,
+            key=lambda f: (f.in_kev, f.epss_score, f.cvss_score),
+            default=None,
+        )
+    else:  # not_affected
+        unverified_candidates = []
+        vulnerabilities_count = 0
+        max_epss = 0.0
+        max_cvss = 0.0
+        is_eol = False
+        top_finding = None
 
-    top_finding = max(
-        relevant_findings, key=lambda f: (f.in_kev, f.epss_score, f.cvss_score), default=None
-    )
-
-    spoken = generate_device_spoken_text(device_name, tier, is_eol, top_finding)
+    spoken = generate_device_spoken_text(device_name, tier, is_eol, max_cvss, top_finding)
     fix = generate_fix_steps(device_name, tier, is_eol)
 
     return DeviceRiskProfile(
@@ -166,6 +218,8 @@ def rank_device(
         max_cvss=max_cvss,
         is_eol=is_eol,
         findings=findings,
+        unverified_candidates=unverified_candidates,
+        vulnerabilities_count=vulnerabilities_count,
         spoken_summary=spoken,
         fix_steps=fix,
     )

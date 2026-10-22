@@ -31,6 +31,7 @@ if str(CORE_DIR) not in sys.path:
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
+from homebom_core.hbom import generate_cyclonedx_hbom, generate_hbom_spoken_summary
 from mcp.server.fastmcp import FastMCP
 
 from server.auth import AuthMiddleware, get_configured_api_key
@@ -103,7 +104,7 @@ def create_mcp_server() -> FastMCP:
     # Tool 2: add_device
     # ------------------------------------------------------------------------
     @server.tool()
-    def add_device(name: str, model: str, firmware: str) -> dict[str, Any]:
+    def add_device(name: str, model: str, firmware: str | None = None) -> dict[str, Any]:
         """Register a new smart-home device into the inventory by matching its model against verified firmware CPE definitions.
 
         When to use:
@@ -117,8 +118,17 @@ def create_mcp_server() -> FastMCP:
           - 'Register a new smart plug in the living room.'
           - 'Add my D-Link security camera model DCS-2530L.'
         """
-        clean_name = name.strip()
-        clean_model = model.strip()
+        clean_name = name.strip() if name else "Device"
+        clean_model = model.strip() if model else ""
+
+        # Condition 2: add_device must never default firmware.
+        if firmware is None or not firmware.strip():
+            return {
+                "status": "clarification_needed",
+                "question": f"What firmware version is {clean_name} running? Please provide the version number from device settings or the companion app.",
+                "spoken": f"What firmware version is {clean_name} running? Please tell me the version number so I can check it for vulnerabilities.",
+            }
+
         clean_firmware = firmware.strip()
 
         # Resolve against pre-indexed candidates. NEVER invent a CPE.
@@ -164,7 +174,6 @@ def create_mcp_server() -> FastMCP:
             "category": best_candidate.get("category", "iot"),
             "firmware": clean_firmware,
             "cpe": best_candidate["cpe"],
-            "notes": f"User registered {clean_name} ({best_candidate['product']})",
         }
         user_devices.append(new_device)
         save_user_devices(user_devices)
@@ -212,11 +221,12 @@ def create_mcp_server() -> FastMCP:
         eol_count = sum(1 for p in profiles if p.is_eol)
 
         # Voice phrasing: plain language, max 3 sentences, zero CVE IDs, says "replace" for EoL
+        # Rule 4: use 'actively exploited' for KEV, and 'critical' only if CVSS >= 9.0
         if fix_now_count > 0:
             if eol_count > 0:
                 spoken = (
                     f"I scanned {len(profiles)} devices {as_of_str}. "
-                    f"{fix_now_count} devices have critical vulnerabilities needing immediate attention, "
+                    f"{fix_now_count} devices have actively exploited vulnerabilities needing immediate attention, "
                     f"including {eol_count} discontinued models that must be replaced. "
                     f"The remaining devices have no known vulnerabilities or need version verification."
                 )
@@ -257,7 +267,8 @@ def create_mcp_server() -> FastMCP:
                     "is_eol": p.is_eol,
                     "max_epss": round(p.max_epss, 4),
                     "max_cvss": round(p.max_cvss, 1),
-                    "vulnerabilities_count": len(p.findings),
+                    "vulnerabilities_count": p.vulnerabilities_count,
+                    "unverified_candidates": p.unverified_candidates,
                     "spoken_summary": p.spoken_summary,
                     "fix_steps": p.fix_steps,
                 }
@@ -318,7 +329,8 @@ def create_mcp_server() -> FastMCP:
             "is_eol": profile.is_eol,
             "max_cvss": round(profile.max_cvss, 1),
             "max_epss": round(profile.max_epss, 4),
-            "vulnerabilities_count": len(profile.findings),
+            "vulnerabilities_count": profile.vulnerabilities_count,
+            "unverified_candidates": profile.unverified_candidates,
             "spoken": profile.spoken_summary,
         }
 
@@ -390,13 +402,16 @@ def create_mcp_server() -> FastMCP:
           - 'Generate a CycloneDX HBOM for my home devices.'
           - 'Download my smart home VEX report.'
         """
-        # Requirement 5: Return stub for now. Phase 4 implements full CycloneDX 1.6 export.
+        devices = get_all_devices()
+        profiles = scan_all_devices(devices)
+        bom = generate_cyclonedx_hbom(profiles)
+        spoken = generate_hbom_spoken_summary(profiles, bom)
         return {
-            "status": "not_implemented",
+            "status": "success",
             "bom_format": "CycloneDX",
             "spec_version": "1.6",
-            "message": "Hardware BOM export with embedded VEX will be available in Phase 4.",
-            "spoken": "Hardware Bill of Materials export will be available in the next release.",
+            "bom": bom,
+            "spoken": spoken,
         }
 
     return server

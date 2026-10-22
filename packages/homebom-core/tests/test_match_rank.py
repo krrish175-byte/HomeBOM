@@ -47,9 +47,22 @@ def test_eol_detection_from_kev_text():
 def test_phrasing_and_remediation_rules():
     """User condition 2 & 3: Phrasing rules for EoL, zero-CVE, and unknown devices."""
     # 1. EoL devices must say 'replace' in both get_fix_steps and spoken text
-    spoken_eol = generate_device_spoken_text("Backyard Camera", "fix_now", is_eol=True)
+    # Condition 4: use 'actively exploited' for KEV, and 'critical' only if CVSS >= 9.0. Never call 7.5 critical.
+    spoken_eol_75 = generate_device_spoken_text(
+        "Backyard Camera", "fix_now", is_eol=True, max_cvss=7.5
+    )
+    assert "critical" not in spoken_eol_75.lower(), f"Never call a 7.5 critical: {spoken_eol_75}"
+    assert "actively exploited" in spoken_eol_75.lower()
+    assert "replace" in spoken_eol_75.lower()
+
+    spoken_eol_98 = generate_device_spoken_text(
+        "Gaming Router", "fix_now", is_eol=True, max_cvss=9.8
+    )
+    assert "critical" in spoken_eol_98.lower(), f"CVSS 9.8 can be called critical: {spoken_eol_98}"
+    assert "actively exploited" in spoken_eol_98.lower()
+    assert "replace" in spoken_eol_98.lower()
+
     fix_eol = generate_fix_steps("Backyard Camera", "fix_now", is_eol=True)
-    assert "replace" in spoken_eol.lower(), f"Spoken text must say 'replace': {spoken_eol}"
     assert "replace" in fix_eol.lower(), f"Fix steps must say 'replace': {fix_eol}"
 
     # 2. Zero-CVE devices speak as 'no known vulnerabilities in public databases', never 'safe'

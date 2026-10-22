@@ -49,6 +49,12 @@ async def run_inspection():
     task = asyncio.create_task(server.serve())
     await asyncio.sleep(0.5)
 
+    import tempfile
+
+    tmp_dir = tempfile.TemporaryDirectory()
+    test_user_devices = Path(tmp_dir.name) / "user_devices.json"
+    os.environ["HOMEBOM_USER_DEVICES_PATH"] = str(test_user_devices)
+
     try:
         headers = {"Authorization": f"Bearer {API_KEY}"}
         async with (
@@ -94,21 +100,38 @@ async def run_inspection():
             raw_text = res.content[0].text if res.content else "{}"
             print(json.dumps(json.loads(raw_text), indent=2))
 
-            # 6. Call tool: explain_risk (clean device)
+            # 6. Call tool: explain_risk (unknown device with unverified candidates)
+            print("\n" + "-" * 80)
+            print("[CALL TOOL: explain_risk(device='Kitchen Echo')]")
+            res = await session.call_tool("explain_risk", {"device": "Kitchen Echo"})
+            raw_text = res.content[0].text if res.content else "{}"
+            print(json.dumps(json.loads(raw_text), indent=2))
+
+            # 7. Call tool: explain_risk (clean device)
             print("\n" + "-" * 80)
             print("[CALL TOOL: explain_risk(device='Front Doorbell')]")
             res = await session.call_tool("explain_risk", {"device": "Front Doorbell"})
             raw_text = res.content[0].text if res.content else "{}"
             print(json.dumps(json.loads(raw_text), indent=2))
 
-            # 7. Call tool: get_fix_steps (EoL device)
+            # 8. Call tool: get_fix_steps (EoL device)
             print("\n" + "-" * 80)
             print("[CALL TOOL: get_fix_steps(device='Backyard Security Camera')]")
             res = await session.call_tool("get_fix_steps", {"device": "Backyard Security Camera"})
             raw_text = res.content[0].text if res.content else "{}"
             print(json.dumps(json.loads(raw_text), indent=2))
 
-            # 8. Call tool: add_device (no candidate -> returns question, never CPE)
+            # 9. Call tool: add_device without firmware (never default firmware -> returns question)
+            print("\n" + "-" * 80)
+            print("[CALL TOOL: add_device without firmware (Condition 2)]")
+            res = await session.call_tool(
+                "add_device",
+                {"name": "Basement Camera", "model": "DCS-2530L"},
+            )
+            raw_text = res.content[0].text if res.content else "{}"
+            print(json.dumps(json.loads(raw_text), indent=2))
+
+            # 10. Call tool: add_device with unknown candidate (returns question, never CPE)
             print("\n" + "-" * 80)
             print("[CALL TOOL: add_device(name='my router', model='SuperRouter 9000')]")
             res = await session.call_tool(
@@ -118,7 +141,7 @@ async def run_inspection():
             raw_text = res.content[0].text if res.content else "{}"
             print(json.dumps(json.loads(raw_text), indent=2))
 
-            # 9. Call tool: add_device (valid candidate -> atomic persistence)
+            # 11. Call tool: add_device (valid candidate -> atomic persistence)
             print("\n" + "-" * 80)
             print("[CALL TOOL: add_device(name='Basement Cam', model='DCS-2530L')]")
             res = await session.call_tool(
@@ -128,20 +151,41 @@ async def run_inspection():
             raw_text = res.content[0].text if res.content else "{}"
             print(json.dumps(json.loads(raw_text), indent=2))
 
-            # 10. Call tool: export_hbom (stub)
+            # 12. Call tool: export_hbom (Phase 4: CycloneDX 1.6 HBOM with embedded VEX)
             print("\n" + "-" * 80)
             print("[CALL TOOL: export_hbom]")
             res = await session.call_tool("export_hbom", {})
             raw_text = res.content[0].text if res.content else "{}"
-            print(json.dumps(json.loads(raw_text), indent=2))
+            hbom_data = json.loads(raw_text)
+            # Print spoken summary and first component + first vulnerability sample
+            sample_output = {
+                "status": hbom_data.get("status"),
+                "bom_format": hbom_data.get("bom_format"),
+                "spec_version": hbom_data.get("spec_version"),
+                "spoken": hbom_data.get("spoken"),
+                "total_components": len(hbom_data.get("bom", {}).get("components", [])),
+                "total_vulnerabilities": len(hbom_data.get("bom", {}).get("vulnerabilities", [])),
+                "sample_component": (
+                    hbom_data.get("bom", {}).get("components", [])[0]
+                    if hbom_data.get("bom", {}).get("components")
+                    else None
+                ),
+                "sample_vulnerability": (
+                    hbom_data.get("bom", {}).get("vulnerabilities", [])[0]
+                    if hbom_data.get("bom", {}).get("vulnerabilities")
+                    else None
+                ),
+            }
+            print(json.dumps(sample_output, indent=2))
 
     finally:
         server.should_exit = True
         await task
         app.reset()
-        user_dev_path = REPO_ROOT / "server" / "data" / "user_devices.json"
-        if user_dev_path.exists():
-            user_dev_path.unlink()
+        tmp_dir.cleanup()
+        repo_file = REPO_ROOT / "server" / "data" / "user_devices.json"
+        if repo_file.exists():
+            repo_file.unlink()
         print("\n" + "=" * 80)
         print("MCP INSPECTION COMPLETE: All 6 tools executed successfully.")
         print("=" * 80)

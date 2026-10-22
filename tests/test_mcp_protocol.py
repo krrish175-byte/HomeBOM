@@ -18,12 +18,14 @@ import socket
 import httpx
 import pytest
 import uvicorn
+from cyclonedx.schema import SchemaVersion
+from cyclonedx.validation.json import JsonValidator
 from mcp.client.session import ClientSession
 from mcp.client.streamable_http import streamable_http_client
 
 from server.auth import get_configured_api_key
 from server.main import app
-from server.storage import USER_DEVICES_PATH
+from server.storage import DATA_DIR, get_user_devices_path
 
 TEST_KEY = "test-secret-api-key-homebom-2026"
 
@@ -36,13 +38,17 @@ def find_free_port() -> int:
 
 
 @pytest.fixture(autouse=True)
-def clean_user_devices():
-    """Ensure user_devices.json does not leak between tests."""
-    if USER_DEVICES_PATH.exists():
-        USER_DEVICES_PATH.unlink()
-    yield
-    if USER_DEVICES_PATH.exists():
-        USER_DEVICES_PATH.unlink()
+def isolated_user_devices(tmp_path, monkeypatch):
+    """Ensure user_devices.json is completely isolated to tmp_path and does not touch server/data/."""
+    test_user_devices = tmp_path / "user_devices.json"
+    monkeypatch.setenv("HOMEBOM_USER_DEVICES_PATH", str(test_user_devices))
+    yield test_user_devices
+    if test_user_devices.exists():
+        test_user_devices.unlink()
+    # Guard against any accidental file creation in repo server/data/
+    repo_file = DATA_DIR / "user_devices.json"
+    if repo_file.exists():
+        repo_file.unlink()
 
 
 @pytest.fixture
@@ -180,15 +186,17 @@ async def test_mcp_tools_execution_and_voice_rules(running_server):
     ):
         await session.initialize()
 
-        # 1. list_devices
+        # 1. list_devices (notes must NEVER be present)
         res = await session.call_tool("list_devices", {})
         data = json.loads(res.content[0].text)
         assert data["total_devices"] == 8
         assert len(data["devices"]) == 8
         assert "spoken" in data
         assert "inventory" in data["spoken"].lower()
+        for dev in data["devices"]:
+            assert "notes" not in dev, f"Device {dev.get('name')} contains forbidden 'notes' field"
 
-        # 2. scan_home (includes "as of <EPSS date>")
+        # 2. scan_home (includes 'as of <EPSS date>', actively exploited, split findings)
         res = await session.call_tool("scan_home", {})
         data = json.loads(res.content[0].text)
         assert "epss_as_of" in data
@@ -196,26 +204,43 @@ async def test_mcp_tools_execution_and_voice_rules(running_server):
         assert "as of 2026-10-21" in data["spoken"]
         assert data["summary"]["fix_now"] >= 1
         assert "replace" in data["spoken"].lower()  # EoL devices present -> says replace
+        assert (
+            "actively exploited" in data["spoken"].lower()
+        )  # Voice phrasing uses actively exploited for KEV
+
+        for dev in data["devices"]:
+            assert "notes" not in dev
+            assert "vulnerabilities_count" in dev
+            assert "unverified_candidates" in dev
 
         # 3. explain_risk for affected device
         res = await session.call_tool("explain_risk", {"device": "Living Room Router"})
         data = json.loads(res.content[0].text)
         assert data["tier"] == "fix_now"
         assert data["overall_status"] == "affected"
+        assert data["vulnerabilities_count"] == 1
         assert "CVE-" not in data["spoken"]  # Never read CVE IDs aloud
+        assert "critical" not in data["spoken"].lower()  # CVSS is 8.8 (<9.0 -> never call critical)
+        assert "actively exploited" in data["spoken"].lower()
+        assert "notes" not in data
 
         # explain_risk for clean device (must say "no known vulnerabilities in public databases", never "safe")
         res = await session.call_tool("explain_risk", {"device": "Ring Video Doorbell Pro"})
         data = json.loads(res.content[0].text)
         assert data["tier"] == "not_affected"
+        assert data["vulnerabilities_count"] == 0
         assert "no known vulnerabilities in public databases" in data["spoken"]
         assert "safe" not in data["spoken"].lower()
+        assert "notes" not in data
 
         # explain_risk for unknown device (must say "I can't verify")
         res = await session.call_tool("explain_risk", {"device": "Amazon Echo Dot"})
         data = json.loads(res.content[0].text)
         assert data["tier"] == "unknown"
+        assert data["vulnerabilities_count"] == 0
+        assert len(data["unverified_candidates"]) == 3
         assert "I can't verify" in data["spoken"]
+        assert "notes" not in data
 
         # 4. get_fix_steps for EoL device (must say "replace")
         res = await session.call_tool("get_fix_steps", {"device": "Backyard Security Camera"})
@@ -223,13 +248,24 @@ async def test_mcp_tools_execution_and_voice_rules(running_server):
         assert data["action"] == "replace"
         assert data["is_eol"] is True
         assert "replace" in data["spoken"].lower()
+        assert "notes" not in data
 
-        # 5. export_hbom stub (status: not_implemented)
+        # 5. export_hbom (Phase 4: official CycloneDX 1.6 validation)
         res = await session.call_tool("export_hbom", {})
         data = json.loads(res.content[0].text)
-        assert data["status"] == "not_implemented"
-        assert "CycloneDX" in data["bom_format"]
-        assert "Phase 4" in data["message"]
+        assert data["status"] == "success"
+        assert data["bom_format"] == "CycloneDX"
+        assert data["spec_version"] == "1.6"
+        assert "bom" in data
+        assert "spoken" in data
+        assert "notes" not in data
+
+        # Validate against official CycloneDX 1.6 JSON Schema
+        validator = JsonValidator(SchemaVersion.V1_6)
+        validation_error = validator.validate_str(json.dumps(data["bom"]))
+        assert validation_error is None, (
+            f"CycloneDX 1.6 schema validation failed: {validation_error}"
+        )
 
 
 @pytest.mark.asyncio
@@ -257,7 +293,34 @@ async def test_add_device_without_candidate_returns_question_not_cpe(running_ser
         assert "spoken" in data
         # Crucial assertion: never invents or returns a CPE
         assert "cpe" not in data
-        assert not USER_DEVICES_PATH.exists()
+        assert not get_user_devices_path().exists()
+
+
+@pytest.mark.asyncio
+async def test_add_device_without_firmware_returns_question(running_server):
+    """Condition 2: add_device must never default firmware; asks clarifying question if missing."""
+    async with (
+        httpx.AsyncClient(headers={"Authorization": f"Bearer {TEST_KEY}"}) as http_client,
+        streamable_http_client(running_server, http_client=http_client) as (r, w, _),
+        ClientSession(r, w) as session,
+    ):
+        await session.initialize()
+
+        # Call add_device without firmware
+        res = await session.call_tool(
+            "add_device",
+            {
+                "name": "Basement Camera",
+                "model": "DCS-2530L",
+            },
+        )
+        data = json.loads(res.content[0].text)
+        assert data["status"] == "clarification_needed"
+        assert "question" in data
+        assert "firmware" in data["question"].lower()
+        assert "spoken" in data
+        assert "firmware" in data["spoken"].lower()
+        assert not get_user_devices_path().exists()
 
 
 @pytest.mark.asyncio
@@ -283,12 +346,15 @@ async def test_add_device_atomic_persistence(running_server):
         assert data["status"] == "added"
         assert data["device"]["cpe"] == "cpe:2.3:o:dlink:dcs-2530l_firmware:*:*:*:*:*:*:*:*"
         assert data["device"]["vendor"] == "D-Link"
+        assert "notes" not in data["device"]
 
-        # Verify user_devices.json was persisted
-        assert USER_DEVICES_PATH.exists()
-        saved = json.loads(USER_DEVICES_PATH.read_text(encoding="utf-8"))
+        # Verify user_devices.json was persisted in tmp_path (NOT server/data/)
+        user_path = get_user_devices_path()
+        assert user_path.exists()
+        saved = json.loads(user_path.read_text(encoding="utf-8"))
         assert len(saved) == 1
         assert saved[0]["name"] == "Basement Camera"
+        assert "notes" not in saved[0]
 
         # Verify list_devices reflects the newly persisted device (8 seeded + 1 user = 9)
         list_res = await session.call_tool("list_devices", {})

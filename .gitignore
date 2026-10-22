@@ -218,3 +218,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# HomeBOM dynamic state
+server/data/user_devices.json*
+user_devices.json*

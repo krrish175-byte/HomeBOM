@@ -4,6 +4,7 @@ Zero MCP, zero AWS dependencies. Pure Python package.
 """
 
 from .cpe import CPE, is_valid_firmware_cpe, match_candidate_cpe, parse_cpe
+from .hbom import generate_cyclonedx_hbom, generate_hbom_spoken_summary
 from .match import VulnerabilityFinding, is_eol_vulnerability, match_device_vulnerabilities
 from .rank import (
     DeviceRiskProfile,
@@ -34,8 +35,10 @@ __all__ = [
     "compare_like_with_like",
     "determine_device_tier",
     "extract_version_info",
+    "generate_cyclonedx_hbom",
     "generate_device_spoken_text",
     "generate_fix_steps",
+    "generate_hbom_spoken_summary",
     "is_eol_vulnerability",
     "is_valid_firmware_cpe",
     "match_candidate_cpe",

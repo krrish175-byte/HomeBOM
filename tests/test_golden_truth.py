@@ -91,6 +91,34 @@ def test_every_cve_epss_kev_is_ground_truth_from_cache():
             overall_status=overall_state,
             findings=findings,
         )
+
+        # Strengthened assertion: max_epss must equal the max EPSS read fresh from CSV
+        affected_cves = [f.cve_id for f in findings if f.status == "affected"]
+        if overall_state == "affected" and affected_cves:
+            expected_max_epss = max(epss_scores.get(c, 0.0) for c in affected_cves)
+            assert abs(profile.max_epss - expected_max_epss) < 1e-5, (
+                f"Device {dev['name']} max_epss={profile.max_epss} does not match fresh CSV max {expected_max_epss}"
+            )
+        else:
+            assert profile.max_epss == 0.0, (
+                f"Device {dev['name']} with status {overall_state} must have max_epss=0.0, got {profile.max_epss}"
+            )
+
+        # Split findings: vulnerabilities_count counts only affected CVEs
+        expected_vuln_count = len(affected_cves) if overall_state == "affected" else 0
+        assert profile.vulnerabilities_count == expected_vuln_count, (
+            f"Device {dev['name']} vulnerabilities_count={profile.vulnerabilities_count} != {expected_vuln_count}"
+        )
+
+        # Split findings: unverified_candidates for status=unknown
+        if overall_state == "unknown":
+            expected_candidates = [f.cve_id for f in findings if f.status == "unknown"]
+            if not expected_candidates:
+                expected_candidates = [f.cve_id for f in findings]
+            assert profile.unverified_candidates == expected_candidates
+        else:
+            assert profile.unverified_candidates == []
+
         ranked_profiles.append(profile)
 
     # Sort profiles
@@ -101,42 +129,82 @@ def test_every_cve_epss_kev_is_ground_truth_from_cache():
     profile_by_id = {p.device_id: p for p in sorted_profiles}
 
     # dev-001 (TP-Link Archer AX21): affected + KEV -> fix_now
-    assert profile_by_id["dev-001"].tier == "fix_now"
-    assert profile_by_id["dev-001"].overall_status == "affected"
-    assert any(f.cve_id == "CVE-2023-1389" for f in profile_by_id["dev-001"].findings)
+    # 6 NVD records exist, but only 1 affected (CVE-2023-1389); CVSS 8.8 (<9.0 -> never call critical)
+    p1 = profile_by_id["dev-001"]
+    assert p1.tier == "fix_now"
+    assert p1.overall_status == "affected"
+    assert p1.vulnerabilities_count == 1
+    assert p1.max_epss == epss_scores["CVE-2023-1389"]
+    assert abs(p1.max_epss - 0.99999) < 1e-5
+    assert "actively exploited" in p1.spoken_summary.lower()
+    assert "critical" not in p1.spoken_summary.lower()  # CVSS is 8.8, not critical!
 
     # dev-002 (D-Link DCS-2530L): affected + KEV -> fix_now, is_eol=True
-    assert profile_by_id["dev-002"].tier == "fix_now"
-    assert profile_by_id["dev-002"].is_eol is True
-    assert "replace" in profile_by_id["dev-002"].fix_steps.lower()
-    assert "replace" in profile_by_id["dev-002"].spoken_summary.lower()
+    # CVSS is 7.5 (<9.0 -> never call critical)
+    p2 = profile_by_id["dev-002"]
+    assert p2.tier == "fix_now"
+    assert p2.is_eol is True
+    assert p2.vulnerabilities_count == 2
+    assert p2.max_epss == max(epss_scores["CVE-2020-25078"], epss_scores["CVE-2020-25079"])
+    assert abs(p2.max_epss - 0.97511) < 1e-5
+    assert "replace" in p2.fix_steps.lower()
+    assert "replace" in p2.spoken_summary.lower()
+    assert "actively exploited" in p2.spoken_summary.lower()
+    assert "critical" not in p2.spoken_summary.lower()  # CVSS is 7.5, not critical!
 
     # dev-003 (TP-Link TL-WA855RE): affected + KEV -> fix_now, is_eol=True
-    assert profile_by_id["dev-003"].tier == "fix_now"
-    assert profile_by_id["dev-003"].is_eol is True
-    assert "replace" in profile_by_id["dev-003"].fix_steps.lower()
+    # CVSS is 8.8 (<9.0 -> never call critical)
+    p3 = profile_by_id["dev-003"]
+    assert p3.tier == "fix_now"
+    assert p3.is_eol is True
+    assert p3.vulnerabilities_count == 1
+    assert abs(p3.max_epss - 0.22187) < 1e-5
+    assert "replace" in p3.fix_steps.lower()
+    assert "replace" in p3.spoken_summary.lower()
+    assert "actively exploited" in p3.spoken_summary.lower()
+    assert "critical" not in p3.spoken_summary.lower()  # CVSS is 8.8, not critical!
 
     # dev-004 (ASUS GT-AC2900): affected + KEV -> fix_now, is_eol=True
-    assert profile_by_id["dev-004"].tier == "fix_now"
-    assert profile_by_id["dev-004"].is_eol is True
+    # CVSS is 9.8 (>=9.0 -> can call critical)
+    p4 = profile_by_id["dev-004"]
+    assert p4.tier == "fix_now"
+    assert p4.is_eol is True
+    assert p4.vulnerabilities_count == 1
+    assert abs(p4.max_epss - 0.99393) < 1e-5
+    assert "critical" in p4.spoken_summary.lower()  # CVSS is 9.8!
+    assert "actively exploited" in p4.spoken_summary.lower()
+    assert "replace" in p4.spoken_summary.lower()
 
     # dev-005 (Echo Dot): unknown because firmware is semver while NVD CPEs are date-based
-    assert profile_by_id["dev-005"].tier == "unknown"
-    assert "I can't verify" in profile_by_id["dev-005"].spoken_summary
+    p5 = profile_by_id["dev-005"]
+    assert p5.tier == "unknown"
+    assert p5.vulnerabilities_count == 0
+    assert p5.max_epss == 0.0
+    assert len(p5.unverified_candidates) == 3
+    assert "I can't verify" in p5.spoken_summary
 
     # dev-006 (Ring Video Doorbell): not_affected
-    assert profile_by_id["dev-006"].tier == "not_affected"
-    assert "no known vulnerabilities in public databases" in profile_by_id["dev-006"].spoken_summary
-    assert "safe" not in profile_by_id["dev-006"].spoken_summary.lower()
+    p6 = profile_by_id["dev-006"]
+    assert p6.tier == "not_affected"
+    assert p6.vulnerabilities_count == 0
+    assert p6.max_epss == 0.0
+    assert "no known vulnerabilities in public databases" in p6.spoken_summary
+    assert "safe" not in p6.spoken_summary.lower()
 
     # dev-007 (Fire TV Stick): not_affected
-    assert profile_by_id["dev-007"].tier == "not_affected"
-    assert "no known vulnerabilities in public databases" in profile_by_id["dev-007"].spoken_summary
-    assert "safe" not in profile_by_id["dev-007"].spoken_summary.lower()
+    p7 = profile_by_id["dev-007"]
+    assert p7.tier == "not_affected"
+    assert p7.vulnerabilities_count == 0
+    assert p7.max_epss == 0.0
+    assert "no known vulnerabilities in public databases" in p7.spoken_summary
+    assert "safe" not in p7.spoken_summary.lower()
 
     # dev-008 (Porch Smart Plug): unknown
-    assert profile_by_id["dev-008"].tier == "unknown"
-    assert "I can't verify" in profile_by_id["dev-008"].spoken_summary
+    p8 = profile_by_id["dev-008"]
+    assert p8.tier == "unknown"
+    assert p8.vulnerabilities_count == 0
+    assert p8.max_epss == 0.0
+    assert "I can't verify" in p8.spoken_summary
 
 
 def test_epss_metadata_snapshot_date():

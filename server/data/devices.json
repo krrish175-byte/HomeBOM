@@ -6,8 +6,7 @@
     "model": "Archer AX21",
     "category": "router",
     "firmware": "1.1.2 Build 20220624",
-    "cpe": "cpe:2.3:o:tp-link:archer_ax21_firmware:*:*:*:*:*:*:*:*",
-    "notes": "Vulnerable to CVE-2023-1389 (CISA KEV, command injection, versionEndExcluding 1.1.4)"
+    "cpe": "cpe:2.3:o:tp-link:archer_ax21_firmware:*:*:*:*:*:*:*:*"
   },
   {
     "id": "dev-002",
@@ -16,8 +15,7 @@
     "model": "DCS-2530L",
     "category": "camera",
     "firmware": "1.05.00",
-    "cpe": "cpe:2.3:o:dlink:dcs-2530l_firmware:*:*:*:*:*:*:*:*",
-    "notes": "Vulnerable to CVE-2020-25078 (CISA KEV, administrator password disclosure, versionEndIncluding 1.05.05)"
+    "cpe": "cpe:2.3:o:dlink:dcs-2530l_firmware:*:*:*:*:*:*:*:*"
   },
   {
     "id": "dev-003",
@@ -26,8 +24,7 @@
     "model": "TL-WA855RE",
     "category": "extender",
     "firmware": "1.0.0 Build 200508",
-    "cpe": "cpe:2.3:o:tp-link:tl-wa855re_firmware:*:*:*:*:*:*:*:*",
-    "notes": "Vulnerable to CVE-2020-24363 (CISA KEV, missing authentication / factory reset, versionEndExcluding 200731)"
+    "cpe": "cpe:2.3:o:tp-link:tl-wa855re_firmware:*:*:*:*:*:*:*:*"
   },
   {
     "id": "dev-004",
@@ -36,8 +33,7 @@
     "model": "ROG GT-AC2900",
     "category": "router",
     "firmware": "3.0.0.4.386.41700",
-    "cpe": "cpe:2.3:o:asus:gt-ac2900_firmware:*:*:*:*:*:*:*:*",
-    "notes": "Vulnerable to CVE-2021-32030 (CISA KEV, unauthenticated command execution, versionEndExcluding 3.0.0.4.386.42643)"
+    "cpe": "cpe:2.3:o:asus:gt-ac2900_firmware:*:*:*:*:*:*:*:*"
   },
   {
     "id": "dev-005",
@@ -46,8 +42,7 @@
     "model": "Echo Dot 5th Gen",
     "category": "smart_speaker",
     "firmware": "Amazon FireOS 7.5.8.2",
-    "cpe": "cpe:2.3:o:amazon:echo_dot_firmware:*:*:*:*:*:*:*:*",
-    "notes": "Echo firmware uses date-based CPEs in NVD (e.g. 2018-04-27); FireOS semver cannot be compared against dates, evaluated as unknown"
+    "cpe": "cpe:2.3:o:amazon:echo_dot_firmware:*:*:*:*:*:*:*:*"
   },
   {
     "id": "dev-006",
@@ -56,8 +51,7 @@
     "model": "Ring Video Doorbell Pro",
     "category": "doorbell",
     "firmware": "3.4.7",
-    "cpe": "cpe:2.3:o:amazon:ring_video_doorbell_firmware:3.4.7:*:*:*:*:*:*:*",
-    "notes": "Exact CPE exists in Official NVD CPE Dictionary with 0 CVEs; evaluated as not_affected"
+    "cpe": "cpe:2.3:o:amazon:ring_video_doorbell_firmware:3.4.7:*:*:*:*:*:*:*"
   },
   {
     "id": "dev-007",
@@ -66,8 +60,7 @@
     "model": "Fire TV Stick 4K",
     "category": "media_player",
     "firmware": "FireOS 7.6.6.9",
-    "cpe": "cpe:2.3:o:amazon:fire_os:7.6.6.9:*:*:*:*:*:*:*",
-    "notes": "Exact CPE exists in Official NVD CPE Dictionary with 0 CVEs; evaluated as not_affected"
+    "cpe": "cpe:2.3:o:amazon:fire_os:7.6.6.9:*:*:*:*:*:*:*"
   },
   {
     "id": "dev-008",
@@ -76,7 +69,6 @@
     "model": "Wi-Fi Smart Plug",
     "category": "smart_plug",
     "firmware": "CUSTOM-BETA-REV-???",
-    "cpe": "cpe:2.3:o:tuya:smart_plug_firmware:*:*:*:*:*:*:*:*",
-    "notes": "Unparseable firmware string; evaluated defensively as unknown"
+    "cpe": "cpe:2.3:o:tuya:smart_plug_firmware:*:*:*:*:*:*:*:*"
   }
 ]

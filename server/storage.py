@@ -15,9 +15,16 @@ from typing import Any
 
 DATA_DIR = Path(__file__).resolve().parent / "data"
 SEEDED_DEVICES_PATH = DATA_DIR / "devices.json"
-USER_DEVICES_PATH = DATA_DIR / "user_devices.json"
 CPE_INDEX_PATH = DATA_DIR / "cpe_index.json"
 METADATA_PATH = DATA_DIR / "metadata.json"
+
+
+def get_user_devices_path() -> Path:
+    """Return path to user_devices.json, configurable via HOMEBOM_USER_DEVICES_PATH."""
+    custom = os.environ.get("HOMEBOM_USER_DEVICES_PATH")
+    if custom:
+        return Path(custom)
+    return DATA_DIR / "user_devices.json"
 
 
 def normalize_token(text: str) -> str:
@@ -25,33 +32,44 @@ def normalize_token(text: str) -> str:
     return re.sub(r"[^a-z0-9]", "", text.lower())
 
 
+def _strip_notes(device: dict[str, Any]) -> dict[str, Any]:
+    """Strip any internal notes from device dictionaries."""
+    return {k: v for k, v in device.items() if k != "notes"}
+
+
 def load_seeded_devices() -> list[dict[str, Any]]:
     """Load seeded devices (strictly read-only)."""
     if not SEEDED_DEVICES_PATH.exists():
         return []
     with open(SEEDED_DEVICES_PATH, "r", encoding="utf-8") as f:
-        return json.load(f)
+        raw = json.load(f)
+        return [_strip_notes(d) for d in raw]
 
 
 def load_user_devices() -> list[dict[str, Any]]:
     """Load dynamically added user devices."""
-    if not USER_DEVICES_PATH.exists():
+    path = get_user_devices_path()
+    if not path.exists():
         return []
     try:
-        with open(USER_DEVICES_PATH, "r", encoding="utf-8") as f:
-            return json.load(f)
+        with open(path, "r", encoding="utf-8") as f:
+            raw = json.load(f)
+            return [_strip_notes(d) for d in raw]
     except (json.JSONDecodeError, OSError):
         return []
 
 
 def save_user_devices(user_devices: list[dict[str, Any]]) -> None:
     """Persist user devices atomically via a temporary file and atomic replace."""
-    tmp_path = DATA_DIR / f"user_devices.json.{os.getpid()}.tmp"
+    path = get_user_devices_path()
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp_path = path.parent / f"{path.name}.{os.getpid()}.tmp"
+    clean_devices = [_strip_notes(d) for d in user_devices]
     with open(tmp_path, "w", encoding="utf-8") as f:
-        json.dump(user_devices, f, indent=2)
+        json.dump(clean_devices, f, indent=2)
         f.flush()
         os.fsync(f.fileno())
-    os.replace(tmp_path, USER_DEVICES_PATH)
+    os.replace(tmp_path, path)
 
 
 def get_all_devices() -> list[dict[str, Any]]:
