@@ -1,0 +1,82 @@
+[
+  {
+    "id": "dev-001",
+    "name": "Living Room Router",
+    "vendor": "TP-Link",
+    "model": "Archer AX21",
+    "category": "router",
+    "firmware": "1.1.2 Build 20220624",
+    "cpe": "cpe:2.3:o:tp-link:archer_ax21_firmware:*:*:*:*:*:*:*:*",
+    "notes": "Vulnerable to CVE-2023-1389 (CISA KEV, command injection, versionEndExcluding 1.1.4)"
+  },
+  {
+    "id": "dev-002",
+    "name": "Backyard Security Camera",
+    "vendor": "D-Link",
+    "model": "DCS-2530L",
+    "category": "camera",
+    "firmware": "1.05.00",
+    "cpe": "cpe:2.3:o:dlink:dcs-2530l_firmware:*:*:*:*:*:*:*:*",
+    "notes": "Vulnerable to CVE-2020-25078 (CISA KEV, credentials disclosure, versionEndIncluding 1.05.05)"
+  },
+  {
+    "id": "dev-003",
+    "name": "Security System Hub",
+    "vendor": "Hikvision",
+    "model": "DS-7608NI-K1 NVR",
+    "category": "hub",
+    "firmware": "V4.30.000 build 200508",
+    "cpe": "cpe:2.3:o:hikvision:ds-7608ni-k1_firmware:*:*:*:*:*:*:*:*",
+    "notes": "Vulnerable to CVE-2021-36260 (CISA KEV, command injection, versionEndIncluding 4.31.000)"
+  },
+  {
+    "id": "dev-004",
+    "name": "Gaming Router",
+    "vendor": "ASUS",
+    "model": "ROG GT-AC2900",
+    "category": "router",
+    "firmware": "3.0.0.4.386.41700",
+    "cpe": "cpe:2.3:o:asus:gt-ac2900_firmware:*:*:*:*:*:*:*:*",
+    "notes": "Vulnerable to CVE-2021-32030 (CISA KEV, unauthenticated command execution, versionEndExcluding 3.0.0.4.386.42643)"
+  },
+  {
+    "id": "dev-005",
+    "name": "Kitchen Echo",
+    "vendor": "Amazon",
+    "model": "Echo Dot 5th Gen",
+    "category": "smart_speaker",
+    "firmware": "Amazon FireOS 7.5.8.2",
+    "cpe": "cpe:2.3:o:amazon:echo_dot_firmware:*:*:*:*:*:*:*:*",
+    "notes": "Vendor-managed clean device, modern firmware unaffected by legacy CVEs"
+  },
+  {
+    "id": "dev-006",
+    "name": "Front Doorbell",
+    "vendor": "Amazon / Ring",
+    "model": "Ring Video Doorbell Pro",
+    "category": "doorbell",
+    "firmware": "3.4.7",
+    "cpe": "cpe:2.3:o:amazon:ring_video_doorbell_firmware:3.4.7:*:*:*:*:*:*:*",
+    "notes": "Vendor-managed clean device, version 3.4.7+ clean in NVD"
+  },
+  {
+    "id": "dev-007",
+    "name": "Living Room TV Stick",
+    "vendor": "Amazon",
+    "model": "Fire TV Stick 4K",
+    "category": "media_player",
+    "firmware": "FireOS 7.6.6.9",
+    "cpe": "cpe:2.3:o:amazon:fire_os:7.6.6.9:*:*:*:*:*:*:*",
+    "notes": "Vendor-managed clean device, modern FireOS build unaffected by legacy CVEs"
+  },
+  {
+    "id": "dev-008",
+    "name": "Porch Smart Plug",
+    "vendor": "Generic IoT",
+    "model": "Wi-Fi Smart Plug",
+    "category": "smart_plug",
+    "firmware": "CUSTOM-BETA-REV-???",
+    "cpe": "cpe:2.3:o:tuya:smart_plug_firmware:*:*:*:*:*:*:*:*",
+    "notes": "Device with unparseable firmware string; evaluated defensively as unknown risk"
+  }
+]

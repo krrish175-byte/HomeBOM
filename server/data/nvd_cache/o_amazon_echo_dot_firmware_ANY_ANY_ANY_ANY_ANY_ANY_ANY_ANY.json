@@ -1,0 +1,661 @@
+{
+  "resultsPerPage": 3,
+  "startIndex": 0,
+  "totalResults": 3,
+  "format": "NVD_CVE",
+  "version": "2.0",
+  "timestamp": "2026-10-22T06:49:59.505",
+  "vulnerabilities": [
+    {
+      "cve": {
+        "id": "CVE-2018-11567",
+        "sourceIdentifier": "cve@mitre.org",
+        "published": "2018-05-30T22:29:00.243",
+        "lastModified": "2026-06-17T01:36:11.070",
+        "vulnStatus": "Modified",
+        "cveTags": [
+          {
+            "sourceIdentifier": "cve@mitre.org",
+            "tags": [
+              "disputed"
+            ]
+          }
+        ],
+        "descriptions": [
+          {
+            "lang": "en",
+            "value": "Prior to 2018-04-27, the reprompt feature in Amazon Echo devices could be misused by a custom Alexa skill. The reprompt feature is designed so that if Alexa does not receive an input within 8 seconds, the device can speak a reprompt, then wait an additional 8 seconds for input; if the user still does not respond, the microphone is then turned off. The vulnerability involves empty output-speech reprompts, custom wildcard (\"gibberish\") input slots, and logging of detected speech. If a maliciously designed skill is installed, an attacker could obtain transcripts of speech not intended for Alexa to process, but simply spoken within the device's hearing range. NOTE: The vendor states \"Customer trust is important to us and we take security and privacy seriously. We have put mitigations in place for detecting this type of skill behavior and reject or suppress those skills when we do. Customers do not need to take any action for these mitigations to work."
+          },
+          {
+            "lang": "es",
+            "value": "** EN DISPUTA ** Antes del 27 de abril de 2018, la funci\u00f3n reprompt en los dispositivos de Amazon Echo pod\u00eda ser utilizada de manera incorrecta por una habilidad personalizada de Alexa. La funci\u00f3n reprompt est\u00e1 dise\u00f1ada para que si Alexa no recibe una entrada en 8 segundos, el dispositivo pueda decir un \"reprompt\" y luego esperar 8 segundos adicionales por la entrada; si el usuario sigue sin responder, el micr\u00f3fono se apaga. La vulnerabilidad incluye reprompts de voz de salida vac\u00eda, ranuras de entrada de wildcards personalizados (\"gibberish\") y registro del habla detectada. Si se instala una habilidad maliciosamente dise\u00f1ada, un atacante podr\u00eda obtener transcripciones del habla no destinadas a ser procesadas por Alexa, pero que simplemente se digan dentro del rango auditivo del dispositivo. NOTA: El fabricante afirma: \"La confianza del cliente es importante para nosotros y nos tomamos en serio la seguridad y la privacidad. Hemos implementado mitigaciones para detectar este tipo de comportamiento de habilidades y rechazar o suprimir esas habilidades cuando lo hacemos. Los clientes no necesitan tomar ninguna acci\u00f3n para que estas mitigaciones funcionen\"."
+          }
+        ],
+        "affected": [
+          {
+            "source": "cve@mitre.org",
+            "affectedData": [
+              {
+                "vendor": "n/a",
+                "product": "n/a",
+                "versions": [
+                  {
+                    "version": "n/a",
+                    "status": "affected"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "metrics": {
+          "cvssMetricV30": [
+            {
+              "source": "nvd@nist.gov",
+              "type": "Primary",
+              "cvssData": {
+                "version": "3.0",
+                "vectorString": "CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N",
+                "baseScore": 3.3,
+                "baseSeverity": "LOW",
+                "attackVector": "LOCAL",
+                "attackComplexity": "LOW",
+                "privilegesRequired": "NONE",
+                "userInteraction": "REQUIRED",
+                "scope": "UNCHANGED",
+                "confidentialityImpact": "LOW",
+                "integrityImpact": "NONE",
+                "availabilityImpact": "NONE"
+              },
+              "exploitabilityScore": 1.8,
+              "impactScore": 1.4
+            }
+          ],
+          "cvssMetricV2": [
+            {
+              "source": "nvd@nist.gov",
+              "type": "Primary",
+              "cvssData": {
+                "version": "2.0",
+                "vectorString": "AV:N/AC:M/Au:N/C:P/I:N/A:N",
+                "baseScore": 4.3,
+                "accessVector": "NETWORK",
+                "accessComplexity": "MEDIUM",
+                "authentication": "NONE",
+                "confidentialityImpact": "PARTIAL",
+                "integrityImpact": "NONE",
+                "availabilityImpact": "NONE"
+              },
+              "baseSeverity": "MEDIUM",
+              "exploitabilityScore": 8.6,
+              "impactScore": 2.9,
+              "acInsufInfo": false,
+              "obtainAllPrivilege": false,
+              "obtainUserPrivilege": false,
+              "obtainOtherPrivilege": false,
+              "userInteractionRequired": true
+            }
+          ]
+        },
+        "weaknesses": [
+          {
+            "source": "nvd@nist.gov",
+            "type": "Primary",
+            "description": [
+              {
+                "lang": "en",
+                "value": "CWE-384"
+              }
+            ]
+          }
+        ],
+        "configurations": [
+          {
+            "operator": "AND",
+            "nodes": [
+              {
+                "operator": "OR",
+                "negate": false,
+                "cpeMatch": [
+                  {
+                    "vulnerable": true,
+                    "criteria": "cpe:2.3:o:amazon:echo_show_firmware:*:*:*:*:*:*:*:*",
+                    "versionEndExcluding": "2018-04-27",
+                    "matchCriteriaId": "C537E345-743C-4133-BD30-BDA8FC1D79F8"
+                  }
+                ]
+              },
+              {
+                "operator": "OR",
+                "negate": false,
+                "cpeMatch": [
+                  {
+                    "vulnerable": false,
+                    "criteria": "cpe:2.3:h:amazon:echo_show:-:*:*:*:*:*:*:*",
+                    "matchCriteriaId": "1B4E70A6-EEA3-406D-892D-890FADCF903B"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "nodes": [
+              {
+                "operator": "OR",
+                "negate": false,
+                "cpeMatch": [
+                  {
+                    "vulnerable": true,
+                    "criteria": "cpe:2.3:o:amazon:echo_plus_firmware:*:*:*:*:*:*:*:*",
+                    "versionEndExcluding": "2018-04-27",
+                    "matchCriteriaId": "F068EAC5-7E06-4266-9C3A-2086D668108F"
+                  }
+                ]
+              },
+              {
+                "operator": "OR",
+                "negate": false,
+                "cpeMatch": [
+                  {
+                    "vulnerable": false,
+                    "criteria": "cpe:2.3:h:amazon:echo_plus:-:*:*:*:*:*:*:*",
+                    "matchCriteriaId": "4678CA25-4A03-44C8-94F6-E2EF358E11A8"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "nodes": [
+              {
+                "operator": "OR",
+                "negate": false,
+                "cpeMatch": [
+                  {
+                    "vulnerable": true,
+                    "criteria": "cpe:2.3:o:amazon:echo_dot_firmware:*:*:*:*:*:*:*:*",
+                    "versionEndExcluding": "2018-04-27",
+                    "matchCriteriaId": "A209937B-9600-4FEE-AFA8-1B06B544C31E"
+                  }
+                ]
+              },
+              {
+                "operator": "OR",
+                "negate": false,
+                "cpeMatch": [
+                  {
+                    "vulnerable": false,
+                    "criteria": "cpe:2.3:h:amazon:echo_dot:-:*:*:*:*:*:*:*",
+                    "matchCriteriaId": "AB26F1B2-337C-4C76-8A5D-0DA2A2BED079"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "nodes": [
+              {
+                "operator": "OR",
+                "negate": false,
+                "cpeMatch": [
+                  {
+                    "vulnerable": true,
+                    "criteria": "cpe:2.3:o:amazon:echo_spot_firmware:*:*:*:*:*:*:*:*",
+                    "versionEndExcluding": "2018-04-27",
+                    "matchCriteriaId": "86DE3646-EF47-465D-A509-59021D3C6F6A"
+                  }
+                ]
+              },
+              {
+                "operator": "OR",
+                "negate": false,
+                "cpeMatch": [
+                  {
+                    "vulnerable": false,
+                    "criteria": "cpe:2.3:h:amazon:echo_spot:-:*:*:*:*:*:*:*",
+                    "matchCriteriaId": "7BC230E1-57B7-4ECC-B5F0-DB4B442F32B2"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "nodes": [
+              {
+                "operator": "OR",
+                "negate": false,
+                "cpeMatch": [
+                  {
+                    "vulnerable": true,
+                    "criteria": "cpe:2.3:o:amazon:echo_firmware:*:*:*:*:*:*:*:*",
+                    "versionEndExcluding": "2018-04-27",
+                    "matchCriteriaId": "9B1FF2CE-455A-4258-9989-76A4E56F2D5D"
+                  }
+                ]
+              },
+              {
+                "operator": "OR",
+                "negate": false,
+                "cpeMatch": [
+                  {
+                    "vulnerable": false,
+                    "criteria": "cpe:2.3:h:amazon:echo:-:*:*:*:*:*:*:*",
+                    "matchCriteriaId": "E4DBAF49-9612-4981-95D1-4006D1315E2C"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "references": [
+          {
+            "url": "https://info.checkmarx.com/hubfs/Amazon_Echo_Research.pdf",
+            "source": "cve@mitre.org",
+            "tags": [
+              "Exploit",
+              "Third Party Advisory"
+            ]
+          },
+          {
+            "url": "https://www.checkmarx.com/2018/04/25/eavesdropping-with-amazon-alexa/",
+            "source": "cve@mitre.org",
+            "tags": [
+              "Third Party Advisory"
+            ]
+          },
+          {
+            "url": "https://www.wired.com/story/amazon-echo-alexa-skill-spying/",
+            "source": "cve@mitre.org",
+            "tags": [
+              "Press/Media Coverage",
+              "Third Party Advisory"
+            ]
+          },
+          {
+            "url": "https://www.yahoo.com/news/amazon-alexa-bug-let-hackers-104609600.html",
+            "source": "cve@mitre.org",
+            "tags": [
+              "Press/Media Coverage",
+              "Third Party Advisory"
+            ]
+          },
+          {
+            "url": "https://info.checkmarx.com/hubfs/Amazon_Echo_Research.pdf",
+            "source": "af854a3a-2127-422b-91ae-364da2661108",
+            "tags": [
+              "Exploit",
+              "Third Party Advisory"
+            ]
+          },
+          {
+            "url": "https://www.checkmarx.com/2018/04/25/eavesdropping-with-amazon-alexa/",
+            "source": "af854a3a-2127-422b-91ae-364da2661108",
+            "tags": [
+              "Third Party Advisory"
+            ]
+          },
+          {
+            "url": "https://www.wired.com/story/amazon-echo-alexa-skill-spying/",
+            "source": "af854a3a-2127-422b-91ae-364da2661108",
+            "tags": [
+              "Press/Media Coverage",
+              "Third Party Advisory"
+            ]
+          },
+          {
+            "url": "https://www.yahoo.com/news/amazon-alexa-bug-let-hackers-104609600.html",
+            "source": "af854a3a-2127-422b-91ae-364da2661108",
+            "tags": [
+              "Press/Media Coverage",
+              "Third Party Advisory"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "cve": {
+        "id": "CVE-2021-37436",
+        "sourceIdentifier": "cve@mitre.org",
+        "published": "2021-07-24T23:15:07.130",
+        "lastModified": "2026-06-17T04:00:30.897",
+        "vulnStatus": "Modified",
+        "cveTags": [],
+        "descriptions": [
+          {
+            "lang": "en",
+            "value": "Amazon Echo Dot devices through 2021-07-02 sometimes allow attackers, who have physical access to a device after a factory reset, to obtain sensitive information via a series of complex hardware and software attacks. NOTE: reportedly, there were vendor marketing statements about safely removing personal content via a factory reset. Also, the vendor has reportedly indicated that they are working on mitigations."
+          },
+          {
+            "lang": "es",
+            "value": "Unos dispositivos Amazon Echo Dot versiones hasta 02-07-2021 a veces permiten a atacantes, que tienen acceso f\u00edsico a un dispositivo despu\u00e9s de un restablecimiento de f\u00e1brica, obtener informaci\u00f3n confidencial por medio de una serie de complejos ataques de hardware y software. NOTA: seg\u00fan se informa, hubo declaraciones de marketing del proveedor sobre la eliminaci\u00f3n segura de contenido personal por medio de un restablecimiento de f\u00e1brica. Adem\u00e1s, el proveedor ha reportado que est\u00e1 trabajando en la mitigaci\u00f3n"
+          }
+        ],
+        "affected": [
+          {
+            "source": "cve@mitre.org",
+            "affectedData": [
+              {
+                "vendor": "n/a",
+                "product": "n/a",
+                "versions": [
+                  {
+                    "version": "n/a",
+                    "status": "affected"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "metrics": {
+          "cvssMetricV31": [
+            {
+              "source": "nvd@nist.gov",
+              "type": "Primary",
+              "cvssData": {
+                "version": "3.1",
+                "vectorString": "CVSS:3.1/AV:P/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+                "baseScore": 4.2,
+                "baseSeverity": "MEDIUM",
+                "attackVector": "PHYSICAL",
+                "attackComplexity": "HIGH",
+                "privilegesRequired": "NONE",
+                "userInteraction": "NONE",
+                "scope": "UNCHANGED",
+                "confidentialityImpact": "HIGH",
+                "integrityImpact": "NONE",
+                "availabilityImpact": "NONE"
+              },
+              "exploitabilityScore": 0.5,
+              "impactScore": 3.6
+            }
+          ],
+          "cvssMetricV2": [
+            {
+              "source": "nvd@nist.gov",
+              "type": "Primary",
+              "cvssData": {
+                "version": "2.0",
+                "vectorString": "AV:L/AC:M/Au:N/C:P/I:N/A:N",
+                "baseScore": 1.9,
+                "accessVector": "LOCAL",
+                "accessComplexity": "MEDIUM",
+                "authentication": "NONE",
+                "confidentialityImpact": "PARTIAL",
+                "integrityImpact": "NONE",
+                "availabilityImpact": "NONE"
+              },
+              "baseSeverity": "LOW",
+              "exploitabilityScore": 3.4,
+              "impactScore": 2.9,
+              "acInsufInfo": false,
+              "obtainAllPrivilege": false,
+              "obtainUserPrivilege": false,
+              "obtainOtherPrivilege": false,
+              "userInteractionRequired": false
+            }
+          ]
+        },
+        "weaknesses": [
+          {
+            "source": "nvd@nist.gov",
+            "type": "Primary",
+            "description": [
+              {
+                "lang": "en",
+                "value": "NVD-CWE-noinfo"
+              }
+            ]
+          }
+        ],
+        "configurations": [
+          {
+            "operator": "AND",
+            "nodes": [
+              {
+                "operator": "OR",
+                "negate": false,
+                "cpeMatch": [
+                  {
+                    "vulnerable": true,
+                    "criteria": "cpe:2.3:o:amazon:echo_dot_firmware:*:*:*:*:*:*:*:*",
+                    "versionEndIncluding": "2021-07-02",
+                    "matchCriteriaId": "CC555BAC-B2FC-432A-8299-F1EEFFE7982D"
+                  }
+                ]
+              },
+              {
+                "operator": "OR",
+                "negate": false,
+                "cpeMatch": [
+                  {
+                    "vulnerable": false,
+                    "criteria": "cpe:2.3:h:amazon:echo_dot:-:*:*:*:*:*:*:*",
+                    "matchCriteriaId": "AB26F1B2-337C-4C76-8A5D-0DA2A2BED079"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "references": [
+          {
+            "url": "https://arstechnica.com/gadgets/2021/07/passwords-in-amazon-echo-dots-live-on-even-after-you-factory-reset-them/",
+            "source": "cve@mitre.org",
+            "tags": [
+              "Third Party Advisory"
+            ]
+          },
+          {
+            "url": "https://dl.acm.org/doi/pdf/10.1145/3448300.3467820",
+            "source": "cve@mitre.org",
+            "tags": [
+              "Technical Description",
+              "Third Party Advisory"
+            ]
+          },
+          {
+            "url": "https://news.ycombinator.com/item?id=27943730",
+            "source": "cve@mitre.org",
+            "tags": [
+              "Third Party Advisory"
+            ]
+          },
+          {
+            "url": "https://www.cpomagazine.com/data-privacy/is-it-possible-to-make-iot-devices-private-amazon-echo-dot-does-not-wipe-personal-content-after-factory-reset/",
+            "source": "cve@mitre.org",
+            "tags": [
+              "Third Party Advisory"
+            ]
+          },
+          {
+            "url": "https://arstechnica.com/gadgets/2021/07/passwords-in-amazon-echo-dots-live-on-even-after-you-factory-reset-them/",
+            "source": "af854a3a-2127-422b-91ae-364da2661108",
+            "tags": [
+              "Third Party Advisory"
+            ]
+          },
+          {
+            "url": "https://dl.acm.org/doi/pdf/10.1145/3448300.3467820",
+            "source": "af854a3a-2127-422b-91ae-364da2661108",
+            "tags": [
+              "Technical Description",
+              "Third Party Advisory"
+            ]
+          },
+          {
+            "url": "https://news.ycombinator.com/item?id=27943730",
+            "source": "af854a3a-2127-422b-91ae-364da2661108",
+            "tags": [
+              "Third Party Advisory"
+            ]
+          },
+          {
+            "url": "https://www.cpomagazine.com/data-privacy/is-it-possible-to-make-iot-devices-private-amazon-echo-dot-does-not-wipe-personal-content-after-factory-reset/",
+            "source": "af854a3a-2127-422b-91ae-364da2661108",
+            "tags": [
+              "Third Party Advisory"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "cve": {
+        "id": "CVE-2022-25809",
+        "sourceIdentifier": "cve@mitre.org",
+        "published": "2022-02-24T15:15:32.940",
+        "lastModified": "2026-06-17T04:34:18.977",
+        "vulnStatus": "Modified",
+        "cveTags": [],
+        "descriptions": [
+          {
+            "lang": "en",
+            "value": "Improper Neutralization of audio output from 3rd and 4th Generation Amazon Echo Dot devices allows arbitrary voice command execution on these devices via a malicious skill (in the case of remote attackers) or by pairing a malicious Bluetooth device (in the case of physically proximate attackers), aka an \"Alexa versus Alexa (AvA)\" attack."
+          },
+          {
+            "lang": "es",
+            "value": "Una Neutralizaci\u00f3n Inapropiada de la salida de audio de los dispositivos Amazon Echo Dot de 3\u00aa y 4\u00aa generaci\u00f3n permite una ejecuci\u00f3n de comandos de voz arbitrarios en estos dispositivos por medio de una habilidad maliciosa (en el caso de atacantes remotos) o mediante el emparejamiento de un dispositivo Bluetooth malicioso (en el caso de atacantes f\u00edsicamente pr\u00f3ximos), tambi\u00e9n conocido como ataque \"Alexa versus Alexa (AvA)\""
+          }
+        ],
+        "affected": [
+          {
+            "source": "cve@mitre.org",
+            "affectedData": [
+              {
+                "vendor": "n/a",
+                "product": "n/a",
+                "versions": [
+                  {
+                    "version": "n/a",
+                    "status": "affected"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "metrics": {
+          "cvssMetricV31": [
+            {
+              "source": "nvd@nist.gov",
+              "type": "Primary",
+              "cvssData": {
+                "version": "3.1",
+                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                "baseScore": 9.8,
+                "baseSeverity": "CRITICAL",
+                "attackVector": "NETWORK",
+                "attackComplexity": "LOW",
+                "privilegesRequired": "NONE",
+                "userInteraction": "NONE",
+                "scope": "UNCHANGED",
+                "confidentialityImpact": "HIGH",
+                "integrityImpact": "HIGH",
+                "availabilityImpact": "HIGH"
+              },
+              "exploitabilityScore": 3.9,
+              "impactScore": 5.9
+            }
+          ],
+          "cvssMetricV2": [
+            {
+              "source": "nvd@nist.gov",
+              "type": "Primary",
+              "cvssData": {
+                "version": "2.0",
+                "vectorString": "AV:N/AC:L/Au:N/C:P/I:P/A:C",
+                "baseScore": 9.0,
+                "accessVector": "NETWORK",
+                "accessComplexity": "LOW",
+                "authentication": "NONE",
+                "confidentialityImpact": "PARTIAL",
+                "integrityImpact": "PARTIAL",
+                "availabilityImpact": "COMPLETE"
+              },
+              "baseSeverity": "HIGH",
+              "exploitabilityScore": 10.0,
+              "impactScore": 8.5,
+              "acInsufInfo": false,
+              "obtainAllPrivilege": false,
+              "obtainUserPrivilege": false,
+              "obtainOtherPrivilege": false,
+              "userInteractionRequired": false
+            }
+          ]
+        },
+        "weaknesses": [
+          {
+            "source": "nvd@nist.gov",
+            "type": "Primary",
+            "description": [
+              {
+                "lang": "en",
+                "value": "NVD-CWE-Other"
+              }
+            ]
+          }
+        ],
+        "configurations": [
+          {
+            "operator": "AND",
+            "nodes": [
+              {
+                "operator": "OR",
+                "negate": false,
+                "cpeMatch": [
+                  {
+                    "vulnerable": true,
+                    "criteria": "cpe:2.3:o:amazon:echo_dot_firmware:-:*:*:*:*:*:*:*",
+                    "matchCriteriaId": "C2C6A0A3-1979-4EF5-BF54-CFA6E2ADE971"
+                  }
+                ]
+              },
+              {
+                "operator": "OR",
+                "negate": false,
+                "cpeMatch": [
+                  {
+                    "vulnerable": false,
+                    "criteria": "cpe:2.3:h:amazon:echo_dot:3.0:*:*:*:*:*:*:*",
+                    "matchCriteriaId": "DD49D60B-7E8A-4840-8D62-3EE867DFE55E"
+                  },
+                  {
+                    "vulnerable": false,
+                    "criteria": "cpe:2.3:h:amazon:echo_dot:4.0:*:*:*:*:*:*:*",
+                    "matchCriteriaId": "09A04576-1033-4160-BD96-C120DF86B1DA"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "references": [
+          {
+            "url": "https://arxiv.org/abs/2202.08619",
+            "source": "cve@mitre.org",
+            "tags": [
+              "Exploit",
+              "Technical Description",
+              "Third Party Advisory"
+            ]
+          },
+          {
+            "url": "https://arxiv.org/abs/2202.08619",
+            "source": "af854a3a-2127-422b-91ae-364da2661108",
+            "tags": [
+              "Exploit",
+              "Technical Description",
+              "Third Party Advisory"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

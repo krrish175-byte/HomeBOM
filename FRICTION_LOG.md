@@ -57,3 +57,18 @@ This document tracks all developer friction, SDK limitations, API bugs, and work
 - **Workaround**: Added `pythonpath = ["packages/homebom-core", "."]` under `[tool.pytest.ini_options]` in `pyproject.toml`. Pytest now resolves workspace modules directly without relying on OS-level `.pth` file loading.
 - **Suggestion**: Editable build backends should avoid leading underscores in `.pth` filenames on macOS, or `pytest` projects in monorepos should always specify `pythonpath`.
 
+---
+
+### Snag #004: NVD API 2.0 returns 404 for wildcard CPEs unless queried via `virtualMatchString`
+- **Date**: 2026-10-22
+- **Task**: Phase 1 caching NVD vulnerability records per device CPE
+- **Steps**:
+  1. Sent GET request to `https://services.nvd.nist.gov/rest/json/cves/2.0?cpeName=cpe:2.3:o:tp-link:archer_ax21_firmware:*:*:*:*:*:*:*:*`.
+- **Expected**: NVD returns CVEs matching the Archer AX21 firmware match range.
+- **Actual**: HTTP 404 Not Found.
+- **Cause**: In NVD API 2.0, `cpeName` strictly requires an exact dictionary entry; it rejects trailing wildcards `*` or match expressions with a 404 status.
+- **Severity**: Medium
+- **Workaround**: Switched to `virtualMatchString=<base_cpe>` (e.g. `virtualMatchString=cpe:2.3:o:tp-link:archer_ax21_firmware`) whenever the CPE criteria contains wildcards.
+- **Suggestion**: NVD API 2.0 documentation should more prominently differentiate `cpeName` (exact dictionary lookup) from `virtualMatchString` (CPE match range search).
+
+
