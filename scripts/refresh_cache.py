@@ -10,6 +10,7 @@ After running this script, HomeBOM operates 100% offline.
 """
 
 import argparse
+import gzip
 import json
 import os
 import time
@@ -64,6 +65,25 @@ def refresh_epss() -> bool:
             f.write(resp.content)
         size_mb = len(resp.content) / (1024 * 1024)
         print(f"  ✓ Saved FIRST EPSS bulk scores ({size_mb:.2f} MB compressed) to {out_path.name}")
+
+        # Extract snapshot date from header line 1
+        epss_date = "unknown"
+        epss_ts = "unknown"
+        with gzip.open(out_path, "rt", encoding="utf-8") as gz:
+            line1 = gz.readline().strip()
+            for part in line1.split(","):
+                if "score_date:" in part:
+                    epss_ts = part.split("score_date:")[-1]
+                    epss_date = epss_ts.split("T")[0]
+
+        meta_path = DATA_DIR / "metadata.json"
+        with open(meta_path, "w", encoding="utf-8") as mf:
+            json.dump({
+                "epss_score_date": epss_date,
+                "epss_score_timestamp": epss_ts,
+                "as_of_string": f"as of {epss_date}",
+            }, mf, indent=2)
+        print(f"  ✓ Recorded EPSS snapshot date ({epss_date}) in {meta_path.name}")
         return True
     except Exception as e:  # noqa: BLE001
         print(f"  ✗ Failed downloading EPSS: {e}")
