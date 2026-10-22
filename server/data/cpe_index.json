@@ -1,0 +1,4583 @@
+[
+  {
+    "cpe": "cpe:2.3:o:amazon:echo_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "Amazon",
+    "product": "ECHO",
+    "category": "smart_speaker",
+    "vendor_key": "amazon",
+    "model_key": "echo",
+    "keywords": [
+      "amazon",
+      "echo",
+      "smart",
+      "speaker"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:amazon:echo_dot_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "Amazon",
+    "product": "Echo Dot 5th Gen",
+    "category": "smart_speaker",
+    "vendor_key": "amazon",
+    "model_key": "echo_dot",
+    "keywords": [
+      "5th",
+      "amazon",
+      "dot",
+      "echo",
+      "gen",
+      "smart",
+      "speaker"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:amazon:echo_plus_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "Amazon",
+    "product": "ECHO PLUS",
+    "category": "smart_speaker",
+    "vendor_key": "amazon",
+    "model_key": "echo_plus",
+    "keywords": [
+      "amazon",
+      "echo",
+      "plus",
+      "smart",
+      "speaker"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:amazon:echo_show_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "Amazon",
+    "product": "ECHO SHOW",
+    "category": "smart_speaker",
+    "vendor_key": "amazon",
+    "model_key": "echo_show",
+    "keywords": [
+      "amazon",
+      "echo",
+      "show",
+      "smart",
+      "speaker"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:amazon:echo_spot_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "Amazon",
+    "product": "ECHO SPOT",
+    "category": "smart_speaker",
+    "vendor_key": "amazon",
+    "model_key": "echo_spot",
+    "keywords": [
+      "amazon",
+      "echo",
+      "smart",
+      "speaker",
+      "spot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:amazon:fire_os:7.6.6.9:*:*:*:*:*:*:*",
+    "vendor": "Amazon",
+    "product": "Fire TV Stick 4K",
+    "category": "media_player",
+    "vendor_key": "amazon",
+    "model_key": "fire_os",
+    "keywords": [
+      "4k",
+      "amazon",
+      "fire",
+      "media",
+      "os",
+      "player",
+      "stick",
+      "tv"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:amazon:ring_video_doorbell_firmware:3.4.7:*:*:*:*:*:*:*",
+    "vendor": "Amazon / Ring",
+    "product": "Ring Video Doorbell Pro",
+    "category": "doorbell",
+    "vendor_key": "amazon",
+    "model_key": "ring_video_doorbell",
+    "keywords": [
+      "amazon",
+      "doorbell",
+      "pro",
+      "ring",
+      "video"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:asus:gt-ac2900_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "ASUS",
+    "product": "ROG GT-AC2900",
+    "category": "router",
+    "vendor_key": "asus",
+    "model_key": "gt-ac2900",
+    "keywords": [
+      "ac2900",
+      "asus",
+      "gt",
+      "rog",
+      "router"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:asus:lyra_mini_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "ASUS",
+    "product": "LYRA MINI",
+    "category": "iot",
+    "vendor_key": "asus",
+    "model_key": "lyra_mini",
+    "keywords": [
+      "asus",
+      "iot",
+      "lyra",
+      "mini"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-2132l_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS 2132L",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-2132l",
+    "keywords": [
+      "2132l",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-2136l_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS 2136L",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-2136l",
+    "keywords": [
+      "2136l",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-2210l_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS 2210L",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-2210l",
+    "keywords": [
+      "2210l",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-2230l_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS 2230L",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-2230l",
+    "keywords": [
+      "2230l",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-2310l_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS 2310L",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-2310l",
+    "keywords": [
+      "2310l",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-2330l_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS 2330L",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-2330l",
+    "keywords": [
+      "2330l",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-2332l_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS 2332L",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-2332l",
+    "keywords": [
+      "2332l",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-2530l_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS-2530L",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-2530l",
+    "keywords": [
+      "2530l",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-2670l_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS 2670L",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-2670l",
+    "keywords": [
+      "2670l",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-4603_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS 4603",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-4603",
+    "keywords": [
+      "4603",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-4622_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS 4622",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-4622",
+    "keywords": [
+      "4622",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-4701e_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS 4701E",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-4701e",
+    "keywords": [
+      "4701e",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-4703e_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS 4703E",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-4703e",
+    "keywords": [
+      "4703e",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-4705e_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS 4705E",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-4705e",
+    "keywords": [
+      "4705e",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-4802e_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS 4802E",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-4802e",
+    "keywords": [
+      "4802e",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-5000l_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS 5000L",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-5000l",
+    "keywords": [
+      "5000l",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-5009l_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS 5009L",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-5009l",
+    "keywords": [
+      "5009l",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-5010l_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS 5010L",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-5010l",
+    "keywords": [
+      "5010l",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-5020l_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS 5020L",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-5020l",
+    "keywords": [
+      "5020l",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-5025l_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS 5025L",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-5025l",
+    "keywords": [
+      "5025l",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-5029l_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS 5029L",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-5029l",
+    "keywords": [
+      "5029l",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-5030l_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS 5030L",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-5030l",
+    "keywords": [
+      "5030l",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-5222l_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS 5222L",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-5222l",
+    "keywords": [
+      "5222l",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-6010l_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS 6010L",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-6010l",
+    "keywords": [
+      "6010l",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-6212l_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS 6212L",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-6212l",
+    "keywords": [
+      "6212l",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-7000l_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS 7000L",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-7000l",
+    "keywords": [
+      "7000l",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-7010l_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS 7010L",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-7010l",
+    "keywords": [
+      "7010l",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-930l_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS 930L",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-930l",
+    "keywords": [
+      "930l",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-931l_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS 931L",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-931l",
+    "keywords": [
+      "931l",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-932l_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS 932L",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-932l",
+    "keywords": [
+      "932l",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-933l_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS 933L",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-933l",
+    "keywords": [
+      "933l",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-934l_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS 934L",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-934l",
+    "keywords": [
+      "934l",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-942l_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS 942L",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-942l",
+    "keywords": [
+      "942l",
+      "camera",
+      "dcs",
+      "dlink",
+      "link"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:dlink:dcs-p703_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "D-Link",
+    "product": "DCS P703",
+    "category": "camera",
+    "vendor_key": "dlink",
+    "model_key": "dcs-p703",
+    "keywords": [
+      "camera",
+      "dcs",
+      "dlink",
+      "link",
+      "p703"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2021g1-i\\(w\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2021G1 I\\(W\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2021g1-i\\(w\\)",
+    "keywords": [
+      "2cd2021g1",
+      "ds",
+      "hikvision",
+      "i\\(w\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2023g2-i\\(u\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2023G2 I\\(U\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2023g2-i\\(u\\)",
+    "keywords": [
+      "2cd2023g2",
+      "ds",
+      "hikvision",
+      "i\\(u\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2026g2-iu\\/sl_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2026G2 IU\\/SL",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2026g2-iu\\/sl",
+    "keywords": [
+      "2cd2026g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "iu\\",
+      "sl"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2027g2-l\\(u\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2027G2 L\\(U\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2027g2-l\\(u\\)",
+    "keywords": [
+      "2cd2027g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "l\\(u\\)"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2027g2-lu\\/sl_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2027G2 LU\\/SL",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2027g2-lu\\/sl",
+    "keywords": [
+      "2cd2027g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "lu\\",
+      "sl"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2043g2-i\\(u\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2043G2 I\\(U\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2043g2-i\\(u\\)",
+    "keywords": [
+      "2cd2043g2",
+      "ds",
+      "hikvision",
+      "i\\(u\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2046g2-iu\\/sl_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2046G2 IU\\/SL",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2046g2-iu\\/sl",
+    "keywords": [
+      "2cd2046g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "iu\\",
+      "sl"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2047g2-l\\(u\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2047G2 L\\(U\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2047g2-l\\(u\\)",
+    "keywords": [
+      "2cd2047g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "l\\(u\\)"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2063g2-i\\(u\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2063G2 I\\(U\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2063g2-i\\(u\\)",
+    "keywords": [
+      "2cd2063g2",
+      "ds",
+      "hikvision",
+      "i\\(u\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2066g2-i\\(u\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2066G2 I\\(U\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2066g2-i\\(u\\)",
+    "keywords": [
+      "2cd2066g2",
+      "ds",
+      "hikvision",
+      "i\\(u\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2066g2-iu\\/sl_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2066G2 IU\\/SL",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2066g2-iu\\/sl",
+    "keywords": [
+      "2cd2066g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "iu\\",
+      "sl"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2083g2-i\\(u\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2083G2 I\\(U\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2083g2-i\\(u\\)",
+    "keywords": [
+      "2cd2083g2",
+      "ds",
+      "hikvision",
+      "i\\(u\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2086g2-i\\(u\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2086G2 I\\(U\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2086g2-i\\(u\\)",
+    "keywords": [
+      "2cd2086g2",
+      "ds",
+      "hikvision",
+      "i\\(u\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2086g2-iu\\/sl_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2086G2 IU\\/SL",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2086g2-iu\\/sl",
+    "keywords": [
+      "2cd2086g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "iu\\",
+      "sl"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2087g2-l\\(u\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2087G2 L\\(U\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2087g2-l\\(u\\)",
+    "keywords": [
+      "2cd2087g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "l\\(u\\)"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2121g0-i\\(w\\)\\(s\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2121G0 I\\(W\\)\\(S\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2121g0-i\\(w\\)\\(s\\)",
+    "keywords": [
+      "2cd2121g0",
+      "ds",
+      "hikvision",
+      "i\\(w\\)\\(s\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2121g1_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2121G1",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2121g1",
+    "keywords": [
+      "2cd2121g1",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2121g1-i\\(w\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2121G1 I\\(W\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2121g1-i\\(w\\)",
+    "keywords": [
+      "2cd2121g1",
+      "ds",
+      "hikvision",
+      "i\\(w\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2121g1-idw_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2121G1 IDW",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2121g1-idw",
+    "keywords": [
+      "2cd2121g1",
+      "ds",
+      "hikvision",
+      "idw",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2123g2-i\\(s\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2123G2 I\\(S\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2123g2-i\\(s\\)",
+    "keywords": [
+      "2cd2123g2",
+      "ds",
+      "hikvision",
+      "i\\(s\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2123g2-iu_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2123G2 IU",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2123g2-iu",
+    "keywords": [
+      "2cd2123g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "iu"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2127g2-\\(-su\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2127G2 \\( SU\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2127g2-\\(-su\\)",
+    "keywords": [
+      "2cd2127g2",
+      "\\(",
+      "ds",
+      "hikvision",
+      "iot",
+      "su\\)"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2143g2-i\\(s\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2143G2 I\\(S\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2143g2-i\\(s\\)",
+    "keywords": [
+      "2cd2143g2",
+      "ds",
+      "hikvision",
+      "i\\(s\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2143g2-iu_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2143G2 IU",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2143g2-iu",
+    "keywords": [
+      "2cd2143g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "iu"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2147g2-l\\(su\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2147G2 L\\(SU\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2147g2-l\\(su\\)",
+    "keywords": [
+      "2cd2147g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "l\\(su\\)"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2163g2-i\\(s\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2163G2 I\\(S\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2163g2-i\\(s\\)",
+    "keywords": [
+      "2cd2163g2",
+      "ds",
+      "hikvision",
+      "i\\(s\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2163g2-iu_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2163G2 IU",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2163g2-iu",
+    "keywords": [
+      "2cd2163g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "iu"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2166g2-i\\(su\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2166G2 I\\(SU\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2166g2-i\\(su\\)",
+    "keywords": [
+      "2cd2166g2",
+      "ds",
+      "hikvision",
+      "i\\(su\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2183g2-i\\(s\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2183G2 I\\(S\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2183g2-i\\(s\\)",
+    "keywords": [
+      "2cd2183g2",
+      "ds",
+      "hikvision",
+      "i\\(s\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2183g2-i\\(u\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2183G2 I\\(U\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2183g2-i\\(u\\)",
+    "keywords": [
+      "2cd2183g2",
+      "ds",
+      "hikvision",
+      "i\\(u\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2183g2-iu_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2183G2 IU",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2183g2-iu",
+    "keywords": [
+      "2cd2183g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "iu"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2186g2-i\\(su\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2186G2 I\\(SU\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2186g2-i\\(su\\)",
+    "keywords": [
+      "2cd2186g2",
+      "ds",
+      "hikvision",
+      "i\\(su\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2186g2-isu_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2186G2 ISU",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2186g2-isu",
+    "keywords": [
+      "2cd2186g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "isu"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2321g0-i\\/nf_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2321G0 I\\/NF",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2321g0-i\\/nf",
+    "keywords": [
+      "2cd2321g0",
+      "ds",
+      "hikvision",
+      "i\\",
+      "iot",
+      "nf"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2323g2-i\\(u\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2323G2 I\\(U\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2323g2-i\\(u\\)",
+    "keywords": [
+      "2cd2323g2",
+      "ds",
+      "hikvision",
+      "i\\(u\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2326g2-isu\\/sl_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2326G2 ISU\\/SL",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2326g2-isu\\/sl",
+    "keywords": [
+      "2cd2326g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "isu\\",
+      "sl"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2327g2-l\\(u\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2327G2 L\\(U\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2327g2-l\\(u\\)",
+    "keywords": [
+      "2cd2327g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "l\\(u\\)"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2343g2-i\\(u\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2343G2 I\\(U\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2343g2-i\\(u\\)",
+    "keywords": [
+      "2cd2343g2",
+      "ds",
+      "hikvision",
+      "i\\(u\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2346g2-isu\\/sl_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2346G2 ISU\\/SL",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2346g2-isu\\/sl",
+    "keywords": [
+      "2cd2346g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "isu\\",
+      "sl"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2347g2-l\\(u\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2347G2 L\\(U\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2347g2-l\\(u\\)",
+    "keywords": [
+      "2cd2347g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "l\\(u\\)"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2347g2-lsu\\/sl_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2347G2 LSU\\/SL",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2347g2-lsu\\/sl",
+    "keywords": [
+      "2cd2347g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "lsu\\",
+      "sl"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2363g2-i\\(u\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2363G2 I\\(U\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2363g2-i\\(u\\)",
+    "keywords": [
+      "2cd2363g2",
+      "ds",
+      "hikvision",
+      "i\\(u\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2366g2-i\\(u\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2366G2 I\\(U\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2366g2-i\\(u\\)",
+    "keywords": [
+      "2cd2366g2",
+      "ds",
+      "hikvision",
+      "i\\(u\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2366g2-isu\\/sl_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2366G2 ISU\\/SL",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2366g2-isu\\/sl",
+    "keywords": [
+      "2cd2366g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "isu\\",
+      "sl"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2383g2-i\\(u\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2383G2 I\\(U\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2383g2-i\\(u\\)",
+    "keywords": [
+      "2cd2383g2",
+      "ds",
+      "hikvision",
+      "i\\(u\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2386g2-i\\(u\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2386G2 I\\(U\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2386g2-i\\(u\\)",
+    "keywords": [
+      "2cd2386g2",
+      "ds",
+      "hikvision",
+      "i\\(u\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2386g2-isu\\/sl_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2386G2 ISU\\/SL",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2386g2-isu\\/sl",
+    "keywords": [
+      "2cd2386g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "isu\\",
+      "sl"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2387g2-l\\(u\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2387G2 L\\(U\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2387g2-l\\(u\\)",
+    "keywords": [
+      "2cd2387g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "l\\(u\\)"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2421g0-i\\(d\\)\\(w\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2421G0 I\\(D\\)\\(W\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2421g0-i\\(d\\)\\(w\\)",
+    "keywords": [
+      "2cd2421g0",
+      "ds",
+      "hikvision",
+      "i\\(d\\)\\(w\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2421g0-i\\(d\\)w_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2421G0 I\\(D\\)W",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2421g0-i\\(d\\)w",
+    "keywords": [
+      "2cd2421g0",
+      "ds",
+      "hikvision",
+      "i\\(d\\)w",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2426g2-i_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2426G2 I",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2426g2-i",
+    "keywords": [
+      "2cd2426g2",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2446g2-i_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2446G2 I",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2446g2-i",
+    "keywords": [
+      "2cd2446g2",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2523g2-i\\(s\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2523G2 I\\(S\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2523g2-i\\(s\\)",
+    "keywords": [
+      "2cd2523g2",
+      "ds",
+      "hikvision",
+      "i\\(s\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2523g2-i\\(u\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2523G2 I\\(U\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2523g2-i\\(u\\)",
+    "keywords": [
+      "2cd2523g2",
+      "ds",
+      "hikvision",
+      "i\\(u\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2526g2-i\\(s\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2526G2 I\\(S\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2526g2-i\\(s\\)",
+    "keywords": [
+      "2cd2526g2",
+      "ds",
+      "hikvision",
+      "i\\(s\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2526g2-is_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2526G2 IS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2526g2-is",
+    "keywords": [
+      "2cd2526g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "is"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2527g2-ls_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2527G2 LS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2527g2-ls",
+    "keywords": [
+      "2cd2527g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "ls"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2543g2-i\\(ws\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2543G2 I\\(WS\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2543g2-i\\(ws\\)",
+    "keywords": [
+      "2cd2543g2",
+      "ds",
+      "hikvision",
+      "i\\(ws\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2546g2-i\\(s\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2546G2 I\\(S\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2546g2-i\\(s\\)",
+    "keywords": [
+      "2cd2546g2",
+      "ds",
+      "hikvision",
+      "i\\(s\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2547g2-ls_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2547G2 LS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2547g2-ls",
+    "keywords": [
+      "2cd2547g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "ls"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2547g2-lzs_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2547G2 LZS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2547g2-lzs",
+    "keywords": [
+      "2cd2547g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "lzs"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2563g2-i\\(s\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2563G2 I\\(S\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2563g2-i\\(s\\)",
+    "keywords": [
+      "2cd2563g2",
+      "ds",
+      "hikvision",
+      "i\\(s\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2566g2-i\\(s\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2566G2 I\\(S\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2566g2-i\\(s\\)",
+    "keywords": [
+      "2cd2566g2",
+      "ds",
+      "hikvision",
+      "i\\(s\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2583g2-i\\(s\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2583G2 I\\(S\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2583g2-i\\(s\\)",
+    "keywords": [
+      "2cd2583g2",
+      "ds",
+      "hikvision",
+      "i\\(s\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2586g2-i\\(s\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2586G2 I\\(S\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2586g2-i\\(s\\)",
+    "keywords": [
+      "2cd2586g2",
+      "ds",
+      "hikvision",
+      "i\\(s\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2621g0-i\\(z\\)\\(s\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2621G0 I\\(Z\\)\\(S\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2621g0-i\\(z\\)\\(s\\)",
+    "keywords": [
+      "2cd2621g0",
+      "ds",
+      "hikvision",
+      "i\\(z\\)\\(s\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2623g2-izs_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2623G2 IZS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2623g2-izs",
+    "keywords": [
+      "2cd2623g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "izs"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2626g2-izsu\\/sl_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2626G2 IZSU\\/SL",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2626g2-izsu\\/sl",
+    "keywords": [
+      "2cd2626g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "izsu\\",
+      "sl"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2643g2-izs_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2643G2 IZS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2643g2-izs",
+    "keywords": [
+      "2cd2643g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "izs"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2646g2-izsu\\/sl_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2646G2 IZSU\\/SL",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2646g2-izsu\\/sl",
+    "keywords": [
+      "2cd2646g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "izsu\\",
+      "sl"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2663g2-izs_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2663G2 IZS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2663g2-izs",
+    "keywords": [
+      "2cd2663g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "izs"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2666g2-izs_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2666G2 IZS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2666g2-izs",
+    "keywords": [
+      "2cd2666g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "izs"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2666g2-izsu\\/sl_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2666G2 IZSU\\/SL",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2666g2-izsu\\/sl",
+    "keywords": [
+      "2cd2666g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "izsu\\",
+      "sl"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2683g2-izs_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2683G2 IZS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2683g2-izs",
+    "keywords": [
+      "2cd2683g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "izs"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2686g2-izs_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2686G2 IZS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2686g2-izs",
+    "keywords": [
+      "2cd2686g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "izs"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2686g2-izsu\\/sl_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2686G2 IZSU\\/SL",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2686g2-izsu\\/sl",
+    "keywords": [
+      "2cd2686g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "izsu\\",
+      "sl"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2721g0-i\\(z\\)\\(s\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2721G0 I\\(Z\\)\\(S\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2721g0-i\\(z\\)\\(s\\)",
+    "keywords": [
+      "2cd2721g0",
+      "ds",
+      "hikvision",
+      "i\\(z\\)\\(s\\)",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2723g2-izs_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2723G2 IZS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2723g2-izs",
+    "keywords": [
+      "2cd2723g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "izs"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2743g2-izs_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2743G2 IZS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2743g2-izs",
+    "keywords": [
+      "2cd2743g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "izs"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2763g2-izs_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2763G2 IZS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2763g2-izs",
+    "keywords": [
+      "2cd2763g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "izs"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2766g2-izs_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2766G2 IZS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2766g2-izs",
+    "keywords": [
+      "2cd2766g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "izs"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2783g2-izs_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2783G2 IZS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2783g2-izs",
+    "keywords": [
+      "2cd2783g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "izs"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd2786g2-izs_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD2786G2 IZS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd2786g2-izs",
+    "keywords": [
+      "2cd2786g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "izs"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3023g2-iu_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3023G2 IU",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3023g2-iu",
+    "keywords": [
+      "2cd3023g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "iu"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3026g2-is_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3026G2 IS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3026g2-is",
+    "keywords": [
+      "2cd3026g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "is"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3026g2-iu\\/sl_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3026G2 IU\\/SL",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3026g2-iu\\/sl",
+    "keywords": [
+      "2cd3026g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "iu\\",
+      "sl"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3043g2-iu_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3043G2 IU",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3043g2-iu",
+    "keywords": [
+      "2cd3043g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "iu"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3047g2-ls_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3047G2 LS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3047g2-ls",
+    "keywords": [
+      "2cd3047g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "ls"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3056g2-is_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3056G2 IS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3056g2-is",
+    "keywords": [
+      "2cd3056g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "is"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3056g2-iu\\/sl_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3056G2 IU\\/SL",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3056g2-iu\\/sl",
+    "keywords": [
+      "2cd3056g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "iu\\",
+      "sl"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3056g2iu\\/sl_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3056G2IU\\/SL",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3056g2iu\\/sl",
+    "keywords": [
+      "2cd3056g2iu\\",
+      "ds",
+      "hikvision",
+      "iot",
+      "sl"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3063g2-iu_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3063G2 IU",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3063g2-iu",
+    "keywords": [
+      "2cd3063g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "iu"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3086g2-is_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3086G2 IS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3086g2-is",
+    "keywords": [
+      "2cd3086g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "is"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3123g2-i\\(s\\)u_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3123G2 I\\(S\\)U",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3123g2-i\\(s\\)u",
+    "keywords": [
+      "2cd3123g2",
+      "ds",
+      "hikvision",
+      "i\\(s\\)u",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3126g2-is_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3126G2 IS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3126g2-is",
+    "keywords": [
+      "2cd3126g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "is"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3126g2-is\\(u\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3126G2 IS\\(U\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3126g2-is\\(u\\)",
+    "keywords": [
+      "2cd3126g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "is\\(u\\)"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3143g2-i\\(s\\)u_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3143G2 I\\(S\\)U",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3143g2-i\\(s\\)u",
+    "keywords": [
+      "2cd3143g2",
+      "ds",
+      "hikvision",
+      "i\\(s\\)u",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3156g2-is_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3156G2 IS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3156g2-is",
+    "keywords": [
+      "2cd3156g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "is"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3156g2-is\\(u\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3156G2 IS\\(U\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3156g2-is\\(u\\)",
+    "keywords": [
+      "2cd3156g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "is\\(u\\)"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3163g2-i\\(s\\)u_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3163G2 I\\(S\\)U",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3163g2-i\\(s\\)u",
+    "keywords": [
+      "2cd3163g2",
+      "ds",
+      "hikvision",
+      "i\\(s\\)u",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3186g2-is\\(u\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3186G2 IS\\(U\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3186g2-is\\(u\\)",
+    "keywords": [
+      "2cd3186g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "is\\(u\\)"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3323g2-iu_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3323G2 IU",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3323g2-iu",
+    "keywords": [
+      "2cd3323g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "iu"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3326g2-isu\\/sl_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3326G2 ISU\\/SL",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3326g2-isu\\/sl",
+    "keywords": [
+      "2cd3326g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "isu\\",
+      "sl"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3343g2-iu_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3343G2 IU",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3343g2-iu",
+    "keywords": [
+      "2cd3343g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "iu"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3347g2-ls\\(u\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3347G2 LS\\(U\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3347g2-ls\\(u\\)",
+    "keywords": [
+      "2cd3347g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "ls\\(u\\)"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3356g2-is_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3356G2 IS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3356g2-is",
+    "keywords": [
+      "2cd3356g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "is"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3356g2-is\\(u\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3356G2 IS\\(U\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3356g2-is\\(u\\)",
+    "keywords": [
+      "2cd3356g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "is\\(u\\)"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3356g2-isu\\/sl_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3356G2 ISU\\/SL",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3356g2-isu\\/sl",
+    "keywords": [
+      "2cd3356g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "isu\\",
+      "sl"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3363g2-iu_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3363G2 IU",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3363g2-iu",
+    "keywords": [
+      "2cd3363g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "iu"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3386g2-is_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3386G2 IS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3386g2-is",
+    "keywords": [
+      "2cd3386g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "is"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3386g2-is\\(u\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3386G2 IS\\(U\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3386g2-is\\(u\\)",
+    "keywords": [
+      "2cd3386g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "is\\(u\\)"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3523g2-is_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3523G2 IS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3523g2-is",
+    "keywords": [
+      "2cd3523g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "is"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3526g2-is_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3526G2 IS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3526g2-is",
+    "keywords": [
+      "2cd3526g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "is"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3543g2-is_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3543G2 IS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3543g2-is",
+    "keywords": [
+      "2cd3543g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "is"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3547g2-ls_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3547G2 LS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3547g2-ls",
+    "keywords": [
+      "2cd3547g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "ls"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3556g2-is_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3556G2 IS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3556g2-is",
+    "keywords": [
+      "2cd3556g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "is"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3563g2-is_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3563G2 IS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3563g2-is",
+    "keywords": [
+      "2cd3563g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "is"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3586g2-is_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3586G2 IS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3586g2-is",
+    "keywords": [
+      "2cd3586g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "is"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3623g2-izs_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3623G2 IZS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3623g2-izs",
+    "keywords": [
+      "2cd3623g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "izs"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3626g2-izs_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3626G2 IZS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3626g2-izs",
+    "keywords": [
+      "2cd3626g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "izs"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3643g2-izs_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3643G2 IZS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3643g2-izs",
+    "keywords": [
+      "2cd3643g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "izs"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3656g2-izs_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3656G2 IZS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3656g2-izs",
+    "keywords": [
+      "2cd3656g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "izs"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3663g2-izs_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3663G2 IZS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3663g2-izs",
+    "keywords": [
+      "2cd3663g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "izs"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3686g2-izs_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3686G2 IZS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3686g2-izs",
+    "keywords": [
+      "2cd3686g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "izs"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3723g2-izs_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3723G2 IZS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3723g2-izs",
+    "keywords": [
+      "2cd3723g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "izs"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3726g2-izs_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3726G2 IZS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3726g2-izs",
+    "keywords": [
+      "2cd3726g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "izs"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3743g2-izs_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3743G2 IZS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3743g2-izs",
+    "keywords": [
+      "2cd3743g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "izs"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3756g2-izs_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3756G2 IZS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3756g2-izs",
+    "keywords": [
+      "2cd3756g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "izs"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3763g2-izs_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3763G2 IZS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3763g2-izs",
+    "keywords": [
+      "2cd3763g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "izs"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2cd3786g2-izs_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2CD3786G2 IZS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2cd3786g2-izs",
+    "keywords": [
+      "2cd3786g2",
+      "ds",
+      "hikvision",
+      "iot",
+      "izs"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df5225x-ae3\\(t3\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF5225X AE3\\(T3\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df5225x-ae3\\(t3\\)",
+    "keywords": [
+      "2df5225x",
+      "ae3\\(t3\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df5225x-ael\\(t3\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF5225X AEL\\(T3\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df5225x-ael\\(t3\\)",
+    "keywords": [
+      "2df5225x",
+      "ael\\(t3\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df5232x-ae3\\)t3\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF5232X AE3\\)T3\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df5232x-ae3\\)t3\\)",
+    "keywords": [
+      "2df5232x",
+      "ae3\\)t3\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df5232x-ael\\(t3\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF5232X AEL\\(T3\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df5232x-ael\\(t3\\)",
+    "keywords": [
+      "2df5232x",
+      "ael\\(t3\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df6a225x-ael\\)t3\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF6A225X AEL\\)T3\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df6a225x-ael\\)t3\\)",
+    "keywords": [
+      "2df6a225x",
+      "ael\\)t3\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df6a236x-ael\\(t3\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF6A236X AEL\\(T3\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df6a236x-ael\\(t3\\)",
+    "keywords": [
+      "2df6a236x",
+      "ael\\(t3\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df6a425x-ael\\(t3\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF6A425X AEL\\(T3\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df6a425x-ael\\(t3\\)",
+    "keywords": [
+      "2df6a425x",
+      "ael\\(t3\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df6a436x-ael\\(t3\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF6A436X AEL\\(T3\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df6a436x-ael\\(t3\\)",
+    "keywords": [
+      "2df6a436x",
+      "ael\\(t3\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df6a436x-ael\\(t5\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF6A436X AEL\\(T5\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df6a436x-ael\\(t5\\)",
+    "keywords": [
+      "2df6a436x",
+      "ael\\(t5\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df6a436x-aely\\(t5\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF6A436X AELY\\(T5\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df6a436x-aely\\(t5\\)",
+    "keywords": [
+      "2df6a436x",
+      "aely\\(t5\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df6a825x-ael_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF6A825X AEL",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df6a825x-ael",
+    "keywords": [
+      "2df6a825x",
+      "ael",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df6a836x-ael\\(t5\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF6A836X AEL\\(T5\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df6a836x-ael\\(t5\\)",
+    "keywords": [
+      "2df6a836x",
+      "ael\\(t5\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df7225ix-ael\\(t3\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF7225IX AEL\\(T3\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df7225ix-ael\\(t3\\)",
+    "keywords": [
+      "2df7225ix",
+      "ael\\(t3\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df7225ix-aelw\\(t3\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF7225IX AELW\\(T3\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df7225ix-aelw\\(t3\\)",
+    "keywords": [
+      "2df7225ix",
+      "aelw\\(t3\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df7232ix-ael\\(t3\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF7232IX AEL\\(T3\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df7232ix-ael\\(t3\\)",
+    "keywords": [
+      "2df7232ix",
+      "ael\\(t3\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df7232ix-aelw\\(t3\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF7232IX AELW\\(T3\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df7232ix-aelw\\(t3\\)",
+    "keywords": [
+      "2df7232ix",
+      "aelw\\(t3\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df8225ih-ael_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF8225IH AEL",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df8225ih-ael",
+    "keywords": [
+      "2df8225ih",
+      "ael",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df8225ih-ael\\(w\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF8225IH AEL\\(W\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df8225ih-ael\\(w\\)",
+    "keywords": [
+      "2df8225ih",
+      "ael\\(w\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df8225ix-ael\\(t3\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF8225IX AEL\\(T3\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df8225ix-ael\\(t3\\)",
+    "keywords": [
+      "2df8225ix",
+      "ael\\(t3\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df8225ix-ael\\(t5\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF8225IX AEL\\(T5\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df8225ix-ael\\(t5\\)",
+    "keywords": [
+      "2df8225ix",
+      "ael\\(t5\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df8225ix-aelw\\(t3\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF8225IX AELW\\(T3\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df8225ix-aelw\\(t3\\)",
+    "keywords": [
+      "2df8225ix",
+      "aelw\\(t3\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df8225ix-aelw\\(t5\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF8225IX AELW\\(T5\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df8225ix-aelw\\(t5\\)",
+    "keywords": [
+      "2df8225ix",
+      "aelw\\(t5\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df8236i5x-aelw_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF8236I5X AELW",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df8236i5x-aelw",
+    "keywords": [
+      "2df8236i5x",
+      "aelw",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df8242i5x-ael\\(t3\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF8242I5X AEL\\(T3\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df8242i5x-ael\\(t3\\)",
+    "keywords": [
+      "2df8242i5x",
+      "ael\\(t3\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df8242i5x-aelw\\(t3\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF8242I5X AELW\\(T3\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df8242i5x-aelw\\(t3\\)",
+    "keywords": [
+      "2df8242i5x",
+      "aelw\\(t3\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df8242i5x-aelw\\(t5\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF8242I5X AELW\\(T5\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df8242i5x-aelw\\(t5\\)",
+    "keywords": [
+      "2df8242i5x",
+      "aelw\\(t5\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df8242ix-ael\\(t5\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF8242IX AEL\\(T5\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df8242ix-ael\\(t5\\)",
+    "keywords": [
+      "2df8242ix",
+      "ael\\(t5\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df8242ix-aelw\\(t3\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF8242IX AELW\\(T3\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df8242ix-aelw\\(t3\\)",
+    "keywords": [
+      "2df8242ix",
+      "aelw\\(t3\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df8242ix-aely\\(t3\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF8242IX AELY\\(T3\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df8242ix-aely\\(t3\\)",
+    "keywords": [
+      "2df8242ix",
+      "aely\\(t3\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df8250i8x-ael\\(t3\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF8250I8X AEL\\(T3\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df8250i8x-ael\\(t3\\)",
+    "keywords": [
+      "2df8250i8x",
+      "ael\\(t3\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df8425ix-ael\\(t3\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF8425IX AEL\\(T3\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df8425ix-ael\\(t3\\)",
+    "keywords": [
+      "2df8425ix",
+      "ael\\(t3\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df8425ix-ael\\(t5\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF8425IX AEL\\(T5\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df8425ix-ael\\(t5\\)",
+    "keywords": [
+      "2df8425ix",
+      "ael\\(t5\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df8425ix-aelw\\(t3\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF8425IX AELW\\(T3\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df8425ix-aelw\\(t3\\)",
+    "keywords": [
+      "2df8425ix",
+      "aelw\\(t3\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df8425ix-aelw\\(t5\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF8425IX AELW\\(T5\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df8425ix-aelw\\(t5\\)",
+    "keywords": [
+      "2df8425ix",
+      "aelw\\(t5\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df8436i5x-aelw\\(t3\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF8436I5X AELW\\(T3\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df8436i5x-aelw\\(t3\\)",
+    "keywords": [
+      "2df8436i5x",
+      "aelw\\(t3\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df8442ixs-ael\\(t5\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF8442IXS AEL\\(T5\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df8442ixs-ael\\(t5\\)",
+    "keywords": [
+      "2df8442ixs",
+      "ael\\(t5\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df8442ixs-aelw\\(t2\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF8442IXS AELW\\(T2\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df8442ixs-aelw\\(t2\\)",
+    "keywords": [
+      "2df8442ixs",
+      "aelw\\(t2\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df8442ixs-aelw\\(t5\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF8442IXS AELW\\(T5\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df8442ixs-aelw\\(t5\\)",
+    "keywords": [
+      "2df8442ixs",
+      "aelw\\(t5\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df8442ixs-aelwy\\(t5\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF8442IXS AELWY\\(T5\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df8442ixs-aelwy\\(t5\\)",
+    "keywords": [
+      "2df8442ixs",
+      "aelwy\\(t5\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df8442ixs-aely\\(t5\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF8442IXS AELY\\(T5\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df8442ixs-aely\\(t5\\)",
+    "keywords": [
+      "2df8442ixs",
+      "aely\\(t5\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df8a442ixs-ael\\(t2\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF8A442IXS AEL\\(T2\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df8a442ixs-ael\\(t2\\)",
+    "keywords": [
+      "2df8a442ixs",
+      "ael\\(t2\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df8a442ixs-ael\\(t5\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF8A442IXS AEL\\(T5\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df8a442ixs-ael\\(t5\\)",
+    "keywords": [
+      "2df8a442ixs",
+      "ael\\(t5\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df8a442ixs-aely\\(t5\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF8A442IXS AELY\\(T5\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df8a442ixs-aely\\(t5\\)",
+    "keywords": [
+      "2df8a442ixs",
+      "aely\\(t5\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df8a442ixs-af\\/sp\\(t5\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF8A442IXS AF\\/SP\\(T5\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df8a442ixs-af\\/sp\\(t5\\)",
+    "keywords": [
+      "2df8a442ixs",
+      "af\\",
+      "ds",
+      "hikvision",
+      "iot",
+      "sp\\(t5\\)"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df8a442nxs-ael\\(t5\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF8A442NXS AEL\\(T5\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df8a442nxs-ael\\(t5\\)",
+    "keywords": [
+      "2df8a442nxs",
+      "ael\\(t5\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2df8a842ixs-ael\\(t5\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DF8A842IXS AEL\\(T5\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2df8a842ixs-ael\\(t5\\)",
+    "keywords": [
+      "2df8a842ixs",
+      "ael\\(t5\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2dy9236i8x-a_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DY9236I8X A",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2dy9236i8x-a",
+    "keywords": [
+      "2dy9236i8x",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2dy9236i8x-a\\(t3\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DY9236I8X A\\(T3\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2dy9236i8x-a\\(t3\\)",
+    "keywords": [
+      "2dy9236i8x",
+      "a\\(t3\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2dy9236ix-a\\(t3\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DY9236IX A\\(T3\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2dy9236ix-a\\(t3\\)",
+    "keywords": [
+      "2dy9236ix",
+      "a\\(t3\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2dy9236x-a\\(t3\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DY9236X A\\(T3\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2dy9236x-a\\(t3\\)",
+    "keywords": [
+      "2dy9236x",
+      "a\\(t3\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2dy9240ix-a\\(t5\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DY9240IX A\\(T5\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2dy9240ix-a\\(t5\\)",
+    "keywords": [
+      "2dy9240ix",
+      "a\\(t5\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2dy92500x-a\\(t5\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DY92500X A\\(T5\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2dy92500x-a\\(t5\\)",
+    "keywords": [
+      "2dy92500x",
+      "a\\(t5\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2dy9250izs-a\\(t5\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DY9250IZS A\\(T5\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2dy9250izs-a\\(t5\\)",
+    "keywords": [
+      "2dy9250izs",
+      "a\\(t5\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2dyh2a0ixs-d\\(t2\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2DYH2A0IXS D\\(T2\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2dyh2a0ixs-d\\(t2\\)",
+    "keywords": [
+      "2dyh2a0ixs",
+      "d\\(t2\\)",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2td1117-2\\/pa_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2TD1117 2\\/PA",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2td1117-2\\/pa",
+    "keywords": [
+      "2\\",
+      "2td1117",
+      "ds",
+      "hikvision",
+      "iot",
+      "pa"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2td1117-3\\/pa_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2TD1117 3\\/PA",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2td1117-3\\/pa",
+    "keywords": [
+      "2td1117",
+      "3\\",
+      "ds",
+      "hikvision",
+      "iot",
+      "pa"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2td1117-6\\/pa_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2TD1117 6\\/PA",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2td1117-6\\/pa",
+    "keywords": [
+      "2td1117",
+      "6\\",
+      "ds",
+      "hikvision",
+      "iot",
+      "pa"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2td1217b-3\\/pa_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2TD1217B 3\\/PA",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2td1217b-3\\/pa",
+    "keywords": [
+      "2td1217b",
+      "3\\",
+      "ds",
+      "hikvision",
+      "iot",
+      "pa"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2td1217b-6\\/pa_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2TD1217B 6\\/PA",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2td1217b-6\\/pa",
+    "keywords": [
+      "2td1217b",
+      "6\\",
+      "ds",
+      "hikvision",
+      "iot",
+      "pa"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2td4136t-9_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2TD4136T 9",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2td4136t-9",
+    "keywords": [
+      "2td4136t",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2td4137-25\\/w_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2TD4137 25\\/W",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2td4137-25\\/w",
+    "keywords": [
+      "25\\",
+      "2td4137",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2td4137-50\\/w_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2TD4137 50\\/W",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2td4137-50\\/w",
+    "keywords": [
+      "2td4137",
+      "50\\",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2td4166t-9_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2TD4166T 9",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2td4166t-9",
+    "keywords": [
+      "2td4166t",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2td4167-25\\/w_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2TD4167 25\\/W",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2td4167-25\\/w",
+    "keywords": [
+      "25\\",
+      "2td4167",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2td4167-50\\/w_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2TD4167 50\\/W",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2td4167-50\\/w",
+    "keywords": [
+      "2td4167",
+      "50\\",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2td6236t-50h2l_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2TD6236T 50H2L",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2td6236t-50h2l",
+    "keywords": [
+      "2td6236t",
+      "50h2l",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2td6237-50h4l\\/w_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2TD6237 50H4L\\/W",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2td6237-50h4l\\/w",
+    "keywords": [
+      "2td6237",
+      "50h4l\\",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2td6237-75c4l\\/w_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2TD6237 75C4L\\/W",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2td6237-75c4l\\/w",
+    "keywords": [
+      "2td6237",
+      "75c4l\\",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2td6266t-25h2l_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2TD6266T 25H2L",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2td6266t-25h2l",
+    "keywords": [
+      "25h2l",
+      "2td6266t",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2td6266t-50h2l_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2TD6266T 50H2L",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2td6266t-50h2l",
+    "keywords": [
+      "2td6266t",
+      "50h2l",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2td6267-100c4l\\/w_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2TD6267 100C4L\\/W",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2td6267-100c4l\\/w",
+    "keywords": [
+      "100c4l\\",
+      "2td6267",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2td6267-100c4l\\/wy_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2TD6267 100C4L\\/WY",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2td6267-100c4l\\/wy",
+    "keywords": [
+      "100c4l\\",
+      "2td6267",
+      "ds",
+      "hikvision",
+      "iot",
+      "wy"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2td6267-50h4l\\/w_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2TD6267 50H4L\\/W",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2td6267-50h4l\\/w",
+    "keywords": [
+      "2td6267",
+      "50h4l\\",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2td6267-75c4l\\/w_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2TD6267 75C4L\\/W",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2td6267-75c4l\\/w",
+    "keywords": [
+      "2td6267",
+      "75c4l\\",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2td6267-75c4l\\/wy_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2TD6267 75C4L\\/WY",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2td6267-75c4l\\/wy",
+    "keywords": [
+      "2td6267",
+      "75c4l\\",
+      "ds",
+      "hikvision",
+      "iot",
+      "wy"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2td8166-100c2f\\/v2_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2TD8166 100C2F\\/V2",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2td8166-100c2f\\/v2",
+    "keywords": [
+      "100c2f\\",
+      "2td8166",
+      "ds",
+      "hikvision",
+      "iot",
+      "v2"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2td8166-150ze2f\\/v2_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2TD8166 150ZE2F\\/V2",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2td8166-150ze2f\\/v2",
+    "keywords": [
+      "150ze2f\\",
+      "2td8166",
+      "ds",
+      "hikvision",
+      "iot",
+      "v2"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2td8166-150zh2f\\/v2_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2TD8166 150ZH2F\\/V2",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2td8166-150zh2f\\/v2",
+    "keywords": [
+      "150zh2f\\",
+      "2td8166",
+      "ds",
+      "hikvision",
+      "iot",
+      "v2"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2td8166-180ze2f\\/v2_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2TD8166 180ZE2F\\/V2",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2td8166-180ze2f\\/v2",
+    "keywords": [
+      "180ze2f\\",
+      "2td8166",
+      "ds",
+      "hikvision",
+      "iot",
+      "v2"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2td8166-75c2f\\/v2_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2TD8166 75C2F\\/V2",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2td8166-75c2f\\/v2",
+    "keywords": [
+      "2td8166",
+      "75c2f\\",
+      "ds",
+      "hikvision",
+      "iot",
+      "v2"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2td8167-150zc4f\\/w_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2TD8167 150ZC4F\\/W",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2td8167-150zc4f\\/w",
+    "keywords": [
+      "150zc4f\\",
+      "2td8167",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2td8167-190ze2f\\/w_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2TD8167 190ZE2F\\/W",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2td8167-190ze2f\\/w",
+    "keywords": [
+      "190ze2f\\",
+      "2td8167",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2td8167-190ze2f\\/wy_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2TD8167 190ZE2F\\/WY",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2td8167-190ze2f\\/wy",
+    "keywords": [
+      "190ze2f\\",
+      "2td8167",
+      "ds",
+      "hikvision",
+      "iot",
+      "wy"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2td8167-230zg2f\\/w_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2TD8167 230ZG2F\\/W",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2td8167-230zg2f\\/w",
+    "keywords": [
+      "230zg2f\\",
+      "2td8167",
+      "ds",
+      "hikvision",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2td8167-230zg2f\\/wy_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2TD8167 230ZG2F\\/WY",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2td8167-230zg2f\\/wy",
+    "keywords": [
+      "230zg2f\\",
+      "2td8167",
+      "ds",
+      "hikvision",
+      "iot",
+      "wy"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2xe6242f-is\\/316l\\(b\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2XE6242F IS\\/316L\\(B\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2xe6242f-is\\/316l\\(b\\)",
+    "keywords": [
+      "2xe6242f",
+      "316l\\(b\\)",
+      "ds",
+      "hikvision",
+      "iot",
+      "is\\"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2xe6422fwd-izhrs_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2XE6422FWD IZHRS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2xe6422fwd-izhrs",
+    "keywords": [
+      "2xe6422fwd",
+      "ds",
+      "hikvision",
+      "iot",
+      "izhrs"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2xe6442f-izhrs\\(b\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2XE6442F IZHRS\\(B\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2xe6442f-izhrs\\(b\\)",
+    "keywords": [
+      "2xe6442f",
+      "ds",
+      "hikvision",
+      "iot",
+      "izhrs\\(b\\)"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2xe6452f-izh\\(r\\)s_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2XE6452F IZH\\(R\\)S",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2xe6452f-izh\\(r\\)s",
+    "keywords": [
+      "2xe6452f",
+      "ds",
+      "hikvision",
+      "iot",
+      "izh\\(r\\)s"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-2xe6482f-izhrs_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 2XE6482F IZHRS",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ds-2xe6482f-izhrs",
+    "keywords": [
+      "2xe6482f",
+      "ds",
+      "hikvision",
+      "iot",
+      "izhrs"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-7104ni-q1_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 7104NI Q1",
+    "category": "nvr",
+    "vendor_key": "hikvision",
+    "model_key": "ds-7104ni-q1",
+    "keywords": [
+      "7104ni",
+      "ds",
+      "hikvision",
+      "nvr",
+      "q1"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-7104ni-q1\\/4p_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 7104NI Q1\\/4P",
+    "category": "nvr",
+    "vendor_key": "hikvision",
+    "model_key": "ds-7104ni-q1\\/4p",
+    "keywords": [
+      "4p",
+      "7104ni",
+      "ds",
+      "hikvision",
+      "nvr",
+      "q1\\"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-7104ni-q1\\/4p\\/m_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 7104NI Q1\\/4P\\/M",
+    "category": "nvr",
+    "vendor_key": "hikvision",
+    "model_key": "ds-7104ni-q1\\/4p\\/m",
+    "keywords": [
+      "4p\\",
+      "7104ni",
+      "ds",
+      "hikvision",
+      "nvr",
+      "q1\\"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-7104ni-q1\\/m_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 7104NI Q1\\/M",
+    "category": "nvr",
+    "vendor_key": "hikvision",
+    "model_key": "ds-7104ni-q1\\/m",
+    "keywords": [
+      "7104ni",
+      "ds",
+      "hikvision",
+      "nvr",
+      "q1\\"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-7108ni-q1_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 7108NI Q1",
+    "category": "nvr",
+    "vendor_key": "hikvision",
+    "model_key": "ds-7108ni-q1",
+    "keywords": [
+      "7108ni",
+      "ds",
+      "hikvision",
+      "nvr",
+      "q1"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-7108ni-q1\\/8p_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 7108NI Q1\\/8P",
+    "category": "nvr",
+    "vendor_key": "hikvision",
+    "model_key": "ds-7108ni-q1\\/8p",
+    "keywords": [
+      "7108ni",
+      "8p",
+      "ds",
+      "hikvision",
+      "nvr",
+      "q1\\"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-7108ni-q1\\/8p\\/m_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 7108NI Q1\\/8P\\/M",
+    "category": "nvr",
+    "vendor_key": "hikvision",
+    "model_key": "ds-7108ni-q1\\/8p\\/m",
+    "keywords": [
+      "7108ni",
+      "8p\\",
+      "ds",
+      "hikvision",
+      "nvr",
+      "q1\\"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-7108ni-q1\\/m_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 7108NI Q1\\/M",
+    "category": "nvr",
+    "vendor_key": "hikvision",
+    "model_key": "ds-7108ni-q1\\/m",
+    "keywords": [
+      "7108ni",
+      "ds",
+      "hikvision",
+      "nvr",
+      "q1\\"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-7604ni-k1_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 7604NI K1",
+    "category": "nvr",
+    "vendor_key": "hikvision",
+    "model_key": "ds-7604ni-k1",
+    "keywords": [
+      "7604ni",
+      "ds",
+      "hikvision",
+      "k1",
+      "nvr"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-7604ni-k1\\/4p\\/4g_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 7604NI K1\\/4P\\/4G",
+    "category": "nvr",
+    "vendor_key": "hikvision",
+    "model_key": "ds-7604ni-k1\\/4p\\/4g",
+    "keywords": [
+      "4g",
+      "4p\\",
+      "7604ni",
+      "ds",
+      "hikvision",
+      "k1\\",
+      "nvr"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-7604ni-q1_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 7604NI Q1",
+    "category": "nvr",
+    "vendor_key": "hikvision",
+    "model_key": "ds-7604ni-q1",
+    "keywords": [
+      "7604ni",
+      "ds",
+      "hikvision",
+      "nvr",
+      "q1"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-7604ni-q1\\/4p_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 7604NI Q1\\/4P",
+    "category": "nvr",
+    "vendor_key": "hikvision",
+    "model_key": "ds-7604ni-q1\\/4p",
+    "keywords": [
+      "4p",
+      "7604ni",
+      "ds",
+      "hikvision",
+      "nvr",
+      "q1\\"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-7608ni-k1_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 7608NI K1",
+    "category": "nvr",
+    "vendor_key": "hikvision",
+    "model_key": "ds-7608ni-k1",
+    "keywords": [
+      "7608ni",
+      "ds",
+      "hikvision",
+      "k1",
+      "nvr"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-7608ni-k1\\/4g_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 7608NI K1\\/4G",
+    "category": "nvr",
+    "vendor_key": "hikvision",
+    "model_key": "ds-7608ni-k1\\/4g",
+    "keywords": [
+      "4g",
+      "7608ni",
+      "ds",
+      "hikvision",
+      "k1\\",
+      "nvr"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-7608ni-k1\\/8p_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 7608NI K1\\/8P",
+    "category": "nvr",
+    "vendor_key": "hikvision",
+    "model_key": "ds-7608ni-k1\\/8p",
+    "keywords": [
+      "7608ni",
+      "8p",
+      "ds",
+      "hikvision",
+      "k1\\",
+      "nvr"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-7608ni-k1\\/8p\\/4g_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 7608NI K1\\/8P\\/4G",
+    "category": "nvr",
+    "vendor_key": "hikvision",
+    "model_key": "ds-7608ni-k1\\/8p\\/4g",
+    "keywords": [
+      "4g",
+      "7608ni",
+      "8p\\",
+      "ds",
+      "hikvision",
+      "k1\\",
+      "nvr"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-7608ni-q1_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 7608NI Q1",
+    "category": "nvr",
+    "vendor_key": "hikvision",
+    "model_key": "ds-7608ni-q1",
+    "keywords": [
+      "7608ni",
+      "ds",
+      "hikvision",
+      "nvr",
+      "q1"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-7608ni-q1\\/8p_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 7608NI Q1\\/8P",
+    "category": "nvr",
+    "vendor_key": "hikvision",
+    "model_key": "ds-7608ni-q1\\/8p",
+    "keywords": [
+      "7608ni",
+      "8p",
+      "ds",
+      "hikvision",
+      "nvr",
+      "q1\\"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-7608ni-q2_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 7608NI Q2",
+    "category": "nvr",
+    "vendor_key": "hikvision",
+    "model_key": "ds-7608ni-q2",
+    "keywords": [
+      "7608ni",
+      "ds",
+      "hikvision",
+      "nvr",
+      "q2"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-7608ni-q2\\/8p_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 7608NI Q2\\/8P",
+    "category": "nvr",
+    "vendor_key": "hikvision",
+    "model_key": "ds-7608ni-q2\\/8p",
+    "keywords": [
+      "7608ni",
+      "8p",
+      "ds",
+      "hikvision",
+      "nvr",
+      "q2\\"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-760ni-k1\\/4p_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 760NI K1\\/4P",
+    "category": "nvr",
+    "vendor_key": "hikvision",
+    "model_key": "ds-760ni-k1\\/4p",
+    "keywords": [
+      "4p",
+      "760ni",
+      "ds",
+      "hikvision",
+      "k1\\",
+      "nvr"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-7616ni-k1_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 7616NI K1",
+    "category": "nvr",
+    "vendor_key": "hikvision",
+    "model_key": "ds-7616ni-k1",
+    "keywords": [
+      "7616ni",
+      "ds",
+      "hikvision",
+      "k1",
+      "nvr"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-7616ni-q1_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 7616NI Q1",
+    "category": "nvr",
+    "vendor_key": "hikvision",
+    "model_key": "ds-7616ni-q1",
+    "keywords": [
+      "7616ni",
+      "ds",
+      "hikvision",
+      "nvr",
+      "q1"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-7616ni-q2_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 7616NI Q2",
+    "category": "nvr",
+    "vendor_key": "hikvision",
+    "model_key": "ds-7616ni-q2",
+    "keywords": [
+      "7616ni",
+      "ds",
+      "hikvision",
+      "nvr",
+      "q2"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ds-7616ni-q2\\/16p_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "DS 7616NI Q2\\/16P",
+    "category": "nvr",
+    "vendor_key": "hikvision",
+    "model_key": "ds-7616ni-q2\\/16p",
+    "keywords": [
+      "16p",
+      "7616ni",
+      "ds",
+      "hikvision",
+      "nvr",
+      "q2\\"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ids-2pt9a144mxs-d\\/t2_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "IDS 2PT9A144MXS D\\/T2",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ids-2pt9a144mxs-d\\/t2",
+    "keywords": [
+      "2pt9a144mxs",
+      "d\\",
+      "hikvision",
+      "ids",
+      "iot",
+      "t2"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ids-2sk718mxs-d_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "IDS 2SK718MXS D",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ids-2sk718mxs-d",
+    "keywords": [
+      "2sk718mxs",
+      "hikvision",
+      "ids",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ids-2sk8144ixs-d\\/j_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "IDS 2SK8144IXS D\\/J",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ids-2sk8144ixs-d\\/j",
+    "keywords": [
+      "2sk8144ixs",
+      "d\\",
+      "hikvision",
+      "ids",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ids-2vs435-f840-ey_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "IDS 2VS435 F840 EY",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ids-2vs435-f840-ey",
+    "keywords": [
+      "2vs435",
+      "ey",
+      "f840",
+      "hikvision",
+      "ids",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ids-2vs435-f840-ey\\(t3\\)_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "IDS 2VS435 F840 EY\\(T3\\)",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ids-2vs435-f840-ey\\(t3\\)",
+    "keywords": [
+      "2vs435",
+      "ey\\(t3\\)",
+      "f840",
+      "hikvision",
+      "ids",
+      "iot"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ptz-n2204i-de3_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "PTZ N2204I DE3",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ptz-n2204i-de3",
+    "keywords": [
+      "de3",
+      "hikvision",
+      "iot",
+      "n2204i",
+      "ptz"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ptz-n2404i-de3_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "PTZ N2404I DE3",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ptz-n2404i-de3",
+    "keywords": [
+      "de3",
+      "hikvision",
+      "iot",
+      "n2404i",
+      "ptz"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ptz-n4215-de3_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "PTZ N4215 DE3",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ptz-n4215-de3",
+    "keywords": [
+      "de3",
+      "hikvision",
+      "iot",
+      "n4215",
+      "ptz"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ptz-n4215i-de_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "PTZ N4215I DE",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ptz-n4215i-de",
+    "keywords": [
+      "de",
+      "hikvision",
+      "iot",
+      "n4215i",
+      "ptz"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ptz-n4225i-de_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "PTZ N4225I DE",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ptz-n4225i-de",
+    "keywords": [
+      "de",
+      "hikvision",
+      "iot",
+      "n4225i",
+      "ptz"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:hikvision:ptz-n5225i-a_firmware:-:*:*:*:*:*:*:*",
+    "vendor": "Hikvision",
+    "product": "PTZ N5225I A",
+    "category": "iot",
+    "vendor_key": "hikvision",
+    "model_key": "ptz-n5225i-a",
+    "keywords": [
+      "hikvision",
+      "iot",
+      "n5225i",
+      "ptz"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:tp-link:archer_ax21_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "TP-Link",
+    "product": "Archer AX21",
+    "category": "router",
+    "vendor_key": "tp-link",
+    "model_key": "archer_ax21",
+    "keywords": [
+      "archer",
+      "ax21",
+      "link",
+      "router",
+      "tp"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:tp-link:tl-wa855re_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "TP-Link",
+    "product": "TL-WA855RE",
+    "category": "extender",
+    "vendor_key": "tp-link",
+    "model_key": "tl-wa855re",
+    "keywords": [
+      "extender",
+      "link",
+      "tl",
+      "tp",
+      "wa855re"
+    ]
+  },
+  {
+    "cpe": "cpe:2.3:o:tuya:smart_plug_firmware:*:*:*:*:*:*:*:*",
+    "vendor": "Generic IoT",
+    "product": "Wi-Fi Smart Plug",
+    "category": "smart_plug",
+    "vendor_key": "tuya",
+    "model_key": "smart_plug",
+    "keywords": [
+      "fi",
+      "generic",
+      "iot",
+      "plug",
+      "smart",
+      "tuya",
+      "wi"
+    ]
+  }
+]

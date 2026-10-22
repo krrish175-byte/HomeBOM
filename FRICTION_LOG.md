@@ -69,6 +69,34 @@ This document tracks all developer friction, SDK limitations, API bugs, and work
 - **Cause**: In NVD API 2.0, `cpeName` strictly requires an exact dictionary entry; it rejects trailing wildcards `*` or match expressions with a 404 status.
 - **Severity**: Medium
 - **Workaround**: Switched to `virtualMatchString=<base_cpe>` (e.g. `virtualMatchString=cpe:2.3:o:tp-link:archer_ax21_firmware`) whenever the CPE criteria contains wildcards.
-- **Suggestion**: NVD API 2.0 documentation should more prominently differentiate `cpeName` (exact dictionary lookup) from `virtualMatchString` (CPE match range search).
+### Snag #005: FastMCP `StreamableHTTPSessionManager.run()` raises `RuntimeError` on server restart / reload
+- **Date**: 2026-10-22
+- **Task**: Phase 3 MCP Server implementation and automated protocol tests
+- **Steps**:
+  1. Initialized a global `FastMCP` instance in `server/main.py`.
+  2. Mounted `streamable_http_app()` in an ASGI application.
+  3. Ran automated integration tests where `uvicorn` started, stopped, and started a new server for another test function.
+- **Expected**: Uvicorn server can start and stop across multiple tests or live server restarts cleanly.
+- **Actual**: `RuntimeError: StreamableHTTPSessionManager .run() can only be called once per instance. Create a new instance if you need to run again.`
+- **Cause**: FastMCP's internal `StreamableHTTPSessionManager` tracks its lifecycle with a boolean flag and explicitly disallows reuse after shutdown.
+- **Severity**: Medium
+- **Workaround**: Implemented a `create_mcp_server()` factory function and an ASGI `LazyApp` wrapper that detects ASGI `"lifespan"` startup events and instantiates a fresh FastMCP app for each server lifecycle.
+- **Suggestion**: `StreamableHTTPSessionManager` should reset its internal running state on graceful exit or support clean re-initialization on subsequent lifespan contexts.
+
+---
+
+### Snag #006: In-process test runner module pollution breaks isolated runtime dependency checks
+- **Date**: 2026-10-22
+- **Task**: Phase 3 running repository-wide test suite (`uv run pytest`)
+- **Steps**:
+  1. Ran `uv run pytest -v` across `packages/homebom-core/tests` and `tests/`.
+  2. `tests/test_mcp_protocol.py` imported `from mcp.client.session import ClientSession`.
+  3. `packages/homebom-core/tests/test_imports.py::test_zero_mcp_and_zero_aws_imports` asserted `'mcp' not in sys.modules`.
+- **Expected**: `homebom-core` boundary test passes because `homebom-core` imports neither MCP nor AWS SDKs.
+- **Actual**: Test failed with `AssertionError: Forbidden module 'mcp' was unexpectedly imported into runtime!`
+- **Cause**: Pytest runs test collection across all test directories in a single Python process, meaning test files in `tests/` populate `sys.modules` with test dependencies before tests in `packages/homebom-core/tests/` run.
+- **Severity**: Low
+- **Workaround**: Updated `test_zero_mcp_and_zero_aws_imports` to invoke an isolated subprocess (`subprocess.run([sys.executable, "-c", ...])`) with `PYTHONPATH=packages/homebom-core` to verify that loading `homebom-core` alone never pulls `mcp` or `boto3` into `sys.modules`.
+- **Suggestion**: Architectural boundary assertions that inspect `sys.modules` should always be executed in an isolated subshell/subprocess rather than inside the shared test runner's global namespace.
 
 
