@@ -13,6 +13,7 @@ MatchState = Literal["affected", "not_affected", "unknown"]
 @dataclass(frozen=True)
 class VersionInfo:
     """Structured representation of parsed firmware strings."""
+
     raw: str
     version_tuple: tuple[int, ...] | None
     build_token: int | None
@@ -34,7 +35,7 @@ DOTTED_VERSION_REGEX = re.compile(
 
 def extract_version_info(firmware_str: str) -> VersionInfo:
     """Extract numeric semver tuple and build-date tokens from messy firmware strings.
-    
+
     Examples:
         '1.1.2 Build 20220624' -> version_tuple=(1, 1, 2), build_token=20220624
         '1.0.0 Build 200508'   -> version_tuple=(1, 0, 0), build_token=200508
@@ -44,7 +45,9 @@ def extract_version_info(firmware_str: str) -> VersionInfo:
         'CUSTOM-BETA-REV-???'  -> is_unparseable=True
     """
     if not firmware_str or not isinstance(firmware_str, str):
-        return VersionInfo(raw=str(firmware_str), version_tuple=None, build_token=None, is_unparseable=True)
+        return VersionInfo(
+            raw=str(firmware_str), version_tuple=None, build_token=None, is_unparseable=True
+        )
 
     raw = firmware_str.strip()
 
@@ -75,10 +78,10 @@ def extract_version_info(firmware_str: str) -> VersionInfo:
             version_tuple = None
 
     # Determine if purely date-based
-    is_date_only = (version_tuple is None and build_token is not None)
+    is_date_only = version_tuple is None and build_token is not None
 
     # Determine unparseable
-    is_unparseable = (version_tuple is None and build_token is None)
+    is_unparseable = version_tuple is None and build_token is None
 
     return VersionInfo(
         raw=raw,
@@ -89,9 +92,11 @@ def extract_version_info(firmware_str: str) -> VersionInfo:
     )
 
 
-def parse_bound_token(bound_str: str) -> tuple[Literal["date", "tuple", "unknown"], int | tuple[int, ...] | None]:
+def parse_bound_token(
+    bound_str: str,
+) -> tuple[Literal["date", "tuple", "unknown"], int | tuple[int, ...] | None]:
     """Parse a range boundary string from NVD configurations.
-    
+
     Can be:
       - 6-8 digit single date token: e.g. '200731', '20230219', '2018-04-27'
       - Dotted semver tuple: e.g. '1.1.4', '1.05.05', '3.0.0.4.386.42643'
@@ -136,7 +141,7 @@ def compare_like_with_like(
     bound_str: str,
 ) -> int | None:
     """Compare firmware version against a boundary string comparing like with like.
-    
+
     Rules:
       - If range bound is a single 6-8 digit token ('200731'), compare it against
         the build-date token extracted from the firmware string ('Build 200508').
@@ -201,12 +206,12 @@ def match_firmware_range(
     version_end_excluding: str | None = None,
 ) -> MatchState:
     """Evaluate whether firmware falls within NVD version boundary ranges.
-    
+
     Defensive Three-State Logic:
       - 'affected'
       - 'not_affected'
       - 'unknown'
-      
+
     Boundary Rules:
       - versionEndExcluding: A version equal to versionEndExcluding is NOT affected.
         (In accordance with NVD's range data, versionEndExcluding marks the first fixed release).
@@ -218,7 +223,8 @@ def match_firmware_range(
 
     # Must have at least one boundary to match a range
     has_any_bound = any(
-        b is not None for b in [
+        b is not None
+        for b in [
             version_start_including,
             version_start_excluding,
             version_end_including,

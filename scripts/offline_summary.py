@@ -95,7 +95,9 @@ def main():
         total_kev += kev_count
 
         epss_str = f"{max_epss:.4f}" if max_epss > 0 else "0.0000"
-        print(f"{dev_id:<9} {name:<25} {model:<20} {fw:<22} {cve_count:<6} {kev_count:<5} {epss_str:<10}")
+        print(
+            f"{dev_id:<9} {name:<25} {model:<20} {fw:<22} {cve_count:<6} {kev_count:<5} {epss_str:<10}"
+        )
 
     print("-" * 105)
     print(f"Total Seeded Devices: {len(devices)}")

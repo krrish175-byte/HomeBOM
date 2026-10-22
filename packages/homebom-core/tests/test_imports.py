@@ -17,7 +17,9 @@ def test_zero_mcp_and_zero_aws_imports():
 
     # Check already imported modules in sys.modules
     for mod in forbidden_modules:
-        assert mod not in sys.modules, f"Forbidden module '{mod}' was unexpectedly imported into runtime!"
+        assert mod not in sys.modules, (
+            f"Forbidden module '{mod}' was unexpectedly imported into runtime!"
+        )
 
     # Verify that homebom-core source code itself never references forbidden packages
     import inspect
@@ -30,7 +32,13 @@ def test_zero_mcp_and_zero_aws_imports():
                 path = os.path.join(root, f)
                 with open(path, "r", encoding="utf-8") as py_file:
                     content = py_file.read()
-                    for forbidden in ["import mcp", "from mcp", "import boto3", "from boto3", "import botocore"]:
+                    for forbidden in [
+                        "import mcp",
+                        "from mcp",
+                        "import boto3",
+                        "from boto3",
+                        "import botocore",
+                    ]:
                         assert forbidden not in content, (
                             f"Violation in {path}: found forbidden import statement '{forbidden}'"
                         )

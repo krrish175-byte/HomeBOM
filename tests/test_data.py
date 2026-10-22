@@ -37,7 +37,9 @@ def test_devices_json_schema_and_rules():
         if "???" in dev["firmware"] or "CUSTOM" in dev["firmware"]:
             has_unparseable = True
 
-    assert has_unparseable, "devices.json must include at least 1 device with an unparseable firmware string"
+    assert has_unparseable, (
+        "devices.json must include at least 1 device with an unparseable firmware string"
+    )
 
 
 def test_cisa_kev_cache():

@@ -61,7 +61,7 @@ def test_every_cve_epss_kev_is_ground_truth_from_cache():
         # Assert every finding strictly reflects the cached files
         for finding in findings:
             cid = finding.cve_id
-            
+
             # Ground truth KEV check
             expected_in_kev = cid in kev_catalog
             assert finding.in_kev == expected_in_kev, (

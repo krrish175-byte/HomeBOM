@@ -78,11 +78,15 @@ def refresh_epss() -> bool:
 
         meta_path = DATA_DIR / "metadata.json"
         with open(meta_path, "w", encoding="utf-8") as mf:
-            json.dump({
-                "epss_score_date": epss_date,
-                "epss_score_timestamp": epss_ts,
-                "as_of_string": f"as of {epss_date}",
-            }, mf, indent=2)
+            json.dump(
+                {
+                    "epss_score_date": epss_date,
+                    "epss_score_timestamp": epss_ts,
+                    "as_of_string": f"as of {epss_date}",
+                },
+                mf,
+                indent=2,
+            )
         print(f"  ✓ Recorded EPSS snapshot date ({epss_date}) in {meta_path.name}")
         return True
     except Exception as e:  # noqa: BLE001
@@ -128,7 +132,12 @@ def fetch_nvd_for_cpe(cpe: str, client: httpx.Client) -> dict:
                 return resp.json()
             if resp.status_code == 404:
                 # No vulnerabilities found in NVD for this criteria
-                return {"resultsPerPage": 0, "startIndex": 0, "totalResults": 0, "vulnerabilities": []}
+                return {
+                    "resultsPerPage": 0,
+                    "startIndex": 0,
+                    "totalResults": 0,
+                    "vulnerabilities": [],
+                }
             if resp.status_code in (403, 429, 503):
                 wait_sec = 6.0 * (attempt + 1)
                 print(f"    Rate limit or status {resp.status_code}, backing off {wait_sec}s...")

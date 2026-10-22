@@ -10,7 +10,8 @@ from dataclasses import dataclass
 @dataclass(frozen=True)
 class CPE:
     """Structured representation of a CPE 2.3 formatted string."""
-    part: str        # 'o' for operating system / firmware, 'h' for hardware, 'a' for application
+
+    part: str  # 'o' for operating system / firmware, 'h' for hardware, 'a' for application
     vendor: str
     product: str
     version: str
@@ -34,7 +35,7 @@ def parse_cpe(cpe_str: str) -> CPE:
     if not cpe_str.startswith("cpe:2.3:"):
         raise ValueError(f"Invalid CPE 2.3 format: {cpe_str}")
 
-    tokens = cpe_str[len("cpe:2.3:"):].split(":")
+    tokens = cpe_str[len("cpe:2.3:") :].split(":")
     if len(tokens) < 11:
         # Pad with wildcards if truncated
         tokens.extend(["*"] * (11 - len(tokens)))
@@ -74,7 +75,7 @@ def match_candidate_cpe(
     candidates: list[str],
 ) -> tuple[str | None, list[str]]:
     """Match device query text against candidate firmware CPEs.
-    
+
     Returns:
       (best_match_cpe, possible_candidates)
     """

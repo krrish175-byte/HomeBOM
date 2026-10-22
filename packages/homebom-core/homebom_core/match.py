@@ -14,6 +14,7 @@ MatchState = Literal["affected", "not_affected", "unknown"]
 @dataclass
 class VulnerabilityFinding:
     """Represents a matched vulnerability finding for a specific device."""
+
     cve_id: str
     status: MatchState
     cvss_score: float
@@ -27,20 +28,25 @@ class VulnerabilityFinding:
 
 def is_eol_vulnerability(kev_entry: dict[str, Any] | None) -> bool:
     """Requirement 2: Derive eol boolean by searching KEV shortDescription for 'end-of-life' or 'end-of-service'.
-    
+
     Zero hardcoding. Strictly searches the text of the CISA KEV catalog entry.
     """
     if not kev_entry:
         return False
 
     short_desc = kev_entry.get("shortDescription", "").lower()
-    return "end-of-life" in short_desc or "end-of-service" in short_desc or "(eol)" in short_desc or "(eos)" in short_desc
+    return (
+        "end-of-life" in short_desc
+        or "end-of-service" in short_desc
+        or "(eol)" in short_desc
+        or "(eos)" in short_desc
+    )
 
 
 def extract_cvss(cve_dict: dict[str, Any]) -> tuple[float, str | None]:
     """Extract primary CVSS score and vector string from NVD CVE structure."""
     metrics = cve_dict.get("metrics", {})
-    
+
     # Try CVSS v3.1 first
     v31_list = metrics.get("cvssMetricV31", [])
     if v31_list:
@@ -76,13 +82,13 @@ def evaluate_cve_match(
     epss_scores: dict[str, float] | None = None,
 ) -> VulnerabilityFinding | None:
     """Evaluate whether a device's firmware matches a single NVD CVE record.
-    
+
     Returns VulnerabilityFinding or None if the device's CPE is not part of this CVE's configurations.
     """
     cve_id = cve_dict.get("id", "UNKNOWN")
     descriptions = cve_dict.get("descriptions", [])
     en_desc = next((d.get("value") for d in descriptions if d.get("lang") == "en"), "")
-    
+
     cvss_score, cvss_vector = extract_cvss(cve_dict)
 
     # EPSS score lookup
@@ -186,10 +192,10 @@ def match_device_vulnerabilities(
     epss_scores: dict[str, float] | None = None,
 ) -> tuple[MatchState, list[VulnerabilityFinding]]:
     """Match a device against a list of NVD CVE records.
-    
+
     Returns:
       (device_overall_state, list_of_findings)
-      
+
     Rule 3: unknown must NEVER be reported as safe.
     """
     fw_info = extract_version_info(device_firmware)

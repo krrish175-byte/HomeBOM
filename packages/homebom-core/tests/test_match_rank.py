@@ -34,9 +34,7 @@ def test_eol_detection_from_kev_text():
     assert is_eol_vulnerability(kev_eol) is True
 
     # Matches "end-of-service"
-    kev_eos = {
-        "shortDescription": "Device is end-of-service and no patches will be released."
-    }
+    kev_eos = {"shortDescription": "Device is end-of-service and no patches will be released."}
     assert is_eol_vulnerability(kev_eos) is True
 
     # No EoL mention
@@ -96,8 +94,12 @@ def test_priority_ranking_order_kev_and_epss():
     assert determine_device_tier("affected", [dev_b]) == "fix_now"
 
     # Profile generation and sorting
-    profile_a = rank_device("dev-a", "Device A", "Model A", "1.0", "cpe:2.3:o:a:a:*:*:*:*:*:*:*:*", "affected", [dev_a])
-    profile_b = rank_device("dev-b", "Device B", "Model B", "1.0", "cpe:2.3:o:b:b:*:*:*:*:*:*:*:*", "affected", [dev_b])
+    profile_a = rank_device(
+        "dev-a", "Device A", "Model A", "1.0", "cpe:2.3:o:a:a:*:*:*:*:*:*:*:*", "affected", [dev_a]
+    )
+    profile_b = rank_device(
+        "dev-b", "Device B", "Model B", "1.0", "cpe:2.3:o:b:b:*:*:*:*:*:*:*:*", "affected", [dev_b]
+    )
 
     # Even though dev_a has higher CVSS (9.8 vs 7.5), dev_b is KEV-listed so must rank first!
     sorted_profiles = sort_ranked_devices([profile_a, profile_b])

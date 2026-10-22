@@ -23,15 +23,19 @@ def test_messy_firmware_extraction():
 
     for fw_str, exp_tuple, exp_build, exp_date_only, exp_unparseable in cases:
         info = extract_version_info(fw_str)
-        assert info.version_tuple == exp_tuple, f"Failed tuple for '{fw_str}': {info.version_tuple} != {exp_tuple}"
-        assert info.build_token == exp_build, f"Failed build for '{fw_str}': {info.build_token} != {exp_build}"
+        assert info.version_tuple == exp_tuple, (
+            f"Failed tuple for '{fw_str}': {info.version_tuple} != {exp_tuple}"
+        )
+        assert info.build_token == exp_build, (
+            f"Failed build for '{fw_str}': {info.build_token} != {exp_build}"
+        )
         assert info.is_date_only == exp_date_only, f"Failed is_date_only for '{fw_str}'"
         assert info.is_unparseable == exp_unparseable, f"Failed is_unparseable for '{fw_str}'"
 
 
 def test_compare_like_with_like_date_tokens():
     """User condition 1: Compare like with like.
-    
+
     If range bound is a single 6-8 digit token ('200731'), compare it against
     the build-date token extracted from firmware ('Build 200508').
     If formats are incompatible (e.g. no build token), return None (unknown).
@@ -51,7 +55,7 @@ def test_compare_like_with_like_date_tokens():
 
 def test_boundary_rule_version_end_excluding():
     """User condition 1: AX21 '1.1.4 Build 20230219' -> not_affected (equals versionEndExcluding).
-    
+
     In accordance with NVD's vulnerability range data, versionEndExcluding defines the first
     patched/fixed version and is strictly exclusive. A version equal to versionEndExcluding
     is NOT affected.
@@ -61,10 +65,16 @@ def test_boundary_rule_version_end_excluding():
     assert match_firmware_range("1.1.2 Build 20220624", version_end_excluding="1.1.4") == "affected"
 
     # Version 1.1.4 is NOT affected (equal to boundary)
-    assert match_firmware_range("1.1.4 Build 20230219", version_end_excluding="1.1.4") == "not_affected"
+    assert (
+        match_firmware_range("1.1.4 Build 20230219", version_end_excluding="1.1.4")
+        == "not_affected"
+    )
 
     # Version 1.1.5 is NOT affected (> boundary)
-    assert match_firmware_range("1.1.5 Build 20230501", version_end_excluding="1.1.4") == "not_affected"
+    assert (
+        match_firmware_range("1.1.5 Build 20230501", version_end_excluding="1.1.4")
+        == "not_affected"
+    )
 
 
 def test_boundary_rule_version_end_including():
@@ -78,10 +88,30 @@ def test_boundary_rule_version_end_including():
 def test_start_and_end_ranges():
     """Test ranges with both start and end bounds."""
     # [1.0.0, 2.0.0)
-    assert match_firmware_range("0.9.9", version_start_including="1.0.0", version_end_excluding="2.0.0") == "not_affected"
-    assert match_firmware_range("1.0.0", version_start_including="1.0.0", version_end_excluding="2.0.0") == "affected"
-    assert match_firmware_range("1.5.0", version_start_including="1.0.0", version_end_excluding="2.0.0") == "affected"
-    assert match_firmware_range("2.0.0", version_start_including="1.0.0", version_end_excluding="2.0.0") == "not_affected"
+    assert (
+        match_firmware_range(
+            "0.9.9", version_start_including="1.0.0", version_end_excluding="2.0.0"
+        )
+        == "not_affected"
+    )
+    assert (
+        match_firmware_range(
+            "1.0.0", version_start_including="1.0.0", version_end_excluding="2.0.0"
+        )
+        == "affected"
+    )
+    assert (
+        match_firmware_range(
+            "1.5.0", version_start_including="1.0.0", version_end_excluding="2.0.0"
+        )
+        == "affected"
+    )
+    assert (
+        match_firmware_range(
+            "2.0.0", version_start_including="1.0.0", version_end_excluding="2.0.0"
+        )
+        == "not_affected"
+    )
 
 
 def test_unparseable_firmware_returns_unknown():

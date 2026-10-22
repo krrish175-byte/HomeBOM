@@ -42,7 +42,9 @@ def check_bedrock():
             messages=[
                 {
                     "role": "user",
-                    "content": [{"text": "Hello Bedrock, confirm HomeBOM connectivity with one sentence."}],
+                    "content": [
+                        {"text": "Hello Bedrock, confirm HomeBOM connectivity with one sentence."}
+                    ],
                 }
             ],
             inferenceConfig={
@@ -60,7 +62,9 @@ def check_bedrock():
     except NoCredentialsError:
         print("[WARNING] No AWS credentials found.")
         print("To enable live Bedrock calls:")
-        print("  1. Export AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, (and AWS_SESSION_TOKEN if temporary)")
+        print(
+            "  1. Export AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, (and AWS_SESSION_TOKEN if temporary)"
+        )
         print("  2. Or configure ~/.aws/credentials / SSO profile")
         print("  3. Set AWS_REGION and BEDROCK_MODEL_ID in .env or environment")
         print("[INFO] HomeBOM's deterministic template fallback will be active.")
@@ -69,7 +73,9 @@ def check_bedrock():
         error_code = e.response.get("Error", {}).get("Code", "Unknown")
         error_msg = e.response.get("Error", {}).get("Message", str(e))
         print(f"[WARNING] Bedrock ClientError ({error_code}): {error_msg}")
-        print("Common causes: model access not granted in AWS console, invalid region, or IAM permissions.")
+        print(
+            "Common causes: model access not granted in AWS console, invalid region, or IAM permissions."
+        )
         print("[INFO] HomeBOM's deterministic template fallback will be active.")
         return False
     except Exception as e:  # noqa: BLE001

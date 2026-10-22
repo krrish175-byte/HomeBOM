@@ -22,6 +22,7 @@ TIER_ORDER: dict[RiskTier, int] = {
 @dataclass
 class DeviceRiskProfile:
     """Consolidated risk profile for a smart-home device."""
+
     device_id: str
     device_name: str
     model: str
@@ -42,7 +43,7 @@ def determine_device_tier(
     findings: list[VulnerabilityFinding],
 ) -> RiskTier:
     """Rule 4: Priority Ranking based on real-world active exploitation & probability.
-    
+
     Tiers:
       1. fix_now: affected + listed on CISA KEV
       2. fix_soon: affected and (EPSS >= 0.10 or CVSS >= 9.0)
@@ -55,7 +56,10 @@ def determine_device_tier(
         if any(f.in_kev and f.status == "affected" for f in findings):
             return "fix_now"
         # Check EPSS >= 0.10 or CVSS >= 9.0
-        if any((f.epss_score >= 0.10 or f.cvss_score >= 9.0) and f.status == "affected" for f in findings):
+        if any(
+            (f.epss_score >= 0.10 or f.cvss_score >= 9.0) and f.status == "affected"
+            for f in findings
+        ):
             return "fix_soon"
         return "low"
 
@@ -72,7 +76,7 @@ def generate_device_spoken_text(
     top_finding: VulnerabilityFinding | None = None,
 ) -> str:
     """Requirement 2 & 3: Generate voice-optimized plain-language string.
-    
+
     Rules:
       - Zero-CVE / clean devices speak as 'no known vulnerabilities in public databases', never 'safe'.
       - unknown speaks as "I can't verify this one".
@@ -95,7 +99,9 @@ def generate_device_spoken_text(
     if tier == "fix_soon":
         return f"{name} has a high-probability vulnerability that should be patched soon. Please check for a firmware update."
 
-    return f"{name} has known software vulnerabilities. You should apply available firmware updates."
+    return (
+        f"{name} has known software vulnerabilities. You should apply available firmware updates."
+    )
 
 
 def generate_fix_steps(
@@ -104,7 +110,7 @@ def generate_fix_steps(
     is_eol: bool,
 ) -> str:
     """Generate concise, actionable one-sentence remediation instructions.
-    
+
     Requirement 2: get_fix_steps must say 'replace' for EoL devices.
     """
     if is_eol:
@@ -114,7 +120,9 @@ def generate_fix_steps(
         return f"Update {name} firmware to the latest release via the manufacturer app or administrative settings."
 
     if tier == "unknown":
-        return f"Check {name} in the vendor app to ensure it is running official, up-to-date firmware."
+        return (
+            f"Check {name} in the vendor app to ensure it is running official, up-to-date firmware."
+        )
 
     return f"No action needed for {name}; keep automatic updates enabled."
 
@@ -130,7 +138,7 @@ def rank_device(
 ) -> DeviceRiskProfile:
     """Rank a single device and build its complete risk profile."""
     tier = determine_device_tier(overall_status, findings)
-    
+
     # Calculate max scores and EoL status across affected findings
     affected_findings = [f for f in findings if f.status == "affected"]
     relevant_findings = affected_findings if affected_findings else findings
@@ -139,7 +147,9 @@ def rank_device(
     max_cvss = max((f.cvss_score for f in relevant_findings), default=0.0)
     is_eol = any(f.eol for f in relevant_findings)
 
-    top_finding = max(relevant_findings, key=lambda f: (f.in_kev, f.epss_score, f.cvss_score), default=None)
+    top_finding = max(
+        relevant_findings, key=lambda f: (f.in_kev, f.epss_score, f.cvss_score), default=None
+    )
 
     spoken = generate_device_spoken_text(device_name, tier, is_eol, top_finding)
     fix = generate_fix_steps(device_name, tier, is_eol)
@@ -163,7 +173,7 @@ def rank_device(
 
 def sort_ranked_devices(profiles: list[DeviceRiskProfile]) -> list[DeviceRiskProfile]:
     """Sort profiles by: tier priority, EPSS desc, CVSS desc.
-    
+
     Priority ranking orders actively exploited threats first, not raw CVSS.
     """
     return sorted(
