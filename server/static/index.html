@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HomeBOM - Smart Home Security Assistant & CycloneDX HBOM</title>
+  <meta name="description" content="Voice-driven smart home security assistant and CycloneDX 1.6 Hardware Bill of Materials generator powered by real CISA KEV and NVD vulnerability data.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Top Navigation Header -->
+    <header class="app-header">
+      <div class="brand">
+        <div class="logo-orb">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">HomeBOM</span>
+          <span class="brand-subtitle">Alexa+ Security Assistant & CycloneDX 1.6 HBOM</span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="status-badge" id="backend-status">
+          <span class="status-dot"></span>
+          <span class="status-text">MCP Streamable HTTP Active</span>
+        </div>
+        <button id="audio-toggle" class="btn-icon" title="Toggle voice audio output" aria-label="Toggle voice audio output">
+          <svg class="icon-sound-on" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+          <svg class="icon-sound-off hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <line x1="23" y1="9" x2="17" y2="15"></line>
+            <line x1="17" y1="9" x2="23" y2="15"></line>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Workspace Grid -->
+    <main class="main-content">
+      <!-- Left Column: Voice Assistant & Transcript -->
+      <section class="assistant-pane glass-panel">
+        <div class="pane-header">
+          <h2>Voice & Query Assistant</h2>
+          <span class="pulse-indicator-idle" id="assistant-state">Ready</span>
+        </div>
+
+        <!-- Voice Interaction Hero -->
+        <div class="voice-hero">
+          <button id="mic-btn" class="mic-button" aria-label="Hold or click to speak">
+            <div class="mic-pulse-ring"></div>
+            <div class="mic-icon-wrapper">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                <line x1="12" y1="19" x2="12" y2="23"/>
+                <line x1="8" y1="23" x2="16" y2="23"/>
+              </svg>
+            </div>
+          </button>
+          <p class="voice-hint" id="voice-status-text">Click mic to speak, or use text box below</p>
+        </div>
+
+        <!-- Demo Phrasing Shortcut Chips -->
+        <div class="chips-container">
+          <span class="chips-label">Demo Phrasings:</span>
+          <div class="chips-grid">
+            <button class="query-chip" id="chip-scan" data-query="how safe is my home">"how safe is my home"</button>
+            <button class="query-chip" id="chip-fix-first" data-query="what should I fix first">"what should I fix first"</button>
+            <button class="query-chip" id="chip-router" data-query="tell me about my router">"tell me about my router"</button>
+            <button class="query-chip" id="chip-camera" data-query="how do I fix the camera">"how do I fix the camera"</button>
+            <button class="query-chip" id="chip-hbom" data-query="export my home bill of materials">"export my home bill of materials"</button>
+          </div>
+        </div>
+
+        <!-- Input Bar Fallback -->
+        <form id="chat-form" class="input-form">
+          <input
+            type="text"
+            id="text-input"
+            class="chat-input"
+            placeholder="Ask HomeBOM anything (e.g., 'how safe is my home')..."
+            autocomplete="off"
+            required
+          />
+          <button type="submit" id="send-btn" class="btn-primary" aria-label="Send query">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+            <span>Ask</span>
+          </button>
+        </form>
+
+        <!-- Conversation Transcript Box -->
+        <div class="transcript-section">
+          <div class="transcript-header">
+            <h3>Transcript & Spoken Output</h3>
+            <button id="clear-transcript-btn" class="btn-subtle" title="Clear transcript">Clear</button>
+          </div>
+          <div id="transcript-container" class="transcript-list">
+            <!-- Initial welcome message -->
+            <div class="transcript-card assistant-card">
+              <div class="card-meta">
+                <span class="speaker-tag">HomeBOM</span>
+                <span class="badge badge-tool">system</span>
+                <span class="badge badge-route">routed by: initialized</span>
+                <span class="badge badge-phrasing">phrasing: template</span>
+              </div>
+              <div class="card-body">
+                <p>Welcome to HomeBOM. I monitor your smart-home devices against real CISA KEV and NVD vulnerability databases. You can ask "how safe is my home", inquire about specific devices, or export your CycloneDX 1.6 Hardware BOM.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: Device Inventory Ranked by Tier -->
+      <section class="inventory-pane glass-panel">
+        <div class="pane-header">
+          <div>
+            <h2>Monitored Devices</h2>
+            <p class="section-desc" id="inventory-summary-text">Ranked by risk tier & active exploitation</p>
+          </div>
+          <div class="inventory-actions">
+            <button id="refresh-devices-btn" class="btn-secondary" title="Re-scan and refresh devices">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+              </svg>
+              <span>Refresh</span>
+            </button>
+            <button id="open-hbom-modal-btn" class="btn-secondary" title="View CycloneDX HBOM">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+              <span>HBOM JSON</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Risk Tier Legend -->
+        <div class="tier-legend">
+          <span class="legend-item"><span class="legend-dot tier-fix-now"></span>Fix Now (KEV)</span>
+          <span class="legend-item"><span class="legend-dot tier-fix-soon"></span>Fix Soon</span>
+          <span class="legend-item"><span class="legend-dot tier-unknown"></span>Unknown</span>
+          <span class="legend-item"><span class="legend-dot tier-not-affected"></span>Not Affected</span>
+        </div>
+
+        <!-- Cards Grid Container -->
+        <div id="device-cards-grid" class="cards-grid">
+          <!-- Populated dynamically via /api/devices -->
+          <div class="loading-state">
+            <div class="spinner"></div>
+            <p>Scanning home devices...</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- CycloneDX HBOM Modal -->
+    <div id="hbom-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-box glass-panel">
+        <div class="modal-header">
+          <div class="modal-title-group">
+            <h3 id="modal-title">CycloneDX 1.6 Hardware BOM (HBOM)</h3>
+            <span class="badge badge-success">Embedded VEX Included</span>
+          </div>
+          <button id="close-modal-btn" class="btn-icon" aria-label="Close modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-actions-bar">
+            <span class="code-info">Spec Version: 1.6 | Schema: cyclonedx.org</span>
+            <button id="download-hbom-btn" class="btn-primary">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span>Download JSON</span>
+            </button>
+          </div>
+          <pre id="hbom-json-content" class="code-viewer"><code>Loading CycloneDX BOM...</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

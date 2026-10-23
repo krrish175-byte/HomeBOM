@@ -99,4 +99,39 @@ This document tracks all developer friction, SDK limitations, API bugs, and work
 - **Workaround**: Updated `test_zero_mcp_and_zero_aws_imports` to invoke an isolated subprocess (`subprocess.run([sys.executable, "-c", ...])`) with `PYTHONPATH=packages/homebom-core` to verify that loading `homebom-core` alone never pulls `mcp` or `boto3` into `sys.modules`.
 - **Suggestion**: Architectural boundary assertions that inspect `sys.modules` should always be executed in an isolated subshell/subprocess rather than inside the shared test runner's global namespace.
 
+---
 
+### Snag #007: Bedrock client raises NoCredentialsError in unauthenticated environments
+- **Date**: 2026-10-22
+- **Task**: Phase 5 AWS Bedrock Converse API integration and smoke test execution
+- **Command**: `uv run python scripts/bedrock_smoke.py`
+- **Expected**: Script connects to AWS Bedrock runtime endpoint and completes model inference.
+- **Actual**: Command output:
+  ```text
+  Attempting Bedrock Converse API invocation...
+  [Bedrock API Notice] Live call did not proceed: NoCredentialsError: Unable to locate credentials
+  Engaging deterministic fallback pipeline...
+  ```
+- **Cause**: The local environment has neither AWS IAM credentials configured (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`) nor an active AWS SSO session. Boto3's default credential provider chain traverses environment variables, configuration files, and metadata services before raising `botocore.exceptions.NoCredentialsError`.
+- **Severity**: Low
+- **Workaround**: Implemented defensive exception handling in `server/bedrock.py` that intercepts `NoCredentialsError` along with network timeouts and API errors, immediately activating deterministic template phrasing tagged with `phrasing_source="template"`. This keeps the application fully functional offline.
+- **Suggestion**: Cloud LLM integrations in voice assistants must decouple inference from core business logic using deterministic template fallbacks so offline operation and CI pipelines remain resilient.
+
+---
+
+### Snag #008: FastMCP StreamableHTTP lifespan task group uninitialized when mounted inside parent Starlette application
+- **Date**: 2026-10-22
+- **Task**: Phase 7 single-page web UI and real MCP Streamable HTTP client integration
+- **Command**: `uv run python -c "..."` (mounting `mcp.streamable_http_app()` inside `Starlette(routes=[Route('/api/chat', ...), Mount('', app=mcp_app)])`)
+- **Expected**: Requests to `/mcp` process normally via the mounted FastMCP streamable HTTP ASGI application.
+- **Actual**: Command output:
+  ```text
+  File ".../mcp/server/streamable_http_manager.py", line 201, in _handle_request
+      raise RuntimeError("Task group is not initialized. Make sure to use run().")
+  RuntimeError: Task group is not initialized. Make sure to use run().
+  HTTP Request: POST http://127.0.0.1:62037/mcp "HTTP/1.1 500 Internal Server Error"
+  ```
+- **Cause**: FastMCP's `StreamableHTTPSessionManager` requires its async task group to be started via its lifespan context (`session_manager.run()`). When mounting `mcp_app` inside a parent Starlette application without explicitly passing `lifespan=mcp_app.router.lifespan_context`, the parent application does not run the sub-application's lifespan events, leaving the task group uninitialized.
+- **Severity**: Medium
+- **Workaround**: Configured the parent `Starlette` app with `lifespan=mcp_app.router.lifespan_context` in `server/main.py`. This ensures Uvicorn's lifespan startup triggers the session manager task group, enabling concurrent Streamable HTTP client sessions.
+- **Suggestion**: FastMCP could document composite ASGI mounting patterns or provide a helper to compose parent lifespans when serving web assets and MCP transports simultaneously.

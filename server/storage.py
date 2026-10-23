@@ -37,6 +37,11 @@ def _strip_notes(device: dict[str, Any]) -> dict[str, Any]:
     return {k: v for k, v in device.items() if k != "notes"}
 
 
+def is_public_demo_mode() -> bool:
+    """Return True if HOMEBOM_PUBLIC_DEMO mode is active."""
+    return os.environ.get("HOMEBOM_PUBLIC_DEMO", "").strip().lower() in ("1", "true", "yes")
+
+
 def load_seeded_devices() -> list[dict[str, Any]]:
     """Load seeded devices (strictly read-only)."""
     if not SEEDED_DEVICES_PATH.exists():
@@ -47,7 +52,9 @@ def load_seeded_devices() -> list[dict[str, Any]]:
 
 
 def load_user_devices() -> list[dict[str, Any]]:
-    """Load dynamically added user devices."""
+    """Load dynamically added user devices. Returns empty list in public demo mode."""
+    if is_public_demo_mode():
+        return []
     path = get_user_devices_path()
     if not path.exists():
         return []
@@ -60,7 +67,9 @@ def load_user_devices() -> list[dict[str, Any]]:
 
 
 def save_user_devices(user_devices: list[dict[str, Any]]) -> None:
-    """Persist user devices atomically via a temporary file and atomic replace."""
+    """Persist user devices atomically. Disabled entirely in public demo mode."""
+    if is_public_demo_mode():
+        raise RuntimeError("User-device writes are disabled in public demo mode.")
     path = get_user_devices_path()
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp_path = path.parent / f"{path.name}.{os.getpid()}.tmp"

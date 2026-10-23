@@ -1,0 +1,18 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.13, pytest-9.1.1, pluggy-1.7.0 -- /Users/krrishbiswas/Desktop/HomeBOM/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/krrishbiswas/Desktop/HomeBOM
+configfile: pyproject.toml
+plugins: asyncio-1.4.0, anyio-4.15.1
+asyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 7 items
+
+tests/test_mcp_protocol.py::test_auth_fail_closed_mechanics PASSED       [ 14%]
+tests/test_mcp_protocol.py::test_auth_rejection_http_401 PASSED          [ 28%]
+tests/test_mcp_protocol.py::test_list_tools_exactly_six_and_routing_descriptions PASSED [ 42%]
+tests/test_mcp_protocol.py::test_mcp_tools_execution_and_voice_rules PASSED [ 57%]
+tests/test_mcp_protocol.py::test_add_device_without_candidate_returns_question_not_cpe PASSED [ 71%]
+tests/test_mcp_protocol.py::test_add_device_without_firmware_returns_question PASSED [ 85%]
+tests/test_mcp_protocol.py::test_add_device_atomic_persistence PASSED    [100%]
+
+============================== 7 passed in 9.82s ===============================

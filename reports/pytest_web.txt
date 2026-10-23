@@ -1,0 +1,53 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.13, pytest-9.1.1, pluggy-1.7.0 -- /Users/krrishbiswas/Desktop/HomeBOM/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/krrishbiswas/Desktop/HomeBOM
+configfile: pyproject.toml
+testpaths: packages/homebom-core/tests, tests
+plugins: asyncio-1.4.0, anyio-4.15.1
+asyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 41 items
+
+packages/homebom-core/tests/test_hbom.py::test_cyclonedx_1_6_official_schema_validation PASSED [  2%]
+packages/homebom-core/tests/test_hbom.py::test_cyclonedx_components_structure_and_eol PASSED [  4%]
+packages/homebom-core/tests/test_hbom.py::test_cyclonedx_vulnerabilities_and_vex_states PASSED [  7%]
+packages/homebom-core/tests/test_hbom.py::test_cyclonedx_shared_cve_multiple_affects PASSED [  9%]
+packages/homebom-core/tests/test_hbom.py::test_export_hbom_spoken_summary PASSED [ 12%]
+packages/homebom-core/tests/test_imports.py::test_package_version PASSED [ 14%]
+packages/homebom-core/tests/test_imports.py::test_zero_mcp_and_zero_aws_imports PASSED [ 17%]
+packages/homebom-core/tests/test_match_rank.py::test_firmware_cpe_rule PASSED [ 19%]
+packages/homebom-core/tests/test_match_rank.py::test_eol_detection_from_kev_text PASSED [ 21%]
+packages/homebom-core/tests/test_match_rank.py::test_phrasing_and_remediation_rules PASSED [ 24%]
+packages/homebom-core/tests/test_match_rank.py::test_priority_ranking_order_kev_and_epss PASSED [ 26%]
+packages/homebom-core/tests/test_versions.py::test_messy_firmware_extraction PASSED [ 29%]
+packages/homebom-core/tests/test_versions.py::test_compare_like_with_like_date_tokens PASSED [ 31%]
+packages/homebom-core/tests/test_versions.py::test_boundary_rule_version_end_excluding PASSED [ 34%]
+packages/homebom-core/tests/test_versions.py::test_boundary_rule_version_end_including PASSED [ 36%]
+packages/homebom-core/tests/test_versions.py::test_start_and_end_ranges PASSED [ 39%]
+packages/homebom-core/tests/test_versions.py::test_unparseable_firmware_returns_unknown PASSED [ 41%]
+tests/test_bedrock.py::test_bedrock_converse_success_mocked PASSED       [ 43%]
+tests/test_bedrock.py::test_bedrock_forced_failures PASSED               [ 46%]
+tests/test_bedrock.py::test_validator_rejects_cve_id PASSED              [ 48%]
+tests/test_bedrock.py::test_validator_rejects_word_safe PASSED           [ 51%]
+tests/test_bedrock.py::test_validator_rejects_more_than_three_sentences PASSED [ 53%]
+tests/test_bedrock.py::test_validator_rejects_hallucinated_numbers PASSED [ 56%]
+tests/test_bedrock.py::test_validator_rejects_critical_when_cvss_below_nine PASSED [ 58%]
+tests/test_bedrock.py::test_validator_rejects_update_for_eol_device PASSED [ 60%]
+tests/test_bedrock.py::test_cpe_resolver_with_bedrock PASSED             [ 63%]
+tests/test_data.py::test_devices_json_schema_and_rules PASSED            [ 65%]
+tests/test_data.py::test_cisa_kev_cache PASSED                           [ 68%]
+tests/test_data.py::test_epss_cache PASSED                               [ 70%]
+tests/test_data.py::test_nvd_cache_for_all_devices PASSED                [ 73%]
+tests/test_golden_truth.py::test_every_cve_epss_kev_is_ground_truth_from_cache PASSED [ 75%]
+tests/test_golden_truth.py::test_epss_metadata_snapshot_date PASSED      [ 78%]
+tests/test_mcp_protocol.py::test_auth_fail_closed_mechanics PASSED       [ 80%]
+tests/test_mcp_protocol.py::test_auth_rejection_http_401 PASSED          [ 82%]
+tests/test_mcp_protocol.py::test_list_tools_exactly_six_and_routing_descriptions PASSED [ 85%]
+tests/test_mcp_protocol.py::test_mcp_tools_execution_and_voice_rules PASSED [ 87%]
+tests/test_mcp_protocol.py::test_add_device_without_candidate_returns_question_not_cpe PASSED [ 90%]
+tests/test_mcp_protocol.py::test_add_device_without_firmware_returns_question PASSED [ 92%]
+tests/test_mcp_protocol.py::test_add_device_atomic_persistence PASSED    [ 95%]
+tests/test_setup.py::test_server_package_imports PASSED                  [ 97%]
+tests/test_setup.py::test_bedrock_hello_fallback_runs PASSED             [100%]
+
+============================== 41 passed in 7.14s ==============================

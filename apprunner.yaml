@@ -1,0 +1,24 @@
+# ==============================================================================
+# AWS App Runner Configuration File for HomeBOM
+# ==============================================================================
+version: 1.0
+runtime: python312
+build:
+  commands:
+    build:
+      - pip install uv
+      - uv pip install --system -e ./packages/homebom-core -e .
+run:
+  command: python -m uvicorn server.main:app --host 0.0.0.0 --port 8000
+  network:
+    port: 8000
+    env: PORT
+  env:
+    - name: HOMEBOM_PUBLIC_DEMO
+      value: "1"
+    - name: AWS_REGION
+      value: "us-east-1"
+    - name: BEDROCK_MODEL_ID
+      value: "us.anthropic.claude-3-haiku-20240307-v1:0"
+    - name: BEDROCK_MAX_CALLS_PER_HOUR
+      value: "50"

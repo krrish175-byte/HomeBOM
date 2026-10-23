@@ -1,0 +1,576 @@
+StreamableHTTP session manager started
+Terminating session: None
+HTTP Request: POST http://127.0.0.1:8765/mcp "HTTP/1.1 200 OK"
+Negotiated protocol version: 2025-11-25
+Terminating session: None
+HTTP Request: POST http://127.0.0.1:8765/mcp "HTTP/1.1 202 Accepted"
+Processing request of type ListToolsRequest
+Terminating session: None
+HTTP Request: POST http://127.0.0.1:8765/mcp "HTTP/1.1 200 OK"
+Processing request of type CallToolRequest
+Terminating session: None
+HTTP Request: POST http://127.0.0.1:8765/mcp "HTTP/1.1 200 OK"
+Processing request of type CallToolRequest
+Bedrock converse failed (Unable to locate credentials); falling back to template.
+Terminating session: None
+HTTP Request: POST http://127.0.0.1:8765/mcp "HTTP/1.1 200 OK"
+Processing request of type CallToolRequest
+Bedrock device phrasing failed (Unable to locate credentials); falling back to template.
+Terminating session: None
+HTTP Request: POST http://127.0.0.1:8765/mcp "HTTP/1.1 200 OK"
+Processing request of type CallToolRequest
+Bedrock device phrasing failed (Unable to locate credentials); falling back to template.
+Terminating session: None
+HTTP Request: POST http://127.0.0.1:8765/mcp "HTTP/1.1 200 OK"
+Processing request of type CallToolRequest
+Bedrock device phrasing failed (Unable to locate credentials); falling back to template.
+Terminating session: None
+HTTP Request: POST http://127.0.0.1:8765/mcp "HTTP/1.1 200 OK"
+Processing request of type CallToolRequest
+Terminating session: None
+HTTP Request: POST http://127.0.0.1:8765/mcp "HTTP/1.1 200 OK"
+Processing request of type CallToolRequest
+Terminating session: None
+HTTP Request: POST http://127.0.0.1:8765/mcp "HTTP/1.1 200 OK"
+Processing request of type CallToolRequest
+Bedrock CPE resolution failed (Unable to locate credentials); falling back to heuristic template.
+Terminating session: None
+HTTP Request: POST http://127.0.0.1:8765/mcp "HTTP/1.1 200 OK"
+Processing request of type CallToolRequest
+Bedrock CPE resolution failed (Unable to locate credentials); falling back to heuristic template.
+Terminating session: None
+HTTP Request: POST http://127.0.0.1:8765/mcp "HTTP/1.1 200 OK"
+Processing request of type CallToolRequest
+Terminating session: None
+HTTP Request: POST http://127.0.0.1:8765/mcp "HTTP/1.1 200 OK"
+StreamableHTTP session manager shutting down
+================================================================================
+HOMEBOM MCP INSPECTOR CLIENT
+Transport: Streamable HTTP (/mcp)
+Protocol Version: 2025-11-25
+Server Target: http://127.0.0.1:8765/mcp
+Authentication: Bearer <API_KEY>
+================================================================================
+
+[MCP INITIALIZE RESPONSE]
+  Server Name    : HomeBOM
+  Protocol Version: 2025-11-25
+  Instructions   : HomeBOM is a smart-home security assistant that monitors device firmware against real-world vulnerability feeds (CISA KEV, FIRST EPSS, NVD 2.0) and CycloneDX 1.6 HBOM standards.
+
+--------------------------------------------------------------------------------
+[MCP TOOLS/LIST]
+Found 6 tools registered:
+
+• Tool: list_devices
+  Description: Retrieve the inventory of all smart-home devices currently registered in the home.
+  Input Schema: {
+  "properties": {},
+  "title": "list_devicesArguments",
+  "type": "object"
+}
+
+• Tool: add_device
+  Description: Register a new smart-home device into the inventory by matching its model against verified firmware CPE definitions.
+  Input Schema: {
+  "properties": {
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "model": {
+      "title": "Model",
+      "type": "string"
+    },
+    "firmware": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Firmware"
+    }
+  },
+  "required": [
+    "name",
+    "model"
+  ],
+  "title": "add_deviceArguments",
+  "type": "object"
+}
+
+• Tool: scan_home
+  Description: Perform a full home security scan across all registered devices, evaluating firmware against CISA KEV, FIRST EPSS, and NVD 2.0 vulnerability data.
+  Input Schema: {
+  "properties": {},
+  "title": "scan_homeArguments",
+  "type": "object"
+}
+
+• Tool: explain_risk
+  Description: Provide a plain-language explanation of security risks and vulnerabilities for a specific smart-home device.
+  Input Schema: {
+  "properties": {
+    "device": {
+      "title": "Device",
+      "type": "string"
+    }
+  },
+  "required": [
+    "device"
+  ],
+  "title": "explain_riskArguments",
+  "type": "object"
+}
+
+• Tool: get_fix_steps
+  Description: Provide concise, actionable remediation instructions for a specific device.
+  Input Schema: {
+  "properties": {
+    "device": {
+      "title": "Device",
+      "type": "string"
+    }
+  },
+  "required": [
+    "device"
+  ],
+  "title": "get_fix_stepsArguments",
+  "type": "object"
+}
+
+• Tool: export_hbom
+  Description: Export a CycloneDX 1.6 Hardware Bill of Materials (HBOM) with embedded VEX records for all home devices.
+  Input Schema: {
+  "properties": {},
+  "title": "export_hbomArguments",
+  "type": "object"
+}
+
+--------------------------------------------------------------------------------
+[CALL TOOL: list_devices]
+{
+  "total_devices": 8,
+  "devices": [
+    {
+      "id": "dev-001",
+      "name": "Living Room Router",
+      "vendor": "TP-Link",
+      "model": "Archer AX21",
+      "category": "router",
+      "firmware": "1.1.2 Build 20220624",
+      "cpe": "cpe:2.3:o:tp-link:archer_ax21_firmware:*:*:*:*:*:*:*:*"
+    },
+    {
+      "id": "dev-002",
+      "name": "Backyard Security Camera",
+      "vendor": "D-Link",
+      "model": "DCS-2530L",
+      "category": "camera",
+      "firmware": "1.05.00",
+      "cpe": "cpe:2.3:o:dlink:dcs-2530l_firmware:*:*:*:*:*:*:*:*"
+    },
+    {
+      "id": "dev-003",
+      "name": "Wi-Fi Range Extender",
+      "vendor": "TP-Link",
+      "model": "TL-WA855RE",
+      "category": "extender",
+      "firmware": "1.0.0 Build 200508",
+      "cpe": "cpe:2.3:o:tp-link:tl-wa855re_firmware:*:*:*:*:*:*:*:*"
+    },
+    {
+      "id": "dev-004",
+      "name": "Gaming Router",
+      "vendor": "ASUS",
+      "model": "ROG GT-AC2900",
+      "category": "router",
+      "firmware": "3.0.0.4.386.41700",
+      "cpe": "cpe:2.3:o:asus:gt-ac2900_firmware:*:*:*:*:*:*:*:*"
+    },
+    {
+      "id": "dev-005",
+      "name": "Kitchen Echo",
+      "vendor": "Amazon",
+      "model": "Echo Dot 5th Gen",
+      "category": "smart_speaker",
+      "firmware": "Amazon FireOS 7.5.8.2",
+      "cpe": "cpe:2.3:o:amazon:echo_dot_firmware:*:*:*:*:*:*:*:*"
+    },
+    {
+      "id": "dev-006",
+      "name": "Front Doorbell",
+      "vendor": "Amazon / Ring",
+      "model": "Ring Video Doorbell Pro",
+      "category": "doorbell",
+      "firmware": "3.4.7",
+      "cpe": "cpe:2.3:o:amazon:ring_video_doorbell_firmware:3.4.7:*:*:*:*:*:*:*"
+    },
+    {
+      "id": "dev-007",
+      "name": "Living Room TV Stick",
+      "vendor": "Amazon",
+      "model": "Fire TV Stick 4K",
+      "category": "media_player",
+      "firmware": "FireOS 7.6.6.9",
+      "cpe": "cpe:2.3:o:amazon:fire_os:7.6.6.9:*:*:*:*:*:*:*"
+    },
+    {
+      "id": "dev-008",
+      "name": "Porch Smart Plug",
+      "vendor": "Generic IoT",
+      "model": "Wi-Fi Smart Plug",
+      "category": "smart_plug",
+      "firmware": "CUSTOM-BETA-REV-???",
+      "cpe": "cpe:2.3:o:tuya:smart_plug_firmware:*:*:*:*:*:*:*:*"
+    }
+  ],
+  "spoken": "You have 8 devices in your home inventory, including Living Room Router, Backyard Security Camera, Wi-Fi Range Extender. You can ask me 'how safe is my home' to run a security scan.",
+  "phrasing_source": "template"
+}
+
+--------------------------------------------------------------------------------
+[CALL TOOL: scan_home]
+{
+  "epss_as_of": "as of 2026-10-21",
+  "summary": {
+    "total_devices": 8,
+    "fix_now": 4,
+    "fix_soon": 0,
+    "low": 0,
+    "unknown": 2,
+    "not_affected": 2,
+    "eol_devices": 3
+  },
+  "devices": [
+    {
+      "id": "dev-001",
+      "name": "Living Room Router",
+      "model": "Archer AX21",
+      "firmware": "1.1.2 Build 20220624",
+      "tier": "fix_now",
+      "overall_status": "affected",
+      "is_eol": false,
+      "max_epss": 1.0,
+      "max_cvss": 8.8,
+      "vulnerabilities_count": 1,
+      "unverified_candidates": [],
+      "spoken_summary": "Living Room Router has an actively exploited vulnerability that needs immediate attention. You should update its firmware right away.",
+      "fix_steps": "Update Living Room Router firmware to the latest release via the manufacturer app or administrative settings."
+    },
+    {
+      "id": "dev-004",
+      "name": "Gaming Router",
+      "model": "ROG GT-AC2900",
+      "firmware": "3.0.0.4.386.41700",
+      "tier": "fix_now",
+      "overall_status": "affected",
+      "is_eol": true,
+      "max_epss": 0.9939,
+      "max_cvss": 9.8,
+      "vulnerabilities_count": 1,
+      "unverified_candidates": [],
+      "spoken_summary": "Gaming Router has a critical, actively exploited security vulnerability and is officially discontinued by the manufacturer. You should replace this device immediately as no security updates are available.",
+      "fix_steps": "Replace Gaming Router with a supported model, as it is end-of-life and will not receive security patches."
+    },
+    {
+      "id": "dev-002",
+      "name": "Backyard Security Camera",
+      "model": "DCS-2530L",
+      "firmware": "1.05.00",
+      "tier": "fix_now",
+      "overall_status": "affected",
+      "is_eol": true,
+      "max_epss": 0.9751,
+      "max_cvss": 8.8,
+      "vulnerabilities_count": 2,
+      "unverified_candidates": [],
+      "spoken_summary": "Backyard Security Camera has an actively exploited security vulnerability and is officially discontinued by the manufacturer. You should replace this device immediately as no security updates are available.",
+      "fix_steps": "Replace Backyard Security Camera with a supported model, as it is end-of-life and will not receive security patches."
+    },
+    {
+      "id": "dev-003",
+      "name": "Wi-Fi Range Extender",
+      "model": "TL-WA855RE",
+      "firmware": "1.0.0 Build 200508",
+      "tier": "fix_now",
+      "overall_status": "affected",
+      "is_eol": true,
+      "max_epss": 0.2219,
+      "max_cvss": 8.8,
+      "vulnerabilities_count": 1,
+      "unverified_candidates": [],
+      "spoken_summary": "Wi-Fi Range Extender has an actively exploited security vulnerability and is officially discontinued by the manufacturer. You should replace this device immediately as no security updates are available.",
+      "fix_steps": "Replace Wi-Fi Range Extender with a supported model, as it is end-of-life and will not receive security patches."
+    },
+    {
+      "id": "dev-005",
+      "name": "Kitchen Echo",
+      "model": "Echo Dot 5th Gen",
+      "firmware": "Amazon FireOS 7.5.8.2",
+      "tier": "unknown",
+      "overall_status": "unknown",
+      "is_eol": false,
+      "max_epss": 0.0,
+      "max_cvss": 0.0,
+      "vulnerabilities_count": 0,
+      "unverified_candidates": [
+        "CVE-2018-11567",
+        "CVE-2021-37436",
+        "CVE-2022-25809"
+      ],
+      "spoken_summary": "I can't verify Kitchen Echo because its firmware version cannot be verified against known security databases. I recommend checking the manufacturer's app for updates.",
+      "fix_steps": "Check Kitchen Echo in the vendor app to ensure it is running official, up-to-date firmware."
+    },
+    {
+      "id": "dev-008",
+      "name": "Porch Smart Plug",
+      "model": "Wi-Fi Smart Plug",
+      "firmware": "CUSTOM-BETA-REV-???",
+      "tier": "unknown",
+      "overall_status": "unknown",
+      "is_eol": false,
+      "max_epss": 0.0,
+      "max_cvss": 0.0,
+      "vulnerabilities_count": 0,
+      "unverified_candidates": [],
+      "spoken_summary": "I can't verify Porch Smart Plug because its firmware version cannot be verified against known security databases. I recommend checking the manufacturer's app for updates.",
+      "fix_steps": "Check Porch Smart Plug in the vendor app to ensure it is running official, up-to-date firmware."
+    },
+    {
+      "id": "dev-006",
+      "name": "Front Doorbell",
+      "model": "Ring Video Doorbell Pro",
+      "firmware": "3.4.7",
+      "tier": "not_affected",
+      "overall_status": "not_affected",
+      "is_eol": false,
+      "max_epss": 0.0,
+      "max_cvss": 0.0,
+      "vulnerabilities_count": 0,
+      "unverified_candidates": [],
+      "spoken_summary": "Front Doorbell currently has no known vulnerabilities in public databases.",
+      "fix_steps": "No action needed for Front Doorbell; keep automatic updates enabled."
+    },
+    {
+      "id": "dev-007",
+      "name": "Living Room TV Stick",
+      "model": "Fire TV Stick 4K",
+      "firmware": "FireOS 7.6.6.9",
+      "tier": "not_affected",
+      "overall_status": "not_affected",
+      "is_eol": false,
+      "max_epss": 0.0,
+      "max_cvss": 0.0,
+      "vulnerabilities_count": 0,
+      "unverified_candidates": [],
+      "spoken_summary": "Living Room TV Stick currently has no known vulnerabilities in public databases.",
+      "fix_steps": "No action needed for Living Room TV Stick; keep automatic updates enabled."
+    }
+  ],
+  "spoken": "I scanned 8 devices as of 2026-10-21. 4 devices have actively exploited vulnerabilities needing immediate attention, including 3 discontinued models that must be replaced. The remaining devices have no known vulnerabilities or need version verification.",
+  "phrasing_source": "template"
+}
+
+--------------------------------------------------------------------------------
+[CALL TOOL: explain_risk(device='Living Room Router')]
+{
+  "device_id": "dev-001",
+  "device_name": "Living Room Router",
+  "model": "Archer AX21",
+  "firmware": "1.1.2 Build 20220624",
+  "cpe": "cpe:2.3:o:tp-link:archer_ax21_firmware:*:*:*:*:*:*:*:*",
+  "tier": "fix_now",
+  "overall_status": "affected",
+  "is_eol": false,
+  "max_cvss": 8.8,
+  "max_epss": 1.0,
+  "vulnerabilities_count": 1,
+  "unverified_candidates": [],
+  "spoken": "Living Room Router has an actively exploited vulnerability that needs immediate attention. You should update its firmware right away.",
+  "phrasing_source": "template"
+}
+
+--------------------------------------------------------------------------------
+[CALL TOOL: explain_risk(device='Kitchen Echo')]
+{
+  "device_id": "dev-005",
+  "device_name": "Kitchen Echo",
+  "model": "Echo Dot 5th Gen",
+  "firmware": "Amazon FireOS 7.5.8.2",
+  "cpe": "cpe:2.3:o:amazon:echo_dot_firmware:*:*:*:*:*:*:*:*",
+  "tier": "unknown",
+  "overall_status": "unknown",
+  "is_eol": false,
+  "max_cvss": 0.0,
+  "max_epss": 0.0,
+  "vulnerabilities_count": 0,
+  "unverified_candidates": [
+    "CVE-2018-11567",
+    "CVE-2021-37436",
+    "CVE-2022-25809"
+  ],
+  "spoken": "I can't verify Kitchen Echo because its firmware version cannot be verified against known security databases. I recommend checking the manufacturer's app for updates.",
+  "phrasing_source": "template"
+}
+
+--------------------------------------------------------------------------------
+[CALL TOOL: explain_risk(device='Front Doorbell')]
+{
+  "device_id": "dev-006",
+  "device_name": "Front Doorbell",
+  "model": "Ring Video Doorbell Pro",
+  "firmware": "3.4.7",
+  "cpe": "cpe:2.3:o:amazon:ring_video_doorbell_firmware:3.4.7:*:*:*:*:*:*:*",
+  "tier": "not_affected",
+  "overall_status": "not_affected",
+  "is_eol": false,
+  "max_cvss": 0.0,
+  "max_epss": 0.0,
+  "vulnerabilities_count": 0,
+  "unverified_candidates": [],
+  "spoken": "Front Doorbell currently has no known vulnerabilities in public databases.",
+  "phrasing_source": "template"
+}
+
+--------------------------------------------------------------------------------
+[CALL TOOL: get_fix_steps(device='Backyard Security Camera')]
+{
+  "device_id": "dev-002",
+  "device_name": "Backyard Security Camera",
+  "action": "replace",
+  "is_eol": true,
+  "fix_steps": "Replace Backyard Security Camera with a supported model, as it is end-of-life and will not receive security patches.",
+  "spoken": "Replace Backyard Security Camera with a supported model, as it is end-of-life and will not receive security patches.",
+  "phrasing_source": "template"
+}
+
+--------------------------------------------------------------------------------
+[CALL TOOL: add_device without firmware (Condition 2)]
+{
+  "status": "clarification_needed",
+  "question": "What firmware version is Basement Camera running? Please provide the version number from device settings or the companion app.",
+  "spoken": "What firmware version is Basement Camera running? Please tell me the version number so I can check it for vulnerabilities.",
+  "phrasing_source": "template"
+}
+
+--------------------------------------------------------------------------------
+[CALL TOOL: add_device(name='my router', model='SuperRouter 9000')]
+{
+  "status": "clarification_needed",
+  "question": "I couldn't match 'SuperRouter 9000' to a verified firmware model in my security database. Did you mean one of these: ASUS ROG GT-AC2900, TP-Link Archer AX21?",
+  "spoken": "I couldn't match 'SuperRouter 9000' to a verified firmware model in my security database. Did you mean one of these: ASUS ROG GT-AC2900, TP-Link Archer AX21?",
+  "phrasing_source": "template"
+}
+
+--------------------------------------------------------------------------------
+[CALL TOOL: add_device(name='Basement Cam', model='DCS-2530L')]
+{
+  "status": "added",
+  "device": {
+    "id": "dev-user-001",
+    "name": "Basement Cam",
+    "vendor": "D-Link",
+    "model": "DCS-2530L",
+    "category": "camera",
+    "firmware": "1.05.00",
+    "cpe": "cpe:2.3:o:dlink:dcs-2530l_firmware:*:*:*:*:*:*:*:*"
+  },
+  "spoken": "Added Basement Cam (DCS-2530L) with firmware 1.05.00 to your home inventory.",
+  "phrasing_source": "template"
+}
+
+--------------------------------------------------------------------------------
+[CALL TOOL: export_hbom]
+{
+  "status": "success",
+  "bom_format": "CycloneDX",
+  "spec_version": "1.6",
+  "spoken": "I exported your CycloneDX Hardware Bill of Materials with embedded VEX records for 9 devices. The export documents 5 actively exploited vulnerabilities and 3 unverified candidates in triage. All records include verified firmware CPEs and end-of-life status properties.",
+  "total_components": 9,
+  "total_vulnerabilities": 8,
+  "sample_component": {
+    "type": "device",
+    "bom-ref": "device-dev-001",
+    "name": "Living Room Router",
+    "description": "Archer AX21",
+    "properties": [
+      {
+        "name": "homebom:eol",
+        "value": "false"
+      },
+      {
+        "name": "homebom:risk_tier",
+        "value": "fix_now"
+      },
+      {
+        "name": "homebom:status",
+        "value": "affected"
+      }
+    ],
+    "components": [
+      {
+        "type": "firmware",
+        "bom-ref": "firmware-dev-001",
+        "name": "Archer AX21 Firmware",
+        "version": "1.1.2 Build 20220624",
+        "cpe": "cpe:2.3:o:tp-link:archer_ax21_firmware:*:*:*:*:*:*:*:*",
+        "properties": [
+          {
+            "name": "homebom:eol",
+            "value": "false"
+          }
+        ]
+      }
+    ]
+  },
+  "sample_vulnerability": {
+    "bom-ref": "vuln-CVE-2023-1389",
+    "id": "CVE-2023-1389",
+    "source": {
+      "name": "NVD",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-1389"
+    },
+    "analysis": {
+      "state": "exploitable",
+      "detail": "Confirmed affected firmware version; actively exploited according to CISA KEV catalog."
+    },
+    "affects": [
+      {
+        "ref": "firmware-dev-001"
+      }
+    ],
+    "properties": [
+      {
+        "name": "homebom:cisa_kev",
+        "value": "true"
+      },
+      {
+        "name": "homebom:epss",
+        "value": "0.99999"
+      },
+      {
+        "name": "homebom:eol",
+        "value": "false"
+      }
+    ],
+    "ratings": [
+      {
+        "source": {
+          "name": "NVD"
+        },
+        "score": 8.8,
+        "severity": "high",
+        "vector": "CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+        "method": "CVSSv31"
+      }
+    ]
+  }
+}
+
+================================================================================
+MCP INSPECTION COMPLETE: All 6 tools executed successfully.
+================================================================================

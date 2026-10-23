@@ -1,0 +1,19 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.13, pytest-9.1.1, pluggy-1.7.0 -- /Users/krrishbiswas/Desktop/HomeBOM/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/krrishbiswas/Desktop/HomeBOM
+configfile: pyproject.toml
+plugins: asyncio-1.4.0, anyio-4.15.1
+asyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 8 items
+
+tests/test_public_hardening.py::test_public_demo_storage_guards PASSED   [ 12%]
+tests/test_public_hardening.py::test_public_demo_filters_add_device_from_chat PASSED [ 25%]
+tests/test_public_hardening.py::test_max_query_length_enforced PASSED    [ 37%]
+tests/test_public_hardening.py::test_per_ip_rate_limiting PASSED         [ 50%]
+tests/test_public_hardening.py::test_bedrock_hourly_budget_hard_cap_and_fallback PASSED [ 62%]
+tests/test_public_hardening.py::test_router_falls_back_when_bedrock_budget_exceeded PASSED [ 75%]
+tests/test_public_hardening.py::test_no_cors_headers_present PASSED      [ 87%]
+tests/test_public_hardening.py::test_api_key_never_reaches_browser PASSED [100%]
+
+============================== 8 passed in 8.88s ===============================

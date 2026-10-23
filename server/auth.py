@@ -60,6 +60,12 @@ class AuthMiddleware:
             await self.app(scope, receive, send)
             return
 
+        path = scope.get("path", "")
+        # Protect MCP transport endpoints
+        if not path.startswith("/mcp"):
+            await self.app(scope, receive, send)
+            return
+
         headers = dict(scope.get("headers", []))
         auth_header = headers.get(b"authorization", b"").decode("utf-8", errors="ignore").strip()
         x_api_key = headers.get(b"x-api-key", b"").decode("utf-8", errors="ignore").strip()

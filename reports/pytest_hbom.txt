@@ -1,0 +1,16 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.13, pytest-9.1.1, pluggy-1.7.0 -- /Users/krrishbiswas/Desktop/HomeBOM/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/krrishbiswas/Desktop/HomeBOM
+configfile: pyproject.toml
+plugins: asyncio-1.4.0, anyio-4.15.1
+asyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 5 items
+
+packages/homebom-core/tests/test_hbom.py::test_cyclonedx_1_6_official_schema_validation PASSED [ 20%]
+packages/homebom-core/tests/test_hbom.py::test_cyclonedx_components_structure_and_eol PASSED [ 40%]
+packages/homebom-core/tests/test_hbom.py::test_cyclonedx_vulnerabilities_and_vex_states PASSED [ 60%]
+packages/homebom-core/tests/test_hbom.py::test_cyclonedx_shared_cve_multiple_affects PASSED [ 80%]
+packages/homebom-core/tests/test_hbom.py::test_export_hbom_spoken_summary PASSED [100%]
+
+============================== 5 passed in 1.58s ===============================

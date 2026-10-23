@@ -190,6 +190,33 @@ def test_cyclonedx_vulnerabilities_and_vex_states():
     assert "CVE-2021-37436" in triage_ids  # Echo Dot
     assert "CVE-2022-25809" in triage_ids  # Echo Dot
 
+    # Check uniqueness: one entry per CVE
+    cve_ids = [v["id"] for v in vulns]
+    assert len(cve_ids) == len(set(cve_ids)), f"Duplicate CVE entries in HBOM: {cve_ids}"
+
+    # Verify ratings, vector, source, and properties
+    for v in vulns:
+        assert "source" in v
+        assert v["source"]["name"] == "NVD"
+        assert v["source"]["url"].startswith("https://nvd.nist.gov/vuln/detail/")
+
+        # Ratings
+        ratings = v.get("ratings", [])
+        assert len(ratings) > 0
+        nvd_rating = next((r for r in ratings if r.get("source", {}).get("name") == "NVD"), None)
+        assert nvd_rating is not None
+        assert "score" in nvd_rating
+        assert "vector" in nvd_rating
+        assert nvd_rating["vector"].startswith("CVSS:")
+
+        # Properties
+        props = {p["name"]: p["value"] for p in v.get("properties", [])}
+        assert "homebom:cisa_kev" in props
+        assert props["homebom:cisa_kev"] in ("true", "false")
+        assert "homebom:epss" in props
+        assert float(props["homebom:epss"]) >= 0.0
+        assert "homebom:eol" in props
+
     # 3. not_affected devices emit no vulnerability entries
     # Ring Doorbell (dev-006) and TV Stick (dev-007) must have 0 entries in affects
     for v in vulns:
@@ -199,6 +226,74 @@ def test_cyclonedx_vulnerabilities_and_vex_states():
         # Every affect ref must point to a valid firmware component
         for ref in affects_refs:
             assert ref.startswith("firmware-dev-")
+
+
+def test_cyclonedx_shared_cve_multiple_affects():
+    """Verify that multiple devices sharing a CVE result in one vulnerability entry with multiple affects."""
+    from homebom_core.match import VulnerabilityFinding
+    from homebom_core.rank import DeviceRiskProfile
+
+    finding_shared = VulnerabilityFinding(
+        cve_id="CVE-2023-1389",
+        status="affected",
+        cvss_score=8.8,
+        cvss_vector="CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+        epss_score=0.9419,
+        in_kev=True,
+        eol=False,
+        description="TP-Link Archer AX21 Command Injection",
+        criteria_matched="cpe:2.3:o:tp-link:archer_ax21_firmware:*:*:*:*:*:*:*:*",
+    )
+
+    profile1 = DeviceRiskProfile(
+        device_id="dev-test-1",
+        device_name="Router 1",
+        model="Archer AX21",
+        firmware="1.1.1 Build 20220101",
+        cpe="cpe:2.3:o:tp-link:archer_ax21_firmware:-:*:*:*:*:*:*:*",
+        overall_status="affected",
+        tier="fix_now",
+        findings=[finding_shared],
+        spoken_summary="Router 1 needs an update.",
+        fix_steps="Check TP-Link support.",
+        is_eol=False,
+        max_cvss=8.8,
+        max_epss=0.9419,
+        vulnerabilities_count=1,
+    )
+
+    profile2 = DeviceRiskProfile(
+        device_id="dev-test-2",
+        device_name="Router 2",
+        model="Archer AX21",
+        firmware="1.1.2 Build 20220202",
+        cpe="cpe:2.3:o:tp-link:archer_ax21_firmware:-:*:*:*:*:*:*:*",
+        overall_status="affected",
+        tier="fix_now",
+        findings=[finding_shared],
+        spoken_summary="Router 2 needs an update.",
+        fix_steps="Check TP-Link support.",
+        is_eol=False,
+        max_cvss=8.8,
+        max_epss=0.9419,
+        vulnerabilities_count=1,
+    )
+
+    bom = generate_cyclonedx_hbom([profile1, profile2])
+    vulns = bom.get("vulnerabilities", [])
+    # Exactly 1 vulnerability entry for CVE-2023-1389
+    cve_entries = [v for v in vulns if v["id"] == "CVE-2023-1389"]
+    assert len(cve_entries) == 1
+    shared_entry = cve_entries[0]
+
+    # Multiple affects refs pointing to both firmware components
+    affects_refs = [a["ref"] for a in shared_entry.get("affects", [])]
+    assert sorted(affects_refs) == ["firmware-dev-test-1", "firmware-dev-test-2"]
+
+    # Official schema validation
+    validator = JsonValidator(SchemaVersion.V1_6)
+    err = validator.validate_str(json.dumps(bom))
+    assert err is None, f"Schema validation error: {err}"
 
 
 def test_export_hbom_spoken_summary():

@@ -1,0 +1,52 @@
+=== D-LINK DCS-2530L (Firmware: 1.05.00) ===
+CVE: CVE-2017-7852, CVSS: (8.8, 'CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H')
+  criteria: cpe:2.3:o:dlink:dcs-2530l_firmware:*:*:*:*:*:*:*:*
+  versionStartIncluding: None
+  versionEndIncluding:   1.00.21
+  versionEndExcluding:   None
+  criteria: cpe:2.3:h:dlink:dcs-2530l:-:*:*:*:*:*:*:*
+  versionStartIncluding: None
+  versionEndIncluding:   None
+  versionEndExcluding:   None
+CVE: CVE-2020-25078, CVSS: (7.5, 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N')
+  criteria: cpe:2.3:o:dlink:dcs-2530l_firmware:*:*:*:*:*:*:*:*
+  versionStartIncluding: None
+  versionEndIncluding:   1.05.05
+  versionEndExcluding:   None
+  criteria: cpe:2.3:h:dlink:dcs-2530l:-:*:*:*:*:*:*:*
+  versionStartIncluding: None
+  versionEndIncluding:   None
+  versionEndExcluding:   None
+CVE: CVE-2020-25079, CVSS: (8.8, 'CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H')
+  criteria: cpe:2.3:o:dlink:dcs-2530l_firmware:*:*:*:*:*:*:*:*
+  versionStartIncluding: None
+  versionEndIncluding:   1.05.05
+  versionEndExcluding:   None
+  criteria: cpe:2.3:h:dlink:dcs-2530l:-:*:*:*:*:*:*:*
+  versionStartIncluding: None
+  versionEndIncluding:   None
+  versionEndExcluding:   None
+
+=== TP-LINK TL-WA855RE (Firmware: 1.0.0 Build 200508) ===
+CVE: CVE-2020-10916, CVSS: (8.0, 'CVSS:3.1/AV:A/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H')
+  criteria: cpe:2.3:o:tp-link:tl-wa855re_firmware:190408:*:*:*:*:*:*:*
+  versionStartIncluding: None
+  versionEndIncluding:   None
+  versionEndExcluding:   None
+  criteria: cpe:2.3:o:tp-link:tl-wa855re_firmware:191213:*:*:*:*:*:*:*
+  versionStartIncluding: None
+  versionEndIncluding:   None
+  versionEndExcluding:   None
+  criteria: cpe:2.3:h:tp-link:tl-wa855re:v4:*:*:*:*:*:*:*
+  versionStartIncluding: None
+  versionEndIncluding:   None
+  versionEndExcluding:   None
+CVE: CVE-2020-24363, CVSS: (8.8, 'CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H')
+  criteria: cpe:2.3:o:tp-link:tl-wa855re_firmware:*:*:*:*:*:*:*:*
+  versionStartIncluding: None
+  versionEndIncluding:   None
+  versionEndExcluding:   200731
+  criteria: cpe:2.3:h:tp-link:tl-wa855re:v5:*:*:*:*:*:*:*
+  versionStartIncluding: None
+  versionEndIncluding:   None
+  versionEndExcluding:   None

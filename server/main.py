@@ -35,13 +35,18 @@ from homebom_core.hbom import generate_cyclonedx_hbom, generate_hbom_spoken_summ
 from mcp.server.fastmcp import FastMCP
 
 from server.auth import AuthMiddleware, get_configured_api_key
+from server.bedrock import (
+    generate_spoken_device_phrasing,
+    generate_spoken_scan_phrasing,
+    resolve_cpe_with_bedrock,
+)
 from server.engine import evaluate_single_device, scan_all_devices
 from server.storage import (
     find_device_by_query,
     get_all_devices,
     get_epss_metadata,
+    is_public_demo_mode,
     load_user_devices,
-    resolve_candidate_cpe,
     save_user_devices,
 )
 
@@ -98,6 +103,7 @@ def create_mcp_server() -> FastMCP:
             "total_devices": total,
             "devices": devices,
             "spoken": spoken,
+            "phrasing_source": "template",
         }
 
     # ------------------------------------------------------------------------
@@ -121,46 +127,37 @@ def create_mcp_server() -> FastMCP:
         clean_name = name.strip() if name else "Device"
         clean_model = model.strip() if model else ""
 
+        if is_public_demo_mode():
+            return {
+                "status": "disabled",
+                "question": "Adding devices is disabled in public demo mode.",
+                "spoken": "Device registration is disabled in public demo mode.",
+                "phrasing_source": "template",
+            }
+
         # Condition 2: add_device must never default firmware.
         if firmware is None or not firmware.strip():
             return {
                 "status": "clarification_needed",
                 "question": f"What firmware version is {clean_name} running? Please provide the version number from device settings or the companion app.",
                 "spoken": f"What firmware version is {clean_name} running? Please tell me the version number so I can check it for vulnerabilities.",
+                "phrasing_source": "template",
             }
 
         clean_firmware = firmware.strip()
 
-        # Resolve against pre-indexed candidates. NEVER invent a CPE.
-        best_candidate, closest = resolve_candidate_cpe(clean_model, clean_name)
+        # Resolve against pre-indexed candidates using Bedrock (with deterministic fallback)
+        best_candidate, clarification_q, phrasing_source = resolve_cpe_with_bedrock(
+            clean_model,
+            clean_name,
+        )
 
         if best_candidate is None:
-            # No confident match -> Return clarifying question and closest candidates
-            if closest:
-                cand_names = [f"{c['vendor']} {c['product']}" for c in closest]
-                question = (
-                    f"I couldn't match '{clean_model}' to a verified firmware model in my security database. "
-                    f"Did you mean one of these: {', '.join(cand_names)}?"
-                )
-                spoken = (
-                    f"I couldn't match {clean_model} to a known device. "
-                    f"Did you mean {cand_names[0]} or {cand_names[1] if len(cand_names) > 1 else 'another model'}?"
-                )
-            else:
-                question = (
-                    f"I couldn't find a matching firmware definition for '{clean_model}'. "
-                    f"Could you check the label on your device and specify the exact brand and model?"
-                )
-                spoken = (
-                    f"I couldn't find a matching model for {clean_name}. "
-                    f"Could you check the label on your device and tell me the exact brand and model?"
-                )
-
             return {
                 "status": "clarification_needed",
-                "question": question,
-                "candidates": closest,
-                "spoken": spoken,
+                "question": clarification_q,
+                "spoken": clarification_q,
+                "phrasing_source": phrasing_source,
             }
 
         # Match confirmed -> Persist atomically to user_devices.json
@@ -186,6 +183,7 @@ def create_mcp_server() -> FastMCP:
             "status": "added",
             "device": new_device,
             "spoken": spoken,
+            "phrasing_source": phrasing_source,
         }
 
     # ------------------------------------------------------------------------
@@ -224,35 +222,55 @@ def create_mcp_server() -> FastMCP:
         # Rule 4: use 'actively exploited' for KEV, and 'critical' only if CVSS >= 9.0
         if fix_now_count > 0:
             if eol_count > 0:
-                spoken = (
+                template_spoken = (
                     f"I scanned {len(profiles)} devices {as_of_str}. "
                     f"{fix_now_count} devices have actively exploited vulnerabilities needing immediate attention, "
                     f"including {eol_count} discontinued models that must be replaced. "
                     f"The remaining devices have no known vulnerabilities or need version verification."
                 )
             else:
-                spoken = (
+                template_spoken = (
                     f"I scanned {len(profiles)} devices {as_of_str}. "
                     f"{fix_now_count} devices have actively exploited vulnerabilities that need immediate firmware updates. "
                     f"The other devices currently have no known vulnerabilities in public databases."
                 )
         elif fix_soon_count > 0:
-            spoken = (
+            template_spoken = (
                 f"I scanned {len(profiles)} devices {as_of_str}. "
                 f"{fix_soon_count} devices have high-risk vulnerabilities that should be patched soon. "
                 f"The remaining devices have no known vulnerabilities in public databases."
             )
         elif unknown_count > 0:
-            spoken = (
+            template_spoken = (
                 f"I scanned {len(profiles)} devices {as_of_str}. "
                 f"No urgent vulnerabilities were found, though {unknown_count} devices could not be verified against known databases. "
                 f"The rest have no known vulnerabilities in public databases."
             )
         else:
-            spoken = (
+            template_spoken = (
                 f"I scanned {len(profiles)} devices {as_of_str}. "
                 f"All devices currently have no known vulnerabilities in public databases."
             )
+
+        max_cvss = max((p.max_cvss for p in profiles), default=0.0)
+        has_eol = eol_count > 0
+        scan_summary_input = {
+            "total_devices": len(profiles),
+            "fix_now": fix_now_count,
+            "fix_soon": fix_soon_count,
+            "low": low_count,
+            "unknown": unknown_count,
+            "not_affected": not_affected_count,
+            "eol_devices": eol_count,
+            "as_of": as_of_str,
+        }
+
+        spoken, phrasing_source = generate_spoken_scan_phrasing(
+            scan_summary=scan_summary_input,
+            max_cvss=max_cvss,
+            is_eol=has_eol,
+            template_fallback=template_spoken,
+        )
 
         device_summaries = []
         for p in profiles:
@@ -287,6 +305,7 @@ def create_mcp_server() -> FastMCP:
             },
             "devices": device_summaries,
             "spoken": spoken,
+            "phrasing_source": phrasing_source,
         }
 
     # ------------------------------------------------------------------------
@@ -315,9 +334,29 @@ def create_mcp_server() -> FastMCP:
                 "error": "device_not_found",
                 "device_query": device,
                 "spoken": f"I couldn't find a device matching '{device}' in your home inventory.",
+                "phrasing_source": "template",
             }
 
         profile = evaluate_single_device(dev)
+        device_summary_input = {
+            "device_name": profile.device_name,
+            "model": profile.model,
+            "firmware": profile.firmware,
+            "tier": profile.tier,
+            "overall_status": profile.overall_status,
+            "is_eol": profile.is_eol,
+            "max_cvss": round(profile.max_cvss, 1),
+            "max_epss": round(profile.max_epss, 4),
+            "vulnerabilities_count": profile.vulnerabilities_count,
+            "unverified_candidates": profile.unverified_candidates,
+        }
+        spoken, phrasing_source = generate_spoken_device_phrasing(
+            device_summary=device_summary_input,
+            max_cvss=profile.max_cvss,
+            is_eol=profile.is_eol,
+            template_fallback=profile.spoken_summary,
+        )
+
         return {
             "device_id": profile.device_id,
             "device_name": profile.device_name,
@@ -331,7 +370,8 @@ def create_mcp_server() -> FastMCP:
             "max_epss": round(profile.max_epss, 4),
             "vulnerabilities_count": profile.vulnerabilities_count,
             "unverified_candidates": profile.unverified_candidates,
-            "spoken": profile.spoken_summary,
+            "spoken": spoken,
+            "phrasing_source": phrasing_source,
         }
 
     # ------------------------------------------------------------------------
@@ -360,6 +400,7 @@ def create_mcp_server() -> FastMCP:
                 "error": "device_not_found",
                 "device_query": device,
                 "spoken": f"I couldn't find a device matching '{device}' in your home inventory.",
+                "phrasing_source": "template",
             }
 
         profile = evaluate_single_device(dev)
@@ -380,6 +421,7 @@ def create_mcp_server() -> FastMCP:
             "is_eol": profile.is_eol,
             "fix_steps": profile.fix_steps,
             "spoken": profile.fix_steps,
+            "phrasing_source": "template",
         }
 
     # ------------------------------------------------------------------------
@@ -412,20 +454,41 @@ def create_mcp_server() -> FastMCP:
             "spec_version": "1.6",
             "bom": bom,
             "spoken": spoken,
+            "phrasing_source": "template",
         }
 
     return server
 
 
 # ============================================================================
-# ASGI App Construction with Fail-Closed Authentication
+# ASGI App Construction with Fail-Closed Authentication & Web UI
 # ============================================================================
+from starlette.applications import Starlette
+from starlette.routing import Mount, Route
+from starlette.staticfiles import StaticFiles
+
+from server.web import STATIC_DIR, chat_endpoint, devices_endpoint, home_page
+
+
 def create_app() -> AuthMiddleware:
-    """Create ASGI application with fail-closed authentication middleware."""
+    """Create ASGI application with web interface and MCP Streamable HTTP transport."""
     api_key, dev_noauth = get_configured_api_key()
     server = create_mcp_server()
-    base_app = server.streamable_http_app()
-    return AuthMiddleware(base_app, api_key=api_key, dev_noauth=dev_noauth)
+    mcp_app = server.streamable_http_app()
+
+    routes = [
+        Route("/", home_page, methods=["GET"]),
+        Route("/api/chat", chat_endpoint, methods=["POST"]),
+        Route("/api/devices", devices_endpoint, methods=["GET"]),
+        Mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static"),
+        Mount("", app=mcp_app),
+    ]
+
+    starlette_app = Starlette(
+        routes=routes,
+        lifespan=mcp_app.router.lifespan_context,
+    )
+    return AuthMiddleware(starlette_app, api_key=api_key, dev_noauth=dev_noauth)
 
 
 class LazyApp:

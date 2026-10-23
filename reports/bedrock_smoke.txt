@@ -1,0 +1,39 @@
+======================================================================
+ HomeBOM - AWS Bedrock Converse API Smoke Test
+======================================================================
+Target Model:   us.anthropic.claude-3-haiku-20240307-v1:0
+Target Region:  us-east-1
+Timeouts:       connect=4s, read=4s, retries=0
+Inference:      temperature=0.0, maxTokens=150
+----------------------------------------------------------------------
+Per-Device Tiers & Status from Real Scanner:
+  • [dev-001] Living Room Router        (Archer AX21       ) -> tier: fix_now      status: affected     eol: False max_cvss: 8.8  max_epss: 1.0000 cves: 1
+  • [dev-004] Gaming Router             (ROG GT-AC2900     ) -> tier: fix_now      status: affected     eol: True  max_cvss: 9.8  max_epss: 0.9939 cves: 1
+  • [dev-002] Backyard Security Camera  (DCS-2530L         ) -> tier: fix_now      status: affected     eol: True  max_cvss: 8.8  max_epss: 0.9751 cves: 2
+  • [dev-003] Wi-Fi Range Extender      (TL-WA855RE        ) -> tier: fix_now      status: affected     eol: True  max_cvss: 8.8  max_epss: 0.2219 cves: 1
+  • [dev-005] Kitchen Echo              (Echo Dot 5th Gen  ) -> tier: unknown      status: unknown      eol: False max_cvss: 0.0  max_epss: 0.0000 cves: 0
+  • [dev-008] Porch Smart Plug          (Wi-Fi Smart Plug  ) -> tier: unknown      status: unknown      eol: False max_cvss: 0.0  max_epss: 0.0000 cves: 0
+  • [dev-006] Front Doorbell            (Ring Video Doorbell Pro) -> tier: not_affected status: not_affected eol: False max_cvss: 0.0  max_epss: 0.0000 cves: 0
+  • [dev-007] Living Room TV Stick      (Fire TV Stick 4K  ) -> tier: not_affected status: not_affected eol: False max_cvss: 0.0  max_epss: 0.0000 cves: 0
+----------------------------------------------------------------------
+Real Scan Input Payload:
+{
+  "total_devices": 8,
+  "fix_now": 4,
+  "fix_soon": 0,
+  "low": 0,
+  "unknown": 2,
+  "not_affected": 2,
+  "eol_devices": 3,
+  "as_of": "as of 2026-10-21"
+}
+----------------------------------------------------------------------
+Attempting Bedrock Converse API invocation...
+
+[Bedrock API Notice] Live call did not proceed: NoCredentialsError: Unable to locate credentials
+LIVE CALL FAILED, USING TEMPLATE
+----------------------------------------------------------------------
+Final Spoken Output (phrasing_source: 'template'):
+"I scanned 8 devices as of 2026-10-21. 4 devices have actively exploited vulnerabilities needing immediate attention, including 3 discontinued models that must be replaced. The remaining devices have no known vulnerabilities or need version verification."
+======================================================================
+Smoke test finished with non-zero status because live Bedrock call failed.

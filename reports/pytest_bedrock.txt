@@ -1,0 +1,20 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.13, pytest-9.1.1, pluggy-1.7.0 -- /Users/krrishbiswas/Desktop/HomeBOM/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/krrishbiswas/Desktop/HomeBOM
+configfile: pyproject.toml
+plugins: asyncio-1.4.0, anyio-4.15.1
+asyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 9 items
+
+tests/test_bedrock.py::test_bedrock_converse_success_mocked PASSED       [ 11%]
+tests/test_bedrock.py::test_bedrock_forced_failures PASSED               [ 22%]
+tests/test_bedrock.py::test_validator_rejects_cve_id PASSED              [ 33%]
+tests/test_bedrock.py::test_validator_rejects_word_safe PASSED           [ 44%]
+tests/test_bedrock.py::test_validator_rejects_more_than_three_sentences PASSED [ 55%]
+tests/test_bedrock.py::test_validator_rejects_hallucinated_numbers PASSED [ 66%]
+tests/test_bedrock.py::test_validator_rejects_critical_when_cvss_below_nine PASSED [ 77%]
+tests/test_bedrock.py::test_validator_rejects_update_for_eol_device PASSED [ 88%]
+tests/test_bedrock.py::test_cpe_resolver_with_bedrock PASSED             [100%]
+
+============================== 9 passed in 0.22s ===============================

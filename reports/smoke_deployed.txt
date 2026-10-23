@@ -1,0 +1,26 @@
+EXIT CODE: 0
+STDOUT:
+======================================================================
+ HomeBOM Deployed Smoke Verification
+======================================================================
+Target Base URL: http://127.0.0.1:64898
+Auth Token:      Bearer [CONFIGURED]
+----------------------------------------------------------------------
+>>> [1/4] Testing MCP initialize (/mcp)...
+Response: {"jsonrpc":"2.0","id":1,"result":{"protocolVersion":"2025-11-25","capabilities":{"experimental":{},"prompts":{"listChanged":false},"resources":{"subscribe":false,"listChanged":false},"tools"
+✓ MCP initialize successful.
+----------------------------------------------------------------------
+>>> [2/4] Testing MCP tools/list (/mcp)...
+✓ MCP tools/list returned registered tools.
+----------------------------------------------------------------------
+>>> [3/4] Testing MCP tools/call scan_home (/mcp)...
+✓ MCP tools/call scan_home succeeded with spoken output.
+----------------------------------------------------------------------
+>>> [4/4] Testing Web API GET /api/devices...
+✓ GET /api/devices returned 8 monitored devices.
+======================================================================
+ SMOKE VERIFICATION COMPLETED SUCCESSFULLY
+======================================================================
+
+STDERR:
+
