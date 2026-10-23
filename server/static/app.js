@@ -185,10 +185,32 @@
       if (data.tool_called === 'scan_home' || data.tool_called === 'add_device') {
         loadDevices();
       }
+      if (data.tool_called === 'scan_home' && data.result && data.result.summary) {
+        updateScanHeadline(data.result.summary);
+      }
     } catch (err) {
       loadingCard.remove();
       assistantState.textContent = 'Error';
       appendErrorMessage(`Failed to query MCP backend: ${err.message}`);
+    }
+  }
+
+  function updateScanHeadline(summary) {
+    if (!summary) return;
+    const total = summary.total_devices || 8;
+    const needAction = (summary.fix_now || 0) + (summary.fix_soon || 0) + (summary.low || 0);
+    const replaceCount = summary.eol_devices || 0;
+
+    let headline = `${needAction} of ${total} devices need action`;
+    if (replaceCount > 0) {
+      headline += `, ${replaceCount} should be replaced`;
+    }
+
+    const banner = document.getElementById('scan-headline-banner');
+    const textEl = document.getElementById('scan-headline-text');
+    if (banner && textEl) {
+      textEl.textContent = headline;
+      banner.classList.remove('hidden');
     }
   }
 
@@ -263,12 +285,19 @@
       `;
     }
 
+    const isSystem = toolName === 'system' || Boolean(data.is_system);
+    let badgesHtml = `<span class="badge badge-tool">tool: ${escapeHtml(toolName)}</span>`;
+    if (!isSystem) {
+      badgesHtml += `
+        <span class="badge badge-route">routed by: ${escapeHtml(routedBy)}</span>
+        <span class="badge badge-phrasing">phrasing: ${escapeHtml(phrasingSource)}</span>
+      `;
+    }
+
     card.innerHTML = `
       <div class="card-meta">
         <span class="speaker-tag">HomeBOM</span>
-        <span class="badge badge-tool">tool: ${escapeHtml(toolName)}</span>
-        <span class="badge badge-route">routed by: ${escapeHtml(routedBy)}</span>
-        <span class="badge badge-phrasing">phrasing: ${escapeHtml(phrasingSource)}</span>
+        ${badgesHtml}
       </div>
       <div class="card-body">
         <p>${escapeHtml(spoken)}</p>
@@ -392,6 +421,19 @@
       ? `${(dev.unverified_candidates || []).length} candidates`
       : `${dev.vulnerabilities_count || 0} CVE(s)`;
 
+    let statusAction = '';
+    if (dev.is_eol) {
+      statusAction = 'Actively exploited • Discontinued, replace device';
+    } else if (dev.tier === 'fix_now') {
+      statusAction = 'Actively exploited • Update firmware immediately';
+    } else if (dev.tier === 'fix_soon') {
+      statusAction = 'High risk • Update firmware soon';
+    } else if (dev.tier === 'unknown') {
+      statusAction = 'Unverified firmware • Check version';
+    } else {
+      statusAction = 'No known vulnerabilities • No action needed';
+    }
+
     card.innerHTML = `
       <div class="card-top">
         <div class="device-title-area">
@@ -402,24 +444,31 @@
         <div>${tierBadgeHtml}</div>
       </div>
 
-      <div class="card-specs">
-        <div class="spec-row">
-          <span class="spec-label">Firmware</span>
-          <span class="spec-val-mono">${escapeHtml(dev.firmware || 'N/A')}</span>
-        </div>
-        <div class="spec-row">
-          <span class="spec-label">Max CVSS</span>
-          <span class="spec-val-mono">${dev.max_cvss ? dev.max_cvss.toFixed(1) : '0.0'}</span>
-        </div>
-        <div class="spec-row">
-          <span class="spec-label">Max EPSS</span>
-          <span class="spec-val-mono">${dev.max_epss ? dev.max_epss.toFixed(4) : '0.0000'}</span>
-        </div>
-        <div class="spec-row">
-          <span class="spec-label">Vulnerabilities</span>
-          <span class="spec-val-mono">${vulnText}</span>
-        </div>
+      <div class="device-status-line">
+        ${escapeHtml(statusAction)}
       </div>
+
+      <details class="device-details-toggle">
+        <summary class="details-summary">Technical details</summary>
+        <div class="details-content">
+          <div class="spec-row">
+            <span class="spec-label">Firmware</span>
+            <span class="spec-val-mono">${escapeHtml(dev.firmware || 'N/A')}</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">Max CVSS</span>
+            <span class="spec-val-mono">${dev.max_cvss ? dev.max_cvss.toFixed(1) : '0.0'}</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">Max EPSS</span>
+            <span class="spec-val-mono">${dev.max_epss ? dev.max_epss.toFixed(4) : '0.0000'}</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">Vulnerabilities</span>
+            <span class="spec-val-mono">${vulnText}</span>
+          </div>
+        </div>
+      </details>
 
       <div class="card-actions">
         <button class="btn-secondary btn-explain" data-name="${escapeHtml(dev.name)}">

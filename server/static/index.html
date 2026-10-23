@@ -15,22 +15,12 @@
     <!-- Top Navigation Header -->
     <header class="app-header">
       <div class="brand">
-        <div class="logo-orb">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            <path d="m9 12 2 2 4-4"/>
-          </svg>
-        </div>
         <div class="brand-text">
           <span class="brand-title">HomeBOM</span>
-          <span class="brand-subtitle">Alexa+ Security Assistant & CycloneDX 1.6 HBOM</span>
+          <span class="brand-subtitle">Simulated Alexa+ front end over a real MCP server</span>
         </div>
       </div>
       <div class="header-actions">
-        <div class="status-badge" id="backend-status">
-          <span class="status-dot"></span>
-          <span class="status-text">MCP Streamable HTTP Active</span>
-        </div>
         <button id="audio-toggle" class="btn-icon" title="Toggle voice audio output" aria-label="Toggle voice audio output">
           <svg class="icon-sound-on" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
@@ -57,7 +47,6 @@
         <!-- Voice Interaction Hero -->
         <div class="voice-hero">
           <button id="mic-btn" class="mic-button" aria-label="Hold or click to speak">
-            <div class="mic-pulse-ring"></div>
             <div class="mic-icon-wrapper">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
@@ -109,15 +98,13 @@
           </div>
           <div id="transcript-container" class="transcript-list">
             <!-- Initial welcome message -->
-            <div class="transcript-card assistant-card">
+            <div class="transcript-card assistant-card system-card">
               <div class="card-meta">
                 <span class="speaker-tag">HomeBOM</span>
                 <span class="badge badge-tool">system</span>
-                <span class="badge badge-route">routed by: initialized</span>
-                <span class="badge badge-phrasing">phrasing: template</span>
               </div>
               <div class="card-body">
-                <p>Welcome to HomeBOM. I monitor your smart-home devices against real CISA KEV and NVD vulnerability databases. You can ask "how safe is my home", inquire about specific devices, or export your CycloneDX 1.6 Hardware BOM.</p>
+                <p>Ask "how safe is my home" to audit your smart devices against real vulnerability databases.</p>
               </div>
             </div>
           </div>
@@ -157,6 +144,11 @@
           <span class="legend-item"><span class="legend-dot tier-fix-soon"></span>Fix Soon</span>
           <span class="legend-item"><span class="legend-dot tier-unknown"></span>Unknown</span>
           <span class="legend-item"><span class="legend-dot tier-not-affected"></span>Not Affected</span>
+        </div>
+
+        <!-- Scan Headline Banner -->
+        <div id="scan-headline-banner" class="scan-headline hidden">
+          <span id="scan-headline-text"></span>
         </div>
 
         <!-- Cards Grid Container -->

@@ -36,25 +36,21 @@ def route_with_keywords(query: str) -> tuple[str, dict[str, Any]]:
     if any(k in q for k in ["export", "bill of materials", "hbom", "cyclonedx", "vex", "bom"]):
         return "export_hbom", {}
 
-    # 2. Whole-home scan / fix first / overall home safety
+    # 2. Add device
     if any(
         k in q
         for k in [
-            "how safe",
-            "fix first",
-            "what first",
-            "scan home",
-            "scan my home",
-            "security scan",
-            "audit home",
-            "threats",
-            "safe is my home",
-            "how safe is",
+            "add device",
+            "add a device",
+            "add new",
+            "add my",
+            "register device",
+            "connect device",
         ]
     ):
-        return "scan_home", {}
+        return "add_device", {"name": "New Device", "model": "Unknown", "firmware": "1.0.0"}
 
-    # 3. Fix steps / remediation for a specific device
+    # 2. Fix steps / remediation for a specific device
     if any(
         k in q
         for k in [
@@ -71,6 +67,7 @@ def route_with_keywords(query: str) -> tuple[str, dict[str, Any]]:
     ):
         dev = "router"
         for candidate in [
+            "tv stick",
             "camera",
             "router",
             "extender",
@@ -85,7 +82,37 @@ def route_with_keywords(query: str) -> tuple[str, dict[str, Any]]:
                 break
         return "get_fix_steps", {"device": dev}
 
-    # 4. Explain risk for specific device
+    # 3. List devices / inventory
+    if any(
+        k in q
+        for k in [
+            "what devices",
+            "list devices",
+            "show devices",
+            "inventory",
+            "which devices",
+            "all devices",
+        ]
+    ):
+        return "list_devices", {}
+
+    # 4. Device name or category mentioned (e.g. "how safe is my router", "is my camera ok", "tell me about my router")
+    device_candidates = [
+        "tv stick",
+        "router",
+        "camera",
+        "extender",
+        "doorbell",
+        "echo",
+        "plug",
+        "tv",
+        "stick",
+    ]
+    for candidate in device_candidates:
+        if re.search(rf"\b{re.escape(candidate)}\b", q):
+            return "explain_risk", {"device": candidate}
+
+    # Also handle general explain risk triggers
     if any(
         k in q
         for k in [
@@ -100,36 +127,25 @@ def route_with_keywords(query: str) -> tuple[str, dict[str, Any]]:
             "info on",
         ]
     ):
-        dev = "router"
-        for candidate in [
-            "camera",
-            "router",
-            "extender",
-            "doorbell",
-            "echo",
-            "plug",
-            "tv",
-            "stick",
-        ]:
-            if candidate in q:
-                dev = candidate
-                break
-        return "explain_risk", {"device": dev}
+        return "explain_risk", {"device": "router"}
 
-    # 5. List devices / inventory
+    # 5. Whole-home scan / fix first / overall home safety
     if any(
         k in q
         for k in [
-            "what devices",
-            "list devices",
-            "show devices",
-            "inventory",
-            "which devices",
-            "my devices",
-            "all devices",
+            "how safe",
+            "fix first",
+            "what first",
+            "scan home",
+            "scan my home",
+            "security scan",
+            "audit home",
+            "threats",
+            "safe is my home",
+            "how safe is",
         ]
     ):
-        return "list_devices", {}
+        return "scan_home", {}
 
     # Default fallback to whole-home security scan
     return "scan_home", {}
@@ -161,7 +177,9 @@ def route_with_bedrock(
             "MANDATORY RULES:\n"
             '1. Output ONLY a valid JSON object: {"tool": "<tool_name>", "args": {<key>: <value>}}.\n'
             "2. Tool name MUST be one of: list_devices, add_device, scan_home, explain_risk, get_fix_steps, export_hbom.\n"
-            "3. Do not include markdown or explanations outside the JSON."
+            "3. If query mentions a specific device or device category (e.g. router, camera, extender, echo, doorbell, tv stick, plug), choose explain_risk or get_fix_steps (if asking how to fix).\n"
+            "4. If query asks about overall home safety without specifying a device (e.g., 'how safe is my home'), choose scan_home.\n"
+            "5. Do not include markdown or explanations outside the JSON."
         )
 
         formatted_tools = [

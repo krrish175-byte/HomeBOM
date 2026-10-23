@@ -194,6 +194,73 @@ def find_device_by_query(query: str) -> dict[str, Any] | None:
     return None
 
 
+def find_all_devices_by_query(query: str) -> list[dict[str, Any]]:
+    """Find all matching devices by query (supports category grouping, substring, or exact match)."""
+    devices = get_all_devices()
+    q_clean = query.strip().lower()
+    if not q_clean:
+        return []
+
+    # 1. Exact ID match
+    for d in devices:
+        if d.get("id", "").lower() == q_clean:
+            return [d]
+
+    # 2. Exact name or model match
+    exact_matches = [
+        d
+        for d in devices
+        if d.get("name", "").lower() == q_clean or d.get("model", "").lower() == q_clean
+    ]
+    if exact_matches:
+        return exact_matches
+
+    # 3. Category match / category keywords
+    category_map = {
+        "router": "router",
+        "routers": "router",
+        "camera": "camera",
+        "cameras": "camera",
+        "extender": "extender",
+        "extenders": "extender",
+        "echo": "smart_speaker",
+        "speaker": "smart_speaker",
+        "speakers": "smart_speaker",
+        "doorbell": "doorbell",
+        "doorbells": "doorbell",
+        "tv stick": "media_player",
+        "tv": "media_player",
+        "stick": "media_player",
+        "plug": "smart_plug",
+        "plugs": "smart_plug",
+    }
+    target_category = category_map.get(q_clean)
+    if target_category:
+        cat_matches = [d for d in devices if d.get("category", "").lower() == target_category]
+        if cat_matches:
+            return cat_matches
+
+    # 4. If query mentions a category keyword inside a longer phrase (e.g. "my router")
+    for keyword, cat in category_map.items():
+        if re.search(rf"\b{re.escape(keyword)}\b", q_clean):
+            cat_matches = [d for d in devices if d.get("category", "").lower() == cat]
+            if len(cat_matches) > 1:
+                return cat_matches
+
+    # 5. Substring match in full text (vendor + name + model)
+    sub_matches = []
+    for d in devices:
+        full = f"{d.get('vendor', '')} {d.get('name', '')} {d.get('model', '')}".lower()
+        if q_clean in full:
+            sub_matches.append(d)
+    if sub_matches:
+        return sub_matches
+
+    # 6. Fallback: single device by token overlap
+    single = find_device_by_query(query)
+    return [single] if single else []
+
+
 def get_epss_metadata() -> dict[str, str]:
     """Retrieve EPSS snapshot date from metadata.json."""
     if METADATA_PATH.exists():

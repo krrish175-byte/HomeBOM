@@ -224,6 +224,48 @@ async def test_demo_phrasing_5_export_my_home_bill_of_materials(web_server):
 
 
 @pytest.mark.asyncio
+async def test_demo_phrasing_how_safe_is_my_router(web_server):
+    """Bug fix verification: 'how safe is my router' -> explain_risk (not scan_home), explaining both routers."""
+    async with httpx.AsyncClient(base_url=web_server, timeout=20.0) as client:
+        resp = await client.post("/api/chat", json={"message": "how safe is my router"})
+        assert resp.status_code == 200
+        data = resp.json()
+
+        assert data["tool_called"] == "explain_risk"
+        assert data["tool_args"].get("device") == "router"
+        assert data["routed_by"] in ("bedrock", "keywords")
+
+        spoken = data.get("spoken", "")
+        assert len(spoken) > 0
+        assert "CVE-" not in spoken
+        # Must explain both routers in one spoken answer
+        assert "2 routers" in spoken or "two routers" in spoken or ("Living Room Router" in spoken and "Gaming Router" in spoken)
+        # Gaming Router is discontinued / EoL -> must say replace
+        assert "replace" in spoken.lower()
+        # Living Room Router needs firmware update
+        assert "update" in spoken.lower()
+
+
+@pytest.mark.asyncio
+async def test_demo_phrasing_is_my_camera_ok(web_server):
+    """Category query verification: 'is my camera ok' -> explain_risk for camera (EoL says replace)."""
+    async with httpx.AsyncClient(base_url=web_server, timeout=20.0) as client:
+        resp = await client.post("/api/chat", json={"message": "is my camera ok"})
+        assert resp.status_code == 200
+        data = resp.json()
+
+        assert data["tool_called"] == "explain_risk"
+        assert data["tool_args"].get("device") == "camera"
+        assert data["routed_by"] in ("bedrock", "keywords")
+
+        spoken = data.get("spoken", "")
+        assert len(spoken) > 0
+        assert "CVE-" not in spoken
+        # D-Link camera is EoL -> must say replace
+        assert "replace" in spoken.lower()
+
+
+@pytest.mark.asyncio
 async def test_chat_empty_or_invalid_query_handling(web_server):
     """Test defensive error handling on invalid queries."""
     async with httpx.AsyncClient(base_url=web_server, timeout=10.0) as client:
@@ -234,3 +276,4 @@ async def test_chat_empty_or_invalid_query_handling(web_server):
         # Missing body
         resp = await client.post("/api/chat", content=b"invalid json")
         assert resp.status_code == 400
+

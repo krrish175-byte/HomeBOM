@@ -42,6 +42,7 @@ from server.bedrock import (
 )
 from server.engine import evaluate_single_device, scan_all_devices
 from server.storage import (
+    find_all_devices_by_query,
     find_device_by_query,
     get_all_devices,
     get_epss_metadata,
@@ -328,8 +329,8 @@ def create_mcp_server() -> FastMCP:
           - 'Explain the risk on my security camera.'
           - 'Is my Ring doorbell safe?'
         """
-        dev = find_device_by_query(device)
-        if not dev:
+        matching_devices = find_all_devices_by_query(device)
+        if not matching_devices:
             return {
                 "error": "device_not_found",
                 "device_query": device,
@@ -337,41 +338,98 @@ def create_mcp_server() -> FastMCP:
                 "phrasing_source": "template",
             }
 
-        profile = evaluate_single_device(dev)
-        device_summary_input = {
-            "device_name": profile.device_name,
-            "model": profile.model,
-            "firmware": profile.firmware,
-            "tier": profile.tier,
-            "overall_status": profile.overall_status,
-            "is_eol": profile.is_eol,
-            "max_cvss": round(profile.max_cvss, 1),
-            "max_epss": round(profile.max_epss, 4),
-            "vulnerabilities_count": profile.vulnerabilities_count,
-            "unverified_candidates": profile.unverified_candidates,
-        }
-        spoken, phrasing_source = generate_spoken_device_phrasing(
-            device_summary=device_summary_input,
-            max_cvss=profile.max_cvss,
-            is_eol=profile.is_eol,
-            template_fallback=profile.spoken_summary,
+        if len(matching_devices) == 1:
+            dev = matching_devices[0]
+            profile = evaluate_single_device(dev)
+            device_summary_input = {
+                "device_name": profile.device_name,
+                "model": profile.model,
+                "firmware": profile.firmware,
+                "tier": profile.tier,
+                "overall_status": profile.overall_status,
+                "is_eol": profile.is_eol,
+                "max_cvss": round(profile.max_cvss, 1),
+                "max_epss": round(profile.max_epss, 4),
+                "vulnerabilities_count": profile.vulnerabilities_count,
+                "unverified_candidates": profile.unverified_candidates,
+            }
+            spoken, phrasing_source = generate_spoken_device_phrasing(
+                device_summary=device_summary_input,
+                max_cvss=profile.max_cvss,
+                is_eol=profile.is_eol,
+                template_fallback=profile.spoken_summary,
+            )
+
+            return {
+                "device_id": profile.device_id,
+                "device_name": profile.device_name,
+                "model": profile.model,
+                "firmware": profile.firmware,
+                "cpe": profile.cpe,
+                "tier": profile.tier,
+                "overall_status": profile.overall_status,
+                "is_eol": profile.is_eol,
+                "max_cvss": round(profile.max_cvss, 1),
+                "max_epss": round(profile.max_epss, 4),
+                "vulnerabilities_count": profile.vulnerabilities_count,
+                "unverified_candidates": profile.unverified_candidates,
+                "spoken": spoken,
+                "phrasing_source": phrasing_source,
+            }
+
+        # Multiple matching devices (e.g. two routers in inventory)
+        profiles = [evaluate_single_device(d) for d in matching_devices]
+        device_explanations = []
+        for p in profiles:
+            if p.tier == "fix_now":
+                if p.is_eol:
+                    device_explanations.append(
+                        f"the {p.device_name} has actively exploited vulnerabilities and is discontinued so it should be replaced"
+                    )
+                else:
+                    device_explanations.append(
+                        f"the {p.device_name} has an actively exploited vulnerability needing an immediate firmware update"
+                    )
+            elif p.tier == "fix_soon":
+                device_explanations.append(
+                    f"the {p.device_name} has high-risk vulnerabilities that should be patched soon"
+                )
+            elif p.tier == "unknown":
+                device_explanations.append(
+                    f"the {p.device_name} could not be verified against known databases"
+                )
+            else:
+                device_explanations.append(
+                    f"the {p.device_name} currently has no known vulnerabilities in public databases"
+                )
+
+        spoken = (
+            f"You have {len(profiles)} {device}s in your home. "
+            f"Specifically, {'; '.join(device_explanations)}."
         )
 
         return {
-            "device_id": profile.device_id,
-            "device_name": profile.device_name,
-            "model": profile.model,
-            "firmware": profile.firmware,
-            "cpe": profile.cpe,
-            "tier": profile.tier,
-            "overall_status": profile.overall_status,
-            "is_eol": profile.is_eol,
-            "max_cvss": round(profile.max_cvss, 1),
-            "max_epss": round(profile.max_epss, 4),
-            "vulnerabilities_count": profile.vulnerabilities_count,
-            "unverified_candidates": profile.unverified_candidates,
+            "device_query": device,
+            "count": len(profiles),
+            "devices": [
+                {
+                    "device_id": p.device_id,
+                    "device_name": p.device_name,
+                    "model": p.model,
+                    "firmware": p.firmware,
+                    "cpe": p.cpe,
+                    "tier": p.tier,
+                    "overall_status": p.overall_status,
+                    "is_eol": p.is_eol,
+                    "max_cvss": round(p.max_cvss, 1),
+                    "max_epss": round(p.max_epss, 4),
+                    "vulnerabilities_count": p.vulnerabilities_count,
+                    "unverified_candidates": p.unverified_candidates,
+                }
+                for p in profiles
+            ],
             "spoken": spoken,
-            "phrasing_source": phrasing_source,
+            "phrasing_source": "template",
         }
 
     # ------------------------------------------------------------------------
